@@ -12,7 +12,7 @@ clear;
 % and the sampling rate of the music (fs). 
 
 % ENTER YOUR NAME IN THE NEXT LINE
-my_name = 'Zojja'; 
+my_name = 'Natalie';
 N = length(my_name);        % Number of characters in name
 
 % DEFINE CONSTANT
