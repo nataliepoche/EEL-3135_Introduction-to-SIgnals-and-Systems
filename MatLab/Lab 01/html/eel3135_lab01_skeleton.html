@@ -1,0 +1,476 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>eel3135_lab01_skeleton</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-01-27">
+<meta name="DC.source" content="eel3135_lab01_skeleton.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">PREAMBLE</a>
+</li>
+<li>
+<a href="#2">QUESTION 1: COMMENTING</a>
+</li>
+<li>
+<a href="#3">QUESTION 2: PLOTTING</a>
+</li>
+<li>
+<a href="#4">2(a) PLOT RESULT</a>
+</li>
+<li>
+<a href="#5">2(b) PLOT RESULT</a>
+</li>
+<li>
+<a href="#6">2(c) PLOT RESULT</a>
+</li>
+<li>
+<a href="#7">QUESTION 3: COMPLEX ROOTS</a>
+</li>
+<li>
+<a href="#8">3(a) WRITE FUNCTION IN SEPARATE FILE (TEMPLATE PROVIDED)</a>
+</li>
+<li>
+<a href="#9">3(b) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#10">3(c) OUTPUT RESULTS</a>
+</li>
+</ul>
+</div>
+<h2 id="1">PREAMBLE</h2>
+<p>DO NOT REMOVE THE LINE BELOW</p>
+<pre class="codeinput">clear;
+</pre>
+<h2 id="2">QUESTION 1: COMMENTING</h2>
+<p>=======================</p>
+<pre class="codeinput">
+<span class="comment">% Copy and comment every line of the following MATLAB script. Say what</span>
+<span class="comment">% each line is doing in your comment. Explain each MATLAB line by using</span>
+<span class="comment">% no more than one comment line, as done in the first line below. Run and</span>
+<span class="comment">% publish the script:</span>
+
+a=zeros(1,10)                                                       <span class="comment">% Generate and print a 1x10 row vector of zeros</span>
+b=ones(4,2)                                                         <span class="comment">% Generate and print a 4x2 matrix of ones</span>
+c= size(b);                                                         <span class="comment">% Gets size of matrix b and returns the dimensions in a vector</span>
+abs([-2.2 , 3])                                                     <span class="comment">% Calculates the absolute value of each element in the array [-2.2, 3]</span>
+floor(1.6)                                                          <span class="comment">% Rounds down the value of 1.6 to the nearest integer</span>
+d=[1:-2.5:-9];                                                      <span class="comment">% Creates a row vector starting at 1, with steps of 2.5, until 9</span>
+f=d(2); g=sin(pi/2);                                                <span class="comment">% Extracts the second element of d and computes sine of pi/2 (sine(pi/2) = 1)</span>
+K=[1.4, 2.3; 5.1, 7.8];                                             <span class="comment">% Creates a 2x2 matrix with specified values</span>
+m=K(1,2);                                                           <span class="comment">% Extracts first row of K matrix</span>
+n=K(:,2);                                                           <span class="comment">% Extracts second column of K matrix</span>
+p=K(1,2);                                                           <span class="comment">% Extracts element in first row and second column of K</span>
+comp = 10+40i;                                                      <span class="comment">% Creates a complex number with real part 10 and imaginary part 40</span>
+real(comp)                                                          <span class="comment">% Extracts the real part of the complex number comp</span>
+imag(comp)                                                          <span class="comment">% Extracts the imaginary part of the complex number comp</span>
+abs(comp)                                                           <span class="comment">% Calculates the absolute value (magnitude) of the complex number comp</span>
+angle(comp)                                                         <span class="comment">% Calculates the phase angel (in radians) of the complex number comp</span>
+disp(<span class="string">'haha, MATLAB is fun'</span>);                                        <span class="comment">% Displays the string "haha, MATLAB is fun" in th ecommand window</span>
+3^2                                                                 <span class="comment">% Calculates 3 raised to the power of 2</span>
+4==4                                                                <span class="comment">% Checks if 4 is equal to 4</span>
+[2==8 3~=5]                                                         <span class="comment">% Checks if 2 is equal to 8, and if 3 is not equal to 5, returns [false true]</span>
+x=[1:3:10];                                                         <span class="comment">% Creates a row vector starting at 1, with steps of 3, until 10</span>
+y=[5 9 6 8];                                                        <span class="comment">% Creates a row vector with the specified values</span>
+tic; pause(0.2); toc                                                <span class="comment">% Measures the elapsed time for a pause of 0.2 seconds</span>
+q = zeros(10,1);                                                    <span class="comment">% Creates a 10 x 1 column vector filled with zeros</span>
+<span class="keyword">for</span> ii = 1:10                                                       <span class="comment">% Starts a loop from ii = 1 to 10</span>
+    q(ii) = ii^2;                                                   <span class="comment">% Assigns the square of ii to the ii-th element of q</span>
+<span class="keyword">end</span>                                                                 <span class="comment">% Ends the loop</span>
+figure(129);                                                        <span class="comment">% Creates a figure window with the ID 129</span>
+stem(x,y)                                                           <span class="comment">% Creates a stem plot of x versus y</span>
+hold <span class="string">on</span>;                                                            <span class="comment">% Holds the current plot so that the new plots can be added</span>
+plot(x,y, <span class="string">'k'</span>, <span class="string">'linewidth'</span>, 2)                                      <span class="comment">% Plot x versus y with a black line of width 2</span>
+plot(x,y,<span class="string">'+r'</span>, <span class="string">'markersize'</span>, 20);                                   <span class="comment">% Plot x versus y with red plus markers of size 20</span>
+hold <span class="string">off</span>;                                                           <span class="comment">% Releases the hold on the current plot</span>
+xlabel(<span class="string">'Horizontal Axis'</span>)                                           <span class="comment">% Labels the x-axis as "Horizontal Axis"</span>
+ylabel(<span class="string">'Vertical Axis'</span>)                                             <span class="comment">% Labels the y-axis as "Vertical Axis"</span>
+</pre>
+<pre class="codeoutput">
+a =
+
+     0     0     0     0     0     0     0     0     0     0
+
+
+b =
+
+     1     1
+     1     1
+     1     1
+     1     1
+
+
+ans =
+
+    2.2000    3.0000
+
+
+ans =
+
+     1
+
+
+ans =
+
+    10
+
+
+ans =
+
+    40
+
+
+ans =
+
+   41.2311
+
+
+ans =
+
+    1.3258
+
+haha, MATLAB is fun
+
+ans =
+
+     9
+
+
+ans =
+
+  logical
+
+   1
+
+
+ans =
+
+  1&times;2 logical array
+
+   0   1
+
+Elapsed time is 0.211086 seconds.
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab01_skeleton_01.png" alt=""> <h2 id="3">QUESTION 2: PLOTTING</h2>
+<p>=======================</p>
+<h2 id="4">2(a) PLOT RESULT</h2>
+<pre class="codeinput">
+<span class="comment">% Given</span>
+vect1 = [0 pi/4 2*pi/4 3*pi/4 4*pi/4 5*pi/4 6*pi/4 7*pi/4];         <span class="comment">% Angle values</span>
+vect2 = 2*cos(vect1 + pi/3);                                        <span class="comment">% Discrete-time signal</span>
+
+<span class="comment">% plot using stem</span>
+stem(vect1, vect2)                                                  <span class="comment">% Plot vect2 as discrete-time signal</span>
+xlabel(<span class="string">'Angle (Radians)'</span>)                                           <span class="comment">% Label x-axis</span>
+ylabel(<span class="string">'Amplitude'</span>)                                                 <span class="comment">% Label y-axis</span>
+title(<span class="string">'Discrete-Time Signal: vect2 = 2*cos(vect1 + pi/3)'</span>)          <span class="comment">% Title of the plot</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab01_skeleton_02.png" alt=""> <h2 id="5">2(b) PLOT RESULT</h2>
+<pre class="codeinput">
+<span class="comment">% Given</span>
+theta = 0 : pi/20 : 3*pi;                                           <span class="comment">% Angle ranges 0 to 3*pi with step size pi/20</span>
+y = cos(theta.^2);                                                  <span class="comment">% Discrete-time signal</span>
+
+<span class="comment">% plot using stem</span>
+stem(theta, y)                                                      <span class="comment">% Plot y versus theta</span>
+xlabel(<span class="string">'Angle (Radians)'</span>)                                           <span class="comment">% Label x-axis</span>
+ylabel(<span class="string">'Amplitude'</span>)                                                 <span class="comment">% Label y-axis</span>
+title(<span class="string">'Signal: y = cos(theta.^2)'</span>)                                  <span class="comment">% Title of the plot</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab01_skeleton_03.png" alt=""> <h2 id="6">2(c) PLOT RESULT</h2>
+<pre class="codeinput">
+<span class="comment">% Given</span>
+t = -4 : 0.01 : 4;                                                  <span class="comment">% Time ranges between -4 &lt;= t &lt;= 4, with step size 0.01</span>
+y = 2*cos((pi/2)*t) + 3*cos(2*pi*t);                                <span class="comment">% Signal equation</span>
+
+<span class="comment">% plot using stem</span>
+stem(t, y)                                                          <span class="comment">% Plot y versus t</span>
+xlabel(<span class="string">'Time (t)'</span>)                                                  <span class="comment">% Label x-axis</span>
+ylabel(<span class="string">'Amplitude'</span>)                                                 <span class="comment">% Label y-axis</span>
+title(<span class="string">'Signal: y = 2*cos((pi/2)*t) + 3*cos(2*pi*t)'</span>)                <span class="comment">% Title of the plot</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab01_skeleton_04.png" alt=""> <h2 id="7">QUESTION 3: COMPLEX ROOTS</h2>
+<p>=======================</p>
+<h2 id="8">3(a) WRITE FUNCTION IN SEPARATE FILE (TEMPLATE PROVIDED)</h2>
+<pre class="codeinput">type(<span class="string">'myroots.m'</span>)
+</pre>
+<pre class="codeoutput">
+function r = myroots(n, a)
+% myroots: Find all the nth roots of the complex number a
+%
+% Input Args:
+%   n: a positive integer specifying the nth roots
+%   a: a complex number whose nth roots are to be returned
+%
+% Output:
+%   r: 1xn vector containing all the nth roots of a 
+
+% Converting to polar
+A = abs(a);                                                     % Magnitude of coomplex number
+phi = angle(a);                                                 % Argument (phase) of a
+
+% nth root
+roots = zeros(1,n);                                             % Initializes vector to stores the roots
+for k = 0 : n-1;                                                % loops through n times
+
+    % Formula for nth root
+    r(k+1) = (A^(1/n)) * exp(1i * (phi + 2*pi*k)/n);            % r(k+1) is nth root (MATLAB starts from 1)
+end
+
+end
+</pre>
+<h2 id="9">3(b) ANSWER QUESTION</h2>
+<pre class="codeinput">
+<span class="comment">% The command "help myroots" gives an explanation of what the root does,</span>
+<span class="comment">% what inputs are needed, and what the outputs are. Essentially, it has the</span>
+<span class="comment">% same description as the comments at the top in the myroots.m file. The</span>
+<span class="comment">% purpose of this command would help to define a function does, what the</span>
+<span class="comment">% proper inputs for the function are, and how the function outputs the</span>
+<span class="comment">% information. This would be useful for debugging in otder to figure out if</span>
+<span class="comment">% there is a problem with the way prior code is inputing information, and</span>
+<span class="comment">% how it is handling the output after the function use.</span>
+</pre>
+<h2 id="10">3(c) OUTPUT RESULTS</h2>
+<pre class="codeinput">
+<span class="comment">% Calculate 5th root of -1</span>
+a1 = -1;                                                            <span class="comment">% Defines a = -1, or defines what we are finding the root of</span>
+root1 = 5;                                                          <span class="comment">% Defines the root number</span>
+root_a1 = myroots(root1,a1);                                        <span class="comment">% Creates the function to calculate the root</span>
+disp(root_a1);                                                      <span class="comment">% Displays the root</span>
+
+<span class="comment">% Calculates the 11th root of 2048j</span>
+a2 = 2048 * 1i;                                                     <span class="comment">% Defines a = 2048j, since i is imaginary</span>
+root2 = 11;                                                         <span class="comment">% Defines the root number</span>
+root_a2 = myroots(root2,a2);                                        <span class="comment">% Calls the function to calcluate the root</span>
+disp(root_a2);                                                      <span class="comment">% Displays the root</span>
+</pre>
+<pre class="codeoutput">  Columns 1 through 4
+
+   0.8090 + 0.5878i  -0.3090 + 0.9511i  -1.0000 + 0.0000i  -0.3090 - 0.9511i
+
+  Column 5
+
+   0.8090 - 0.5878i
+
+  Columns 1 through 4
+
+   1.9796 + 0.2846i   1.5115 + 1.3097i   0.5635 + 1.9190i  -0.5635 + 1.9190i
+
+  Columns 5 through 8
+
+  -1.5115 + 1.3097i  -1.9796 + 0.2846i  -1.8193 - 0.8308i  -1.0813 - 1.6825i
+
+  Columns 9 through 11
+
+  -0.0000 - 2.0000i   1.0813 - 1.6825i   1.8193 - 0.8308i
+
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% PREAMBLE
+% DO NOT REMOVE THE LINE BELOW
+clear;
+
+
+
+
+%% QUESTION 1: COMMENTING
+% =======================
+
+% Copy and comment every line of the following MATLAB script. Say what
+% each line is doing in your comment. Explain each MATLAB line by using
+% no more than one comment line, as done in the first line below. Run and
+% publish the script:
+
+a=zeros(1,10)                                                       % Generate and print a 1x10 row vector of zeros
+b=ones(4,2)                                                         % Generate and print a 4x2 matrix of ones
+c= size(b);                                                         % Gets size of matrix b and returns the dimensions in a vector
+abs([-2.2 , 3])                                                     % Calculates the absolute value of each element in the array [-2.2, 3]
+floor(1.6)                                                          % Rounds down the value of 1.6 to the nearest integer  
+d=[1:-2.5:-9];                                                      % Creates a row vector starting at 1, with steps of 2.5, until 9
+f=d(2); g=sin(pi/2);                                                % Extracts the second element of d and computes sine of pi/2 (sine(pi/2) = 1)
+K=[1.4, 2.3; 5.1, 7.8];                                             % Creates a 2x2 matrix with specified values
+m=K(1,2);                                                           % Extracts first row of K matrix
+n=K(:,2);                                                           % Extracts second column of K matrix       
+p=K(1,2);                                                           % Extracts element in first row and second column of K
+comp = 10+40i;                                                      % Creates a complex number with real part 10 and imaginary part 40            
+real(comp)                                                          % Extracts the real part of the complex number comp
+imag(comp)                                                          % Extracts the imaginary part of the complex number comp
+abs(comp)                                                           % Calculates the absolute value (magnitude) of the complex number comp
+angle(comp)                                                         % Calculates the phase angel (in radians) of the complex number comp
+disp('haha, MATLAB is fun');                                        % Displays the string "haha, MATLAB is fun" in th ecommand window
+3^2                                                                 % Calculates 3 raised to the power of 2
+4==4                                                                % Checks if 4 is equal to 4
+[2==8 3~=5]                                                         % Checks if 2 is equal to 8, and if 3 is not equal to 5, returns [false true]
+x=[1:3:10];                                                         % Creates a row vector starting at 1, with steps of 3, until 10
+y=[5 9 6 8];                                                        % Creates a row vector with the specified values
+tic; pause(0.2); toc                                                % Measures the elapsed time for a pause of 0.2 seconds
+q = zeros(10,1);                                                    % Creates a 10 x 1 column vector filled with zeros
+for ii = 1:10                                                       % Starts a loop from ii = 1 to 10
+    q(ii) = ii^2;                                                   % Assigns the square of ii to the ii-th element of q
+end                                                                 % Ends the loop
+figure(129);                                                        % Creates a figure window with the ID 129
+stem(x,y)                                                           % Creates a stem plot of x versus y
+hold on;                                                            % Holds the current plot so that the new plots can be added
+plot(x,y, 'k', 'linewidth', 2)                                      % Plot x versus y with a black line of width 2
+plot(x,y,'+r', 'markersize', 20);                                   % Plot x versus y with red plus markers of size 20
+hold off;                                                           % Releases the hold on the current plot
+xlabel('Horizontal Axis')                                           % Labels the x-axis as "Horizontal Axis"
+ylabel('Vertical Axis')                                             % Labels the y-axis as "Vertical Axis"
+
+
+
+
+%% QUESTION 2: PLOTTING
+% =======================
+
+%% 2(a) PLOT RESULT
+
+% Given
+vect1 = [0 pi/4 2*pi/4 3*pi/4 4*pi/4 5*pi/4 6*pi/4 7*pi/4];         % Angle values
+vect2 = 2*cos(vect1 + pi/3);                                        % Discrete-time signal
+
+% plot using stem
+stem(vect1, vect2)                                                  % Plot vect2 as discrete-time signal
+xlabel('Angle (Radians)')                                           % Label x-axis
+ylabel('Amplitude')                                                 % Label y-axis
+title('Discrete-Time Signal: vect2 = 2*cos(vect1 + pi/3)')          % Title of the plot
+
+%% 2(b) PLOT RESULT
+
+% Given
+theta = 0 : pi/20 : 3*pi;                                           % Angle ranges 0 to 3*pi with step size pi/20
+y = cos(theta.^2);                                                  % Discrete-time signal
+
+% plot using stem
+stem(theta, y)                                                      % Plot y versus theta
+xlabel('Angle (Radians)')                                           % Label x-axis
+ylabel('Amplitude')                                                 % Label y-axis
+title('Signal: y = cos(theta.^2)')                                  % Title of the plot
+
+%% 2(c) PLOT RESULT
+
+% Given
+t = -4 : 0.01 : 4;                                                  % Time ranges between -4 <= t <= 4, with step size 0.01
+y = 2*cos((pi/2)*t) + 3*cos(2*pi*t);                                % Signal equation
+
+% plot using stem
+stem(t, y)                                                          % Plot y versus t
+xlabel('Time (t)')                                                  % Label x-axis
+ylabel('Amplitude')                                                 % Label y-axis
+title('Signal: y = 2*cos((pi/2)*t) + 3*cos(2*pi*t)')                % Title of the plot
+
+
+%% QUESTION 3: COMPLEX ROOTS
+% =======================
+
+%% 3(a) WRITE FUNCTION IN SEPARATE FILE (TEMPLATE PROVIDED)
+type('myroots.m')
+
+%% 3(b) ANSWER QUESTION
+
+% The command "help myroots" gives an explanation of what the root does,
+% what inputs are needed, and what the outputs are. Essentially, it has the
+% same description as the comments at the top in the myroots.m file. The
+% purpose of this command would help to define a function does, what the
+% proper inputs for the function are, and how the function outputs the
+% information. This would be useful for debugging in otder to figure out if
+% there is a problem with the way prior code is inputing information, and
+% how it is handling the output after the function use.
+
+%% 3(c) OUTPUT RESULTS
+
+% Calculate 5th root of -1
+a1 = -1;                                                            % Defines a = -1, or defines what we are finding the root of
+root1 = 5;                                                          % Defines the root number
+root_a1 = myroots(root1,a1);                                        % Creates the function to calculate the root
+disp(root_a1);                                                      % Displays the root
+
+% Calculates the 11th root of 2048j
+a2 = 2048 * 1i;                                                     % Defines a = 2048j, since i is imaginary
+root2 = 11;                                                         % Defines the root number
+root_a2 = myroots(root2,a2);                                        % Calls the function to calcluate the root
+disp(root_a2);                                                      % Displays the root
+##### SOURCE END #####
+-->
+</body>
+</html>
