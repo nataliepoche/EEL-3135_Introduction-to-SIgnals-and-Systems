@@ -1,0 +1,806 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>eel3135_lab03_skeleton</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-02-10">
+<meta name="DC.source" content="eel3135_lab03_skeleton.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">QUESTION 1 COMMENTING</a>
+</li>
+<li>
+<a href="#2">QUESTION VARIABLES (DO NOT CHANGE)</a>
+</li>
+<li>
+<a href="#3">2(a) WRITE FUNCTION (SEE END OF FILE)</a>
+</li>
+<li>
+<a href="#4">2(b) PEFORM SAMPLING</a>
+</li>
+<li>
+<a href="#5">2(c) PEFORM SAMPLING</a>
+</li>
+<li>
+<a href="#6">2(d) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#7">2(e) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#8">3(a) WRITE FUNCTION</a>
+</li>
+<li>
+<a href="#9">3(b) PERFORM ANTI-ALIASING (NO SAMPLING)</a>
+</li>
+<li>
+<a href="#10">3(c) PERFORM ANTI-ALIASING x64 (NO SAMPLING)</a>
+</li>
+<li>
+<a href="#11">3(d) PEFORM ANTI-ALIASING (WITH SAMPLING)</a>
+</li>
+<li>
+<a href="#12">3(e) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#13">3(f) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#14">QUESTION 4 VARIABLES (DO NOT CHANGE)</a>
+</li>
+<li>
+<a href="#15">4(a) WRITE FUNCTION</a>
+</li>
+<li>
+<a href="#16">4(b) MAKE SAMPLED VIDEO</a>
+</li>
+<li>
+<a href="#17">4(c) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#18">4(d) MAKE SAMPLED VIDEO</a>
+</li>
+<li>
+<a href="#19">4(e) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#20">ALL FUNCTIONS SUPPORTING THIS CODE %%</a>
+</li>
+</ul>
+</div>
+<h2 id="1">QUESTION 1 COMMENTING</h2>
+<pre class="codeinput">
+<span class="comment">% DO NOT REMOVE THE LINE BELOW</span>
+<span class="comment">% MAKE SURE 'eel3135_lab03_comment.m' IS IN SAME DIRECTORY AS THIS FILE</span>
+type(<span class="string">'eel3135_lab03_comment.m'</span>)
+</pre>
+<pre class="codeoutput">
+% USER DEFINED VARIABLES
+w = 20;                                                         % Width of the Gaussian function
+x = 0:1:79;                                                     % Horiztonal Axis
+y = 0:1:79;                                                     % Vertical Axis
+
+% ==&gt; Creates a Gaussian-like 2D matrix based on specified width(w), generated 
+% using the exponential function to create a smooth decay from the center 
+% with a specified spread &lt;==
+z = round(exp(-1/w.^2*(((y.'-50)/1.5).^2+((x-20)).^2)));
+
+% ==&gt; Apply image processing systems to the matrix z.
+% The first system (image_system1) samples and scales the image, while the
+% second system (image_system2) applies a transformation based on the output
+% of the first system &lt;==
+[xs,ys,zs] = image_system1(z,3,6);
+za         = image_system2(zs,90,-4);
+
+% PLOT RESULT WITH SUBPLOT
+figure(1);			
+subplot(1,3,1);                                                 % ==&gt; Creates a subplot for the original image &lt;==
+imagesc(x, y, z);                                               % ==&gt; Displays the original z image with specified x and y axes &lt;==
+axis square; axis xy;	                                        % ==&gt; Sets the aspect ratio to be equal and the y axis to increase up &lt;==
+title('Original')                                               % ==&gt; Sets the title of the subplot &lt;==
+
+subplot(1,3,2);                                                 % ==&gt; Creates a subplot for the output of image_system1 &lt;==
+imagesc(xs, ys, zs);	                                        % ==&gt; Displays the processed image zs after applying the changes from image_system1 &lt;==
+axis square; axis xy;	                                        % ==&gt; Sets the aspect ratio to be equal and the y axis to increase up &lt;==
+title('After System 1')
+
+subplot(1,3,3);                                                 % ==&gt; Creates a new subplot for image_system2 &lt;==
+imagesc(xs, ys, za);	                                        % ==&gt; Displays the processed image za after applying the changes from image_system2 &lt;==
+axis square; axis xy;	                                        % ==&gt; Sets the aspect ratio to be equal and the y axis to increase up &lt;==
+title('After System 2')
+
+
+function [xs, ys, zs] = image_system1(z,Ux,Dy)
+%IMAGE_SYSTEM1   ===&gt; This function processes the input image z by sampling and scaling it.
+% Inputs:
+%   z  - Input image matrix
+%   Ux - Upsampling factor in the horizontal direction
+%   Dy - Downsampling factor in the vertical direction &lt;===
+
+% ==&gt; Initializes the output matriz zs with zero restricted based on upscaling and downscaling specifications &lt;==
+zs = zeros(ceil(size(z,2)/Dy),ceil(Ux*size(z,1))); 
+
+% ==&gt; Create the new vertical axis ys based on Dy &lt;==
+ys = 1:ceil(size(z,1)/Dy);
+xs = 1:ceil(Ux*size(z,2));                                      % ==&gt; Create the new horizontal axis xs based on the upsampling factor Ux. &lt;==
+
+% ==&gt; Fill the output matrix zs by sampling the input matrix z.
+% The input image is downsampled by Dy in the vertical direction and upsampled
+% by Ux in the horizontal direction. &lt;==
+zs(1:end,1:Ux:end) = z(1:Dy:end,1:end);
+
+end
+
+function [za] = image_system2(z,Sx,Sy)
+%IMAGE_SYSTEM2   ===&gt; This function applies a transformation to the input image z.
+% Inputs:
+%   z  - Input image matrix
+%   Sx - Shift in the horizontal direction
+%   Sy - Shift in the vertical direction &lt;===
+
+% ====&gt; Initialize the output matrix za with zeros, having the same size as z. &lt;====
+za = zeros(size(z,1), size(z,2)); 
+
+for nn = 1:size(z,1)
+	for mm = 1:size(z,2)
+		% ====&gt; Check if the current pixel (nn, mm) is within the bounds after shifting. &lt;====
+		if nn &gt; Sy &amp;&amp; nn-Sy &lt; size(z,1) &amp;&amp; mm &gt; Sx &amp;&amp; mm-Sx &lt; size(z,2)
+			% ====&gt; Assign the value from the shifted position in z to za, scaled by a factor of 1/2. &lt;====
+			za(nn,mm) = 1/2*z(nn-Sy,mm-Sx);
+		end
+	end
+end
+
+
+end
+</pre>
+<h2 id="2">QUESTION VARIABLES (DO NOT CHANGE)</h2>
+<pre class="codeinput">x = 0:1:249;		                                                        <span class="comment">% Horiztonal Axis</span>
+y = 0:1:249;		                                                        <span class="comment">% Vertical Axis</span>
+
+<span class="comment">% MAKE SURE 'ai_lines.png' is in the same directory!</span>
+z = imread(<span class="string">'ai_lines.png'</span>); z = mean(z,3);
+
+<span class="comment">% MAKE SURE 'frog.png' is in the same directory!</span>
+<span class="comment">% UNCOMMENT TO USE "Natural" IMAGE</span>
+z = imread(<span class="string">'frog.jpg'</span>); z = mean(z,3);
+</pre>
+<h2 id="3">2(a) WRITE FUNCTION (SEE END OF FILE)</h2>
+<h2 id="4">2(b) PEFORM SAMPLING</h2>
+<pre class="codeinput">D = 5;
+[xs, ys, zs] = sample(z,D);
+
+figure;
+
+subplot(1, 2, 1);
+imagesc(z);
+colormap(gray);
+axis <span class="string">image</span>;
+title(<span class="string">'Original Image'</span>);
+
+subplot(1, 2, 2);
+imagesc(zs);
+colormap(gray);
+axis <span class="string">image</span>;
+title([<span class="string">'Sampled Image (D = '</span>, num2str(D), <span class="string">')'</span>]);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab03_skeleton_01.png" alt=""> <h2 id="5">2(c) PEFORM SAMPLING</h2>
+<pre class="codeinput">D1 = 10;
+[xs1, ys1, zs1] = sample(z,D);
+
+subplot(1, 2, 1);
+imagesc(zs1);
+colormap(gray);
+axis <span class="string">image</span>;
+title([<span class="string">'Sampled Image (D = '</span>, num2str(D1), <span class="string">')'</span>]);
+
+D2 = 15;
+[xs2, ys2, zs2] = sample(z,D);
+
+subplot(1, 2, 2);
+imagesc(zs2);
+colormap(gray);
+axis <span class="string">image</span>;
+title([<span class="string">'Sampled Image (D = '</span>, num2str(D2), <span class="string">')'</span>]);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab03_skeleton_02.png" alt=""> <h2 id="6">2(d) ANSWER QUESTION</h2>
+<pre class="codeinput">
+<span class="comment">% After applying sampling, specific regions of the images may appear to have different frequencies.</span>
+<span class="comment">% This is often due to the presence of high-frequency components in the original image that are not</span>
+<span class="comment">% captured when sampling at lower resolutions. For example, fine lines or edges may</span>
+<span class="comment">% become blurred or lost, leading to a loss of detail and the appearance.</span>
+</pre>
+<h2 id="7">2(e) ANSWER QUESTION</h2>
+<pre class="codeinput">
+<span class="comment">% When using a natural image, aliasing manifests as unexpected patterns or distortions that were not</span>
+<span class="comment">% present in the original image. This is because natural images often contain a wide range of frequencies,</span>
+<span class="comment">% and sampling at too low a resolution can lead to misinterpretation of these frequencies, resulting in</span>
+<span class="comment">% visual artifacts.</span>
+</pre>
+<h2 id="8">3(a) WRITE FUNCTION</h2>
+<h2 id="9">3(b) PERFORM ANTI-ALIASING (NO SAMPLING)</h2>
+<pre class="codeinput">zaa = antialias(z);
+
+subplot(1, 2, 1);
+imagesc(z);
+colormap(gray);
+axis <span class="string">image</span>;
+title(<span class="string">'Original Image'</span>);
+
+subplot(1, 2, 2);
+imagesc(zaa);
+colormap(gray);
+axis <span class="string">image</span>;
+title(<span class="string">'Anti-Aliased Image'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab03_skeleton_03.png" alt=""> <h2 id="10">3(c) PERFORM ANTI-ALIASING x64 (NO SAMPLING)</h2>
+<pre class="codeinput">z64 = z;
+
+<span class="keyword">for</span> i = 1:64
+    z64 = antialias(z64);
+<span class="keyword">end</span>
+
+subplot(1, 2, 1);
+imagesc(z);
+colormap(gray);
+axis <span class="string">image</span>;
+title(<span class="string">'Original Image'</span>);
+
+subplot(1, 2, 2);
+imagesc(z64);
+colormap(gray);
+axis <span class="string">image</span>;
+title(<span class="string">'x64 Anti-Aliased Image'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab03_skeleton_04.png" alt=""> <h2 id="11">3(d) PEFORM ANTI-ALIASING (WITH SAMPLING)</h2>
+<pre class="codeinput">[zaas, ~, ~] = sample(zaa, 15);
+[z64s, ~, ~] = sample(z64, 15);
+
+subplot(1, 2, 1);
+imagesc(zaas);
+colormap(gray);
+axis <span class="string">image</span>;
+title(<span class="string">'Sample Anti-Aliased Image'</span>);
+
+subplot(1, 2, 2);
+imagesc(z64s);
+colormap(gray);
+axis <span class="string">image</span>;
+title(<span class="string">'Sample Anti-Aliased Image (64x)'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab03_skeleton_05.png" alt=""> <h2 id="12">3(e) ANSWER QUESTION</h2>
+<pre class="codeinput">
+<span class="comment">% The anti-aliasing filter smooths the image by averaging the pixel values in the neighborhood of each pixel.</span>
+<span class="comment">% This reduces high-frequency components that can cause aliasing when the image is sampled. In real-world</span>
+<span class="comment">% applications, this is useful for improving image quality and reducing artifacts in images that will be</span>
+<span class="comment">% displayed at lower resolutions.</span>
+</pre>
+<h2 id="13">3(f) ANSWER QUESTION</h2>
+<pre class="codeinput">
+<span class="comment">% When using a natural image, the anti-aliasing filter helps to reduce the jagged edges and artifacts that</span>
+<span class="comment">% can occur due to high-frequency details. The effect is more pronounced in natural images, where fine details</span>
+<span class="comment">% can lead to significant aliasing artifacts when sampled.</span>
+</pre>
+<h2 id="14">QUESTION 4 VARIABLES (DO NOT CHANGE)</h2>
+<pre class="codeinput">
+<span class="comment">% DO NOT REMOVE THE LINE BELOW</span>
+<span class="comment">% MAKE SURE 'wheel_video.mp4' is in the same directory!</span>
+vid = VideoReader(<span class="string">'wheel_video.mp4'</span>); z = read(vid,[1 Inf]);
+
+<span class="comment">% The variable z is now a 4 dimensional array, with dimensions 1 and 2 the</span>
+<span class="comment">% m by n pixels in each color frame. The third dimension is the red,</span>
+<span class="comment">% green, and blue colors in the image. The fourth dimension represents time</span>
+
+<span class="comment">% HERE IS EXAMPLE CODE TO DISPLAY AND SAVE THE VIDEO AS AN MP4</span>
+figure(1);
+<span class="keyword">for</span> i = 1:min(size(z, 4),30*4)   <span class="comment">% Only show 4 seconds max</span>
+    tic; imagesc(uint8(z(:,:,:,i))); axis <span class="string">square</span>; tm = toc;
+    pause(1/30-tm);              <span class="comment">% Try to sync to 30 frames per second</span>
+<span class="keyword">end</span>
+v = VideoWriter(<span class="string">'output_video'</span>,<span class="string">'MPEG-4'</span>);
+open(v); writeVideo(v,uint8(z)); close(v)
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab03_skeleton_06.png" alt=""> <h2 id="15">4(a) WRITE FUNCTION</h2>
+<h2 id="16">4(b) MAKE SAMPLED VIDEO</h2>
+<pre class="codeinput">Dx = 5;
+Dy = 3;
+Dt = 2;
+
+sampled_video = video_sample(z, Dx, Dy, Dt);
+
+<span class="keyword">for</span> i = 1:min(size(z, 4),30*4)   <span class="comment">% Only show 4 seconds max</span>
+    tic; imagesc(uint8(z(:,:,:,i))); axis <span class="string">square</span>; tm = toc;
+    pause(1/30-tm);              <span class="comment">% Try to sync to 30 frames per second</span>
+<span class="keyword">end</span>
+v = VideoWriter(<span class="string">'sampled_video'</span>,<span class="string">'MPEG-4'</span>);
+open(v); writeVideo(v,uint8(sampled_video)); close(v);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab03_skeleton_07.png" alt=""> <h2 id="17">4(c) ANSWER QUESTION</h2>
+<pre class="codeinput">
+<span class="comment">% The choice of Dt is based on the frequency of the wheel's rotation. Since the wheel spins at 0.375 Hz,</span>
+<span class="comment">% and we observe it repeating at 1.875 Hz due to the spokes, we need to sample at a rate that captures</span>
+<span class="comment">% this motion without introducing aliasing. A sampling rate of 8 frames per second (Dt) is chosen to ensure</span>
+<span class="comment">% that we capture enough frames to represent the motion without significant distortion.</span>
+</pre>
+<h2 id="18">4(d) MAKE SAMPLED VIDEO</h2>
+<pre class="codeinput">Dt = 1; <span class="comment">% Adjust to make wheel move backwards</span>
+backward_video = video_sample(z, Dx, Dy, Dt);
+
+<span class="keyword">for</span> i = 1:min(size(z, 4),30*4)   <span class="comment">% Only show 4 seconds max</span>
+    tic; imagesc(uint8(z(:,:,:,i))); axis <span class="string">square</span>; tm = toc;
+    pause(1/30-tm);              <span class="comment">% Try to sync to 30 frames per second</span>
+<span class="keyword">end</span>
+v = VideoWriter(<span class="string">'backward_video'</span>,<span class="string">'MPEG-4'</span>);
+open(v); writeVideo(v,uint8(backward_video)); close(v);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab03_skeleton_08.png" alt=""> <h2 id="19">4(e) ANSWER QUESTION</h2>
+<pre class="codeinput">
+<span class="comment">% The choice of Dt in this case is to create a backward motion effect. By sampling at a lower frame rate,</span>
+<span class="comment">% we can create the illusion of the wheel moving in reverse. However, care must be taken to ensure that</span>
+<span class="comment">% the sampling rate does not introduce aliasing artifacts that could distort the perceived motion.</span>
+</pre>
+<h2 id="20">ALL FUNCTIONS SUPPORTING THIS CODE %%</h2>
+<pre class="codeinput">
+<span class="keyword">function</span> [xs, ys, zs] = sample(z, D)
+<span class="comment">%SAMPLE   ===&gt; Samples the image z by a factor of D</span>
+    <span class="comment">% Inputs:</span>
+    <span class="comment">%   z - High-resolution image</span>
+    <span class="comment">%   D - Sampling factor</span>
+    <span class="comment">% Outputs:</span>
+    <span class="comment">%   xs - New horizontal axis</span>
+    <span class="comment">%   ys - New vertical axis</span>
+    <span class="comment">%   zs - Sampled image &lt;===</span>
+
+<span class="comment">% ==&gt; Add code here &lt;==</span>
+<span class="comment">% zs = zeros(ceil(size(z,2)/D),ceil(D*size(z,1)));                     % Initializes output matrix zs with zeros restricted by D</span>
+<span class="comment">%</span>
+<span class="comment">% % Create new axes ys and xs based on D</span>
+<span class="comment">% ys = 1:ceil(size(z,1)/D);</span>
+<span class="comment">% xs = 1:ceil(D*size(z,2));</span>
+<span class="comment">%</span>
+<span class="comment">% % Fill matrix by sampling input matrix z</span>
+<span class="comment">% zs(1:end,1:D:end) = z(1:D:end,1:end);</span>
+
+<span class="comment">% SAMPLE: Samples the image z by a factor of D</span>
+    zs = z(1:D:end, 1:D:end); <span class="comment">% Sample every D pixels</span>
+    [rows, cols] = size(zs);
+    xs = 0:D:(cols-1); <span class="comment">% New horizontal axis</span>
+    ys = 0:D:(rows-1); <span class="comment">% New vertical axis</span>
+
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> zaa = antialias(z)
+<span class="comment">%ANTIALIAS   ===&gt; Applies a simple averaging filter to the image z</span>
+    <span class="comment">% Input:</span>
+    <span class="comment">%   z - High-resolution image</span>
+    <span class="comment">% Output:</span>
+    <span class="comment">%   zaa - Anti-aliased image &lt;===</span>
+
+<span class="comment">% ==&gt; Add code here &lt;==</span>
+<span class="comment">% Initialize output matrix with zeroes same size as z</span>
+<span class="comment">% zaa = zeros(size(z,1), size(z,2));</span>
+<span class="comment">% [row, col] = size(zaa);</span>
+<span class="comment">%</span>
+<span class="comment">% for x = 1:size(z,1)</span>
+<span class="comment">% 	for y = 1:size(z,2)</span>
+<span class="comment">%         zaa(x, y) = (1/9) * (z(x-1, y-1) + z(x-1, y) + z(x-1, y+1) + ...</span>
+<span class="comment">%                                  z(x, y-1) + z(x, y) + z(x, y+1) + ...</span>
+<span class="comment">%                                  z(x+1, y-1) + z(x+1, y) + z(x+1, y+1));</span>
+<span class="comment">%</span>
+<span class="comment">%         % ====&gt; Check if the current pixel (nn, mm) is within the bounds after shifting. &lt;====</span>
+<span class="comment">% 		if x &gt; col &amp;&amp; x-col &lt; size(z,1) &amp;&amp; y &gt; row &amp;&amp; y-row &lt; size(z,2)</span>
+<span class="comment">% 			% ====&gt; Assign the value from the shifted position in z to za, scaled by a factor of 1/2. &lt;====</span>
+<span class="comment">%             zaa(x,y) = 1/2*z(x-row,y-col);</span>
+<span class="comment">%         end</span>
+<span class="comment">% 	end</span>
+<span class="comment">% end</span>
+
+[rows, cols] = size(z);
+    zaa = zeros(rows, cols);
+
+    <span class="keyword">for</span> x = 2:rows-1
+        <span class="keyword">for</span> y = 2:cols-1
+            zaa(x, y) = (1/9) * (z(x-1, y-1) + z(x-1, y) + z(x-1, y+1) + <span class="keyword">...</span>
+                                 z(x, y-1) + z(x, y) + z(x, y+1) + <span class="keyword">...</span>
+                                 z(x+1, y-1) + z(x+1, y) + z(x+1, y+1));
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    zaa(1, :) = z(1, :); <span class="comment">% Copy the first row</span>
+    zaa(end, :) = z(end, :); <span class="comment">% Copy the last row</span>
+    zaa(:, 1) = z(:, 1); <span class="comment">% Copy the first column</span>
+    zaa(:, end) = z(:, end); <span class="comment">% Copy the last column</span>
+
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> zs = video_sample(z, Dx, Dy, Dt)
+<span class="comment">%VIDEO_SAMPLE   ===&gt; Samples the video x in space and time</span>
+    <span class="comment">% Inputs:</span>
+    <span class="comment">%   x - Input video</span>
+    <span class="comment">%   Dx - Horizontal sampling factor</span>
+    <span class="comment">%   Dy - Vertical sampling factor</span>
+    <span class="comment">%   Dt - Temporal sampling factor</span>
+    <span class="comment">% Output:</span>
+    <span class="comment">%   z - Sampled video &lt;===</span>
+
+<span class="comment">% ==&gt; Add code here &lt;==</span>
+
+zs = z(1:Dy:end, 1:Dx:end, :, 1:Dt:end); <span class="comment">% Sample in space and in time</span>
+
+<span class="keyword">end</span>
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% QUESTION 1 COMMENTING
+
+% DO NOT REMOVE THE LINE BELOW 
+% MAKE SURE 'eel3135_lab03_comment.m' IS IN SAME DIRECTORY AS THIS FILE
+type('eel3135_lab03_comment.m')
+
+
+%% QUESTION VARIABLES (DO NOT CHANGE)
+x = 0:1:249;		                                                        % Horiztonal Axis
+y = 0:1:249;		                                                        % Vertical Axis
+
+% MAKE SURE 'ai_lines.png' is in the same directory!
+z = imread('ai_lines.png'); z = mean(z,3);
+
+% MAKE SURE 'frog.png' is in the same directory!
+% UNCOMMENT TO USE "Natural" IMAGE 
+z = imread('frog.jpg'); z = mean(z,3);
+
+
+%% 2(a) WRITE FUNCTION (SEE END OF FILE)
+
+%% 2(b) PEFORM SAMPLING
+
+D = 5;
+[xs, ys, zs] = sample(z,D);
+
+figure;
+
+subplot(1, 2, 1); 
+imagesc(z); 
+colormap(gray); 
+axis image; 
+title('Original Image');
+
+subplot(1, 2, 2); 
+imagesc(zs); 
+colormap(gray); 
+axis image; 
+title(['Sampled Image (D = ', num2str(D), ')']);
+
+%% 2(c) PEFORM SAMPLING
+
+D1 = 10;
+[xs1, ys1, zs1] = sample(z,D);
+
+subplot(1, 2, 1); 
+imagesc(zs1); 
+colormap(gray); 
+axis image; 
+title(['Sampled Image (D = ', num2str(D1), ')']);
+
+D2 = 15;
+[xs2, ys2, zs2] = sample(z,D);
+
+subplot(1, 2, 2); 
+imagesc(zs2); 
+colormap(gray); 
+axis image; 
+title(['Sampled Image (D = ', num2str(D2), ')']);
+
+%% 2(d) ANSWER QUESTION
+
+% After applying sampling, specific regions of the images may appear to have different frequencies.
+% This is often due to the presence of high-frequency components in the original image that are not
+% captured when sampling at lower resolutions. For example, fine lines or edges may
+% become blurred or lost, leading to a loss of detail and the appearance.
+
+%% 2(e) ANSWER QUESTION
+
+% When using a natural image, aliasing manifests as unexpected patterns or distortions that were not
+% present in the original image. This is because natural images often contain a wide range of frequencies,
+% and sampling at too low a resolution can lead to misinterpretation of these frequencies, resulting in
+% visual artifacts.
+
+%% 3(a) WRITE FUNCTION
+
+%% 3(b) PERFORM ANTI-ALIASING (NO SAMPLING)
+
+zaa = antialias(z);
+
+subplot(1, 2, 1); 
+imagesc(z); 
+colormap(gray); 
+axis image; 
+title('Original Image');
+
+subplot(1, 2, 2); 
+imagesc(zaa); 
+colormap(gray); 
+axis image; 
+title('Anti-Aliased Image');
+
+%% 3(c) PERFORM ANTI-ALIASING x64 (NO SAMPLING)
+
+z64 = z;
+
+for i = 1:64
+    z64 = antialias(z64);
+end
+
+subplot(1, 2, 1); 
+imagesc(z); 
+colormap(gray); 
+axis image; 
+title('Original Image');
+
+subplot(1, 2, 2); 
+imagesc(z64); 
+colormap(gray); 
+axis image; 
+title('x64 Anti-Aliased Image');
+
+%% 3(d) PEFORM ANTI-ALIASING (WITH SAMPLING)
+
+[zaas, ~, ~] = sample(zaa, 15);
+[z64s, ~, ~] = sample(z64, 15);
+
+subplot(1, 2, 1); 
+imagesc(zaas); 
+colormap(gray); 
+axis image; 
+title('Sample Anti-Aliased Image');
+
+subplot(1, 2, 2); 
+imagesc(z64s); 
+colormap(gray); 
+axis image; 
+title('Sample Anti-Aliased Image (64x)');
+
+%% 3(e) ANSWER QUESTION 
+
+% The anti-aliasing filter smooths the image by averaging the pixel values in the neighborhood of each pixel.
+% This reduces high-frequency components that can cause aliasing when the image is sampled. In real-world
+% applications, this is useful for improving image quality and reducing artifacts in images that will be
+% displayed at lower resolutions.
+
+%% 3(f) ANSWER QUESTION
+
+% When using a natural image, the anti-aliasing filter helps to reduce the jagged edges and artifacts that
+% can occur due to high-frequency details. The effect is more pronounced in natural images, where fine details
+% can lead to significant aliasing artifacts when sampled.
+
+%% QUESTION 4 VARIABLES (DO NOT CHANGE)
+
+% DO NOT REMOVE THE LINE BELOW 
+% MAKE SURE 'wheel_video.mp4' is in the same directory!
+vid = VideoReader('wheel_video.mp4'); z = read(vid,[1 Inf]);
+
+% The variable z is now a 4 dimensional array, with dimensions 1 and 2 the
+% m by n pixels in each color frame. The third dimension is the red,
+% green, and blue colors in the image. The fourth dimension represents time
+
+% HERE IS EXAMPLE CODE TO DISPLAY AND SAVE THE VIDEO AS AN MP4
+figure(1);
+for i = 1:min(size(z, 4),30*4)   % Only show 4 seconds max
+    tic; imagesc(uint8(z(:,:,:,i))); axis square; tm = toc; 
+    pause(1/30-tm);              % Try to sync to 30 frames per second
+end
+v = VideoWriter('output_video','MPEG-4');
+open(v); writeVideo(v,uint8(z)); close(v)
+
+%% 4(a) WRITE FUNCTION
+
+%% 4(b) MAKE SAMPLED VIDEO
+
+Dx = 5;
+Dy = 3;
+Dt = 2;
+
+sampled_video = video_sample(z, Dx, Dy, Dt);
+
+for i = 1:min(size(z, 4),30*4)   % Only show 4 seconds max
+    tic; imagesc(uint8(z(:,:,:,i))); axis square; tm = toc; 
+    pause(1/30-tm);              % Try to sync to 30 frames per second
+end
+v = VideoWriter('sampled_video','MPEG-4');
+open(v); writeVideo(v,uint8(sampled_video)); close(v);
+
+%% 4(c) ANSWER QUESTION
+
+% The choice of Dt is based on the frequency of the wheel's rotation. Since the wheel spins at 0.375 Hz,
+% and we observe it repeating at 1.875 Hz due to the spokes, we need to sample at a rate that captures
+% this motion without introducing aliasing. A sampling rate of 8 frames per second (Dt) is chosen to ensure
+% that we capture enough frames to represent the motion without significant distortion.
+
+%% 4(d) MAKE SAMPLED VIDEO
+
+Dt = 1; % Adjust to make wheel move backwards
+backward_video = video_sample(z, Dx, Dy, Dt);
+
+for i = 1:min(size(z, 4),30*4)   % Only show 4 seconds max
+    tic; imagesc(uint8(z(:,:,:,i))); axis square; tm = toc; 
+    pause(1/30-tm);              % Try to sync to 30 frames per second
+end
+v = VideoWriter('backward_video','MPEG-4');
+open(v); writeVideo(v,uint8(backward_video)); close(v);
+
+%% 4(e) ANSWER QUESTION
+
+% The choice of Dt in this case is to create a backward motion effect. By sampling at a lower frame rate,
+% we can create the illusion of the wheel moving in reverse. However, care must be taken to ensure that
+% the sampling rate does not introduce aliasing artifacts that could distort the perceived motion.
+
+%% ALL FUNCTIONS SUPPORTING THIS CODE %%
+
+function [xs, ys, zs] = sample(z, D)
+%SAMPLE   ===> Samples the image z by a factor of D
+    % Inputs:
+    %   z - High-resolution image
+    %   D - Sampling factor
+    % Outputs:
+    %   xs - New horizontal axis
+    %   ys - New vertical axis
+    %   zs - Sampled image <===
+
+% ==> Add code here <==
+% zs = zeros(ceil(size(z,2)/D),ceil(D*size(z,1)));                     % Initializes output matrix zs with zeros restricted by D
+% 
+% % Create new axes ys and xs based on D
+% ys = 1:ceil(size(z,1)/D);
+% xs = 1:ceil(D*size(z,2));
+% 
+% % Fill matrix by sampling input matrix z
+% zs(1:end,1:D:end) = z(1:D:end,1:end);
+
+% SAMPLE: Samples the image z by a factor of D
+    zs = z(1:D:end, 1:D:end); % Sample every D pixels
+    [rows, cols] = size(zs);
+    xs = 0:D:(cols-1); % New horizontal axis
+    ys = 0:D:(rows-1); % New vertical axis
+
+end
+
+function zaa = antialias(z)
+%ANTIALIAS   ===> Applies a simple averaging filter to the image z
+    % Input:
+    %   z - High-resolution image
+    % Output:
+    %   zaa - Anti-aliased image <===
+    
+% ==> Add code here <==
+% Initialize output matrix with zeroes same size as z
+% zaa = zeros(size(z,1), size(z,2));
+% [row, col] = size(zaa);
+% 
+% for x = 1:size(z,1)
+% 	for y = 1:size(z,2)
+%         zaa(x, y) = (1/9) * (z(x-1, y-1) + z(x-1, y) + z(x-1, y+1) + ...
+%                                  z(x, y-1) + z(x, y) + z(x, y+1) + ...
+%                                  z(x+1, y-1) + z(x+1, y) + z(x+1, y+1));
+% 
+%         % ====> Check if the current pixel (nn, mm) is within the bounds after shifting. <====
+% 		if x > col && x-col < size(z,1) && y > row && y-row < size(z,2)
+% 			% ====> Assign the value from the shifted position in z to za, scaled by a factor of 1/2. <====
+%             zaa(x,y) = 1/2*z(x-row,y-col);
+%         end
+% 	end
+% end
+
+[rows, cols] = size(z);
+    zaa = zeros(rows, cols);
+    
+    for x = 2:rows-1
+        for y = 2:cols-1
+            zaa(x, y) = (1/9) * (z(x-1, y-1) + z(x-1, y) + z(x-1, y+1) + ...
+                                 z(x, y-1) + z(x, y) + z(x, y+1) + ...
+                                 z(x+1, y-1) + z(x+1, y) + z(x+1, y+1));
+        end
+    end
+    zaa(1, :) = z(1, :); % Copy the first row
+    zaa(end, :) = z(end, :); % Copy the last row
+    zaa(:, 1) = z(:, 1); % Copy the first column
+    zaa(:, end) = z(:, end); % Copy the last column
+
+end
+
+function zs = video_sample(z, Dx, Dy, Dt)
+%VIDEO_SAMPLE   ===> Samples the video x in space and time
+    % Inputs:
+    %   x - Input video
+    %   Dx - Horizontal sampling factor
+    %   Dy - Vertical sampling factor
+    %   Dt - Temporal sampling factor
+    % Output:
+    %   z - Sampled video <===
+
+% ==> Add code here <==
+
+zs = z(1:Dy:end, 1:Dx:end, :, 1:Dt:end); % Sample in space and in time
+
+end
+##### SOURCE END #####
+-->
+</body>
+</html>

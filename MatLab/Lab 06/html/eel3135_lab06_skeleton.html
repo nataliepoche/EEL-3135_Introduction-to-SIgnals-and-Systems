@@ -1,0 +1,1359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>eel3135_lab06_skeleton</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-03-02">
+<meta name="DC.source" content="eel3135_lab06_skeleton.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">QUESTION 1 COMMENTING</a>
+</li>
+<li>
+<a href="#2">QUESTION 2: DTFT OF COMMON FUNCTIONS</a>
+</li>
+<li>
+<a href="#3">2 (a) PLOT DTFT</a>
+</li>
+<li>
+<a href="#4">2 (b) PLOT DTFT</a>
+</li>
+<li>
+<a href="#5">2 (c) PLOT DTFT</a>
+</li>
+<li>
+<a href="#6">2 (d) PLOT DTFT</a>
+</li>
+<li>
+<a href="#7">2 (e) PLOT DTFT</a>
+</li>
+<li>
+<a href="#8">2 (f) PLOT DTFT</a>
+</li>
+<li>
+<a href="#9">QUESTION 3: DTFT PROPERTIES</a>
+</li>
+<li>
+<a href="#10">3(a) PLOT DTFT</a>
+</li>
+<li>
+<a href="#11">3(b) PLOT DTFT</a>
+</li>
+<li>
+<a href="#12">3(c) PLOT DTFT</a>
+</li>
+<li>
+<a href="#13">3(d) PLOT DTFT</a>
+</li>
+<li>
+<a href="#14">3(e) PLOT DTFT</a>
+</li>
+<li>
+<a href="#15">QUESTION 4: NULLING FILTER</a>
+</li>
+<li>
+<a href="#16">4(a) EVALUATE DTFT OF INPUT SIGNAL</a>
+</li>
+<li>
+<a href="#17">4(b) IDENTIFY FREQUENCY</a>
+</li>
+<li>
+<a href="#18">4(c) DESIGN FILTER</a>
+</li>
+<li>
+<a href="#19">4(d) APPLY FILTER</a>
+</li>
+<li>
+<a href="#20">4(e) LISTEN TO AUDIO</a>
+</li>
+<li>
+<a href="#21">4(f) EXTEND YOUR KNOWLEDGE TO NOISY2.WAV</a>
+</li>
+<li>
+<a href="#22">ALL FUNCTIONS SUPPORTING THIS CODE</a>
+</li>
+</ul>
+</div>
+<h2 id="1">QUESTION 1 COMMENTING</h2>
+<pre class="codeinput">
+<span class="comment">% DO NOT REMOVE THE LINE BELOW</span>
+<span class="comment">% MAKE SURE 'eel3135_lab06_comment.m' IS IN THE SAME DIRECTORY AS THIS FILE</span>
+clear; close <span class="string">all</span>; clc;
+type(<span class="string">'eel3135_lab06_comment.m'</span>)
+</pre>
+<pre class="codeoutput">
+%% USER-DEFINED VARIABLES
+clear
+close all
+clc
+
+%% DEFINE FILTER
+N = 10;                                                                     % Defines the length of the filter
+h = (1/N)*ones(N,1);                                                        % Create a moving average filter (box filter) of length N
+
+% &lt;-- Answer Question: What is the impulse response of this filter? 
+%     Use d in place of delta.
+% 
+% The impulse response of this filter is h[n] = (1/N) * d[n] + (1/N) * d[n-1] + ... + (1/N) * d[n-(N-1)],
+% where d[n] is the discrete-time impulse function. This means that the filter averages the last N samples.
+
+% COMPUTE THE DTFT
+n = 0:(N-1);                                                                % Defines Time index of filter
+w = -pi:pi/5000:pi;                                                         % Define the frequency range for DTFT computation
+H = DTFT(h,w);                                                              % Compute the Discrete-Time Fourier Transform (DTFT) of the filter
+
+% PLOT THE IMPULSE RESPONSE AND DTFT
+figure
+subplot(3,1,1)
+stem(n,h)
+xlim([-0.5 20.5])
+title('Impulse Response of h')
+xlabel('Time Index (n)')
+ylabel('Amplitude')
+subplot(3,1,2)
+plot(w,abs(H))
+grid on;
+title('Magnitude Response of H')
+ylabel('Magnitude [rad]')
+xlabel('Normalized Angular Frequency [rad/s]')
+subplot(3,1,3)
+plot(w,angle(H))
+grid on;
+title('Phase Response of H')
+ylabel('Phase [rad]')
+xlabel('Normalized Angular Frequency [rad/s]')
+
+
+function H = DTFT(x,w)
+%  ===&gt; 
+% This function computes the Discrete-Time Fourier Transform (DTFT) of a discrete-time signal x
+% for a given set of angular frequencies w. The DTFT is calculated using the formula:
+% H(e^jw) = sum(x[n] * e^(-jwn)), where n is the index of the signal x. 
+% &lt;===
+  
+    H = zeros(length(w),1);                                                 % Initialize the DTFT result vector
+    for nn = 1:length(x)                                                    % Loop over each sample in the input signal
+        H = H + x(nn).*exp(-1j*w.'*(nn-1));                                  % Accumulate the DTFT contributions
+    end
+    
+end
+</pre>
+<h2 id="2">QUESTION 2: DTFT OF COMMON FUNCTIONS</h2>
+<h2 id="3">2 (a) PLOT DTFT</h2>
+<pre class="codeinput">w = -pi:pi/5000:pi;                                                         <span class="comment">% Define the frequency range for DTFT</span>
+n = 0:24;                                                                   <span class="comment">% Time index</span>
+x_a = [0, 1, 1, 1, zeros(1, 21)];                                           <span class="comment">% x[n] = δ[n &minus; 1] + δ[n &minus; 2] + δ[n &minus; 3]</span>
+H_a = DTFT(x_a, w);
+
+<span class="comment">% Plotting</span>
+figure;
+
+subplot(3,1,1);
+stem(n, x_a);
+title(<span class="string">'Time Domain Signal x[n] for (a)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_a));
+title(<span class="string">'Magnitude Response for (a)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,1,3);
+plot(w, angle(H_a));
+title(<span class="string">'Phase Response for (a)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: Is the data predominantly low frequency, high frequency,</span>
+<span class="comment">%              or neither?</span>
+<span class="comment">%</span>
+<span class="comment">% The data is predominantly low frequency.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_01.png" alt=""> <h2 id="4">2 (b) PLOT DTFT</h2>
+<pre class="codeinput">w = -pi:pi/5000:pi;                                                         <span class="comment">% Define the frequency range for DTFT</span>
+n = 0:24;                                                                   <span class="comment">% Time index</span>
+x_b = [0, 0, 1, 1, 1, zeros(1, 20)];                                        <span class="comment">% x[n] = δ[n &minus; 2] + δ[n &minus; 3] + δ[n &minus; 4]</span>
+H_b = DTFT(x_b, w);
+
+<span class="comment">% Plotting</span>
+subplot(3,1,1);
+stem(n, x_b);
+title(<span class="string">'Time Domain Signal x[n] for (b)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_b));
+title(<span class="string">'Magnitude Response for (b)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,1,3);
+plot(w, angle(H_b));
+title(<span class="string">'Phase Response for (b)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: Is the data predominantly low frequency, high frequency,</span>
+<span class="comment">%              or neither?</span>
+<span class="comment">%</span>
+<span class="comment">% The data is mainly low frequncy</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_02.png" alt=""> <h2 id="5">2 (c) PLOT DTFT</h2>
+<pre class="codeinput">w = -pi:pi/5000:pi;                                                         <span class="comment">% Define the frequency range for DTFT</span>
+n = 0:24;                                                                   <span class="comment">% Time index</span>
+x_c = (-0.9).^n;                                                            <span class="comment">% x[n] = (-0.9)^n * u[n]</span>
+x_c(n &lt; 0) = 0;                                                             <span class="comment">% Apply u[n]</span>
+H_c = DTFT(x_c, w);
+
+<span class="comment">% Plotting</span>
+subplot(3,1,1);
+stem(n, x_c);
+title(<span class="string">'Time Domain Signal x[n] for (c)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_c));
+title(<span class="string">'Magnitude Response for (c)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,1,3);
+plot(w, angle(H_c));
+title(<span class="string">'Phase Response for (c)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: Is the data predominantly low frequency, high frequency,</span>
+<span class="comment">%              or neither?</span>
+<span class="comment">%</span>
+<span class="comment">% The data is prdominantly low frequency</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_03.png" alt=""> <h2 id="6">2 (d) PLOT DTFT</h2>
+<pre class="codeinput">w = -pi:pi/5000:pi;                                                         <span class="comment">% Define the frequency range for DTFT</span>
+n = 0:24;                                                                   <span class="comment">% Time index</span>
+x_d = (-0.9).^n .* cos((3*pi/4)*n);                                         <span class="comment">% x[n] = (-0.9)^n * cos((3π/4)n) * u[n]</span>
+x_d(n &lt; 0) = 0;                                                             <span class="comment">% Apply u[n]</span>
+H_d = DTFT(x_d, w);
+
+<span class="comment">% Plotting</span>
+subplot(3,1,1);
+stem(n, x_d);
+title(<span class="string">'Time Domain Signal x[n] for (d)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_d));
+title(<span class="string">'Magnitude Response for (d)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,1,3);
+plot(w, angle(H_d));
+title(<span class="string">'Phase Response for (d)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: Is the data predominantly low frequency, high frequency,</span>
+<span class="comment">%              or neither?</span>
+<span class="comment">%</span>
+<span class="comment">% The answer is predominantly neither</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_04.png" alt=""> <h2 id="7">2 (e) PLOT DTFT</h2>
+<pre class="codeinput">w = -pi:pi/5000:pi;                                                         <span class="comment">% Define the frequency range for DTFT</span>
+n = 0:24;                                                                   <span class="comment">% Time index</span>
+x_e = (-0.9).^n .* cos((pi/4)*n);                                           <span class="comment">% x[n] = (-0.9)^n * cos((π/4)n) * u[n]</span>
+x_e(n &lt; 0) = 0;                                                             <span class="comment">% Apply u[n]</span>
+H_e = DTFT(x_e, w);
+
+<span class="comment">% Plotting</span>
+subplot(3,1,1);
+stem(n, x_e);
+title(<span class="string">'Time Domain Signal x[n] for (e)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_e));
+title(<span class="string">'Magnitude Response for (e)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,1,3);
+plot(w, angle(H_e));
+title(<span class="string">'Phase Response for (e)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: Is the data predominantly low frequency, high frequency,</span>
+<span class="comment">%              or neither?</span>
+<span class="comment">%</span>
+<span class="comment">% The answer is predominantly low frequency</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_05.png" alt=""> <h2 id="8">2 (f) PLOT DTFT</h2>
+<pre class="codeinput">w = -pi:pi/5000:pi;                                                         <span class="comment">% Define the frequency range for DTFT</span>
+n = 0:24;                                                                   <span class="comment">% Time index</span>
+x_f = (-1).^n;                                                              <span class="comment">% x[n] = (-1)^n * u[n]</span>
+x_f(n &lt; 0) = 0;                                                             <span class="comment">% Apply u[n]</span>
+H_f = DTFT(x_f, w);
+
+<span class="comment">% Plotting</span>
+subplot(3,1,1);
+stem(n, x_f);
+title(<span class="string">'Time Domain Signal x[n] for (f)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_f));
+title(<span class="string">'Magnitude Response for (f)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,1,3);
+plot(w, angle(H_f));
+title(<span class="string">'Phase Response for (f)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: Is the data predominantly low frequency, high frequency,</span>
+<span class="comment">%              or neither?</span>
+<span class="comment">%</span>
+<span class="comment">% The frequency is predominantly high frequency</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_06.png" alt=""> <h2 id="9">QUESTION 3: DTFT PROPERTIES</h2>
+<h2 id="10">3(a) PLOT DTFT</h2>
+<pre class="codeinput">n = 0:39;                                                                   <span class="comment">% Time index</span>
+x_q3 = (25/46) - (21/46) * cos((pi/6) * n);                                 <span class="comment">% x[n] = [(25/46) &minus; (21/46) cos((π/6)n)] * (u[n] &minus; u[n &minus; 12])</span>
+x_q3(n &gt;= 12) = 0;                                                          <span class="comment">% Apply the window u[n] - u[n-12]</span>
+H_q3 = DTFT(x_q3, w);
+
+y_a = 4 * x_q3;                                                             <span class="comment">% y[n] = 4x[n]</span>
+H_y_a = DTFT(y_a, w);
+
+<span class="comment">% Plotting</span>
+figure(<span class="string">'Units'</span>, <span class="string">'normalized'</span>, <span class="string">'OuterPosition'</span>, [0, 0, 1, 1]);               <span class="comment">% Full screen</span>
+
+subplot(3,2,2);
+stem(n, x_q3);
+title(<span class="string">'Time Domain Signal x[n]'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 40]);
+
+subplot(3,2,4);
+plot(w, abs(H_q3));
+title(<span class="string">'Magnitude Response for x[n]'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,2,6);
+plot(w, angle(H_q3));
+title(<span class="string">'Phase Response for x[n]'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,2,1);
+stem(n, y_a);
+title(<span class="string">'Time Domain Signal y[n] for (a)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 40]);
+
+subplot(3,2,3);
+plot(w, abs(H_y_a));
+title(<span class="string">'Magnitude Response for (a)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,2,5);
+plot(w, angle(H_y_a));
+title(<span class="string">'Phase Response for (a)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: describe how each system changes the frequency domain</span>
+<span class="comment">%</span>
+<span class="comment">% The magnitude is scaled by a factor of 4, while the phase remains unchanged.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_07.png" alt=""> <h2 id="11">3(b) PLOT DTFT</h2>
+<pre class="codeinput">n = 0:39;                                                                   <span class="comment">% Time index</span>
+x_q3 = (25/46) - (21/46) * cos((pi/6) * n);                                 <span class="comment">% x[n] = [(25/46) &minus; (21/46) cos((π/6)n)] * (u[n] &minus; u[n &minus; 12])</span>
+x_q3(n &gt;= 12) = 0;                                                          <span class="comment">% Apply the window u[n] - u[n-12]</span>
+H_q3 = DTFT(x_q3, w);
+
+y_b = 4 * x_q3;                                                             <span class="comment">% y[n] = 4x[n - 8]</span>
+y_b = [zeros(1, 8), y_b(1:end-8)];                                          <span class="comment">% Shift the signal</span>
+H_y_b = DTFT(y_b, w);
+
+<span class="comment">% Plotting</span>
+subplot(3,2,1);
+stem(n, y_b);
+title(<span class="string">'Time Domain Signal y[n] for (b)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 40]);
+
+subplot(3,2,3);
+plot(w, abs(H_y_b));
+title(<span class="string">'Magnitude Response for (b)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,2,5);
+plot(w, angle(H_y_b));
+title(<span class="string">'Phase Response for (b)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: describe how each system changes the frequency domain</span>
+<span class="comment">%</span>
+<span class="comment">% The magnitude is scaled by a factor of 4 and the phase is delayed by the shift.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_08.png" alt=""> <h2 id="12">3(c) PLOT DTFT</h2>
+<pre class="codeinput">n = 0:39;                                                                   <span class="comment">% Time index</span>
+x_q3 = (25/46) - (21/46) * cos((pi/6) * n);                                 <span class="comment">% x[n] = [(25/46) &minus; (21/46) cos((π/6)n)] * (u[n] &minus; u[n &minus; 12])</span>
+x_q3(n &gt;= 12) = 0;                                                          <span class="comment">% Apply the window u[n] - u[n-12]</span>
+H_q3 = DTFT(x_q3, w);
+
+y_c = x_q3 .* cos((pi/4) * n);                                              <span class="comment">% y[n] = x[n] cos((π/4)n)</span>
+H_y_c = DTFT(y_c, w);
+
+<span class="comment">% Plotting</span>
+subplot(3,2,1);
+stem(n, y_c);
+title(<span class="string">'Time Domain Signal y[n] for (c)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 40]);
+
+subplot(3,2,3);
+plot(w, abs(H_y_c));
+title(<span class="string">'Magnitude Response for (c)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,2,5);
+plot(w, angle(H_y_c));
+title(<span class="string">'Phase Response for (c)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: describe how each system changes the frequency domain</span>
+<span class="comment">%</span>
+<span class="comment">% The magnitude response is modulated by the cosine term, affecting the frequency content.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_09.png" alt=""> <h2 id="13">3(d) PLOT DTFT</h2>
+<pre class="codeinput">n = 0:39;                                                                   <span class="comment">% Time index</span>
+x_q3 = (25/46) - (21/46) * cos((pi/6) * n);                                 <span class="comment">% x[n] = [(25/46) &minus; (21/46) cos((π/6)n)] * (u[n] &minus; u[n &minus; 12])</span>
+x_q3(n &gt;= 12) = 0;                                                          <span class="comment">% Apply the window u[n] - u[n-12]</span>
+H_q3 = DTFT(x_q3, w);
+
+y_d = conv(x_q3, x_q3, <span class="string">'same'</span>);                                             <span class="comment">% y[n] = x[n] * x[n] (convolution)</span>
+H_y_d = DTFT(y_d, w);
+
+<span class="comment">% Plotting</span>
+subplot(3,2,1);
+stem(n, y_d);
+title(<span class="string">'Time Domain Signal y[n] for (d)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 40]);
+
+subplot(3,2,3);
+plot(w, abs(H_y_d));
+title(<span class="string">'Magnitude Response for (d)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,2,5);
+plot(w, angle(H_y_d));
+title(<span class="string">'Phase Response for (d)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: describe how each system changes the frequency domain</span>
+<span class="comment">%</span>
+<span class="comment">% The convolution increases the bandwidth of the signal, resulting in a wider magnitude response.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_10.png" alt=""> <h2 id="14">3(e) PLOT DTFT</h2>
+<pre class="codeinput">n = 0:39;                                                                   <span class="comment">% Time index</span>
+x_q3 = (25/46) - (21/46) * cos((pi/6) * n);                                 <span class="comment">% x[n] = [(25/46) &minus; (21/46) cos((π/6)n)] * (u[n] &minus; u[n &minus; 12])</span>
+x_q3(n &gt;= 12) = 0;                                                          <span class="comment">% Apply the window u[n] - u[n-12]</span>
+H_q3 = DTFT(x_q3, w);
+
+y_e = abs(x_q3); <span class="comment">% y[n] = |x[n]|</span>
+H_y_e = DTFT(y_e, w);
+
+<span class="comment">% Plotting</span>
+subplot(3,2,1);
+stem(n, y_e);
+title(<span class="string">'Time Domain Signal y[n] for (e)'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+xlim([-1 40]);
+
+subplot(3,2,3);
+plot(w, abs(H_y_e));
+title(<span class="string">'Magnitude Response for (e)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(3,2,5);
+plot(w, angle(H_y_e));
+title(<span class="string">'Phase Response for (e)'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% ALSO ANSWER: describe how each system changes the frequency domain</span>
+<span class="comment">%</span>
+<span class="comment">% The magnitude response is similar to the original signal, but the phase is not defined for non-negative values.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_11.png" alt=""> <h2 id="15">QUESTION 4: NULLING FILTER</h2>
+<pre class="codeinput">
+<span class="comment">% DO NOT REMOVE THE LINE BELOW</span>
+<span class="comment">% MAKE SURE 'noisy.wav' IS IN THE SAME DIRECTORY AS THIS FILE</span>
+[x, fs] = audioread(<span class="string">'noisy.wav'</span>);
+</pre>
+<h2 id="16">4(a) EVALUATE DTFT OF INPUT SIGNAL</h2>
+<pre class="codeinput">w = -pi:pi/10000:pi;                                                        <span class="comment">% Define a finer frequency range</span>
+H_noisy = DTFT(x, w);
+
+<span class="comment">% Plotting the DTFT of the noisy signal</span>
+figure;
+plot(w, abs(H_noisy));
+title(<span class="string">'Magnitude Response of Noisy Signal'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_12.png" alt=""> <img vspace="5" hspace="5" src="eel3135_lab06_skeleton_13.png" alt=""> <h2 id="17">4(b) IDENTIFY FREQUENCY</h2>
+<pre class="codeinput">wb0 = 0.5;                                                                  <span class="comment">% Example normalized frequency</span>
+f_continuous = wb0 * fs / (2 * pi);                                         <span class="comment">% Continuous-time frequency</span>
+
+<span class="comment">% &lt;== ANSWER TO QUESTION ==&gt;</span>
+<span class="comment">%</span>
+<span class="comment">% After analyzing the plot, identify the frequency contaminated with noise.</span>
+<span class="comment">% For example, if the noise is at a certain peak, you can use the data tips in MATLAB to find the frequency.</span>
+<span class="comment">% Let's say the noise is at normalized frequency wb0 = 0.5 (example).</span>
+<span class="comment">% The continuous-time cyclic frequency can be calculated as: f = wb0 * fs / (2*pi).</span>
+<span class="comment">%</span>
+<span class="comment">% The contaminated frequency is wb0 in normalized angular frequency and f_continuous in Hz.</span>
+</pre>
+<h2 id="18">4(c) DESIGN FILTER</h2>
+<pre class="codeinput">
+<span class="comment">% Design the nulling FIR filter</span>
+wb0 = 0.5;                                                                  <span class="comment">% Example normalized frequency</span>
+w = -pi:pi/10000:pi;                                                        <span class="comment">% Define a finer frequency range</span>
+b = [1, -2*cos(wb0), 1];                                                    <span class="comment">% Coefficients for the nulling filter</span>
+H_filter = DTFT(b, w);                                                      <span class="comment">% DTFT of the filter</span>
+
+<span class="comment">% Plotting the filter response</span>
+figure;
+subplot(2,1,1);
+plot(w, abs(H_filter));
+title(<span class="string">'Magnitude Response of Nulling Filter'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+subplot(2,1,2);
+plot(w, angle(H_filter));
+title(<span class="string">'Phase Response of Nulling Filter'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Phase [rad]'</span>);
+grid <span class="string">on</span>;
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_14.png" alt=""> <h2 id="19">4(d) APPLY FILTER</h2>
+<pre class="codeinput">
+<span class="comment">% Apply the nulling filter to the noisy audio data</span>
+[x, fs] = audioread(<span class="string">'noisy.wav'</span>);
+filtered_audio = conv(x, b, <span class="string">'same'</span>);                                        <span class="comment">% Convolve the noisy signal with the filter</span>
+
+<span class="comment">% Compute the DTFT of the filtered audio</span>
+H_filtered = DTFT(filtered_audio, w);
+
+<span class="comment">% Plotting the magnitude response of the filtered audio</span>
+figure;
+plot(w, abs(H_filtered));
+title(<span class="string">'Magnitude Response of Filtered Audio'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% &lt;== ANSWER TO QUESTION ==&gt;</span>
+<span class="comment">%</span>
+<span class="comment">% The differences between the original audio and the output of the nulling filter can be analyzed by comparing the magnitude responses.</span>
+<span class="comment">% The filtered audio should have reduced noise at the contaminated frequency.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab06_skeleton_15.png" alt=""> <h2 id="20">4(e) LISTEN TO AUDIO</h2>
+<pre class="codeinput">
+<span class="comment">% Save the filtered audio to a .wav file</span>
+audiowrite(<span class="string">'filtered_audio.wav'</span>, filtered_audio, fs);
+
+<span class="comment">% Listen to the output of the nulling filter</span>
+sound(filtered_audio, fs);
+</pre>
+<h2 id="21">4(f) EXTEND YOUR KNOWLEDGE TO NOISY2.WAV</h2>
+<pre class="codeinput">
+<span class="comment">% DO NOT REMOVE THE LINE BELOW</span>
+<span class="comment">% MAKE SURE 'noisy2.wav' IS IN THE SAME DIRECTORY AS THIS FILE</span>
+[x, fs] = audioread(<span class="string">'noisy2.wav'</span>);
+
+<span class="comment">% Repeat the process for noisy2.wav</span>
+<span class="comment">% 4(a) EVALUATE DTFT OF INPUT SIGNAL</span>
+w2 = linspace(-pi, pi, 10000);                                              <span class="comment">% Define a finer frequency range</span>
+H_noisy2 = DTFT(x, w2);
+
+<span class="comment">% Plotting the DTFT of the noisy2 signal</span>
+figure;
+plot(w2, abs(H_noisy2));
+title(<span class="string">'Magnitude Response of Noisy2 Signal'</span>);
+xlabel(<span class="string">'Normalized Angular Frequency [rad/s]'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% 4(b) IDENTIFY FREQUENCY</span>
+<span class="comment">% Analyze the plot to identify contaminated frequencies</span>
+<span class="comment">% For example, let's say we identify multiple frequencies wb0_1, wb0_2, etc.</span>
+<span class="comment">% You would repeat the filter design and application for each identified frequency.</span>
+
+<span class="comment">% Example frequencies (you would replace these with actual identified frequencies)</span>
+wb0_1 = 0.3;                                                                <span class="comment">% Example normalized frequency 1</span>
+wb0_2 = 0.7;                                                                <span class="comment">% Example normalized frequency 2</span>
+
+<span class="comment">% Design filters for each frequency</span>
+b1 = [1, -2*cos(wb0_1), 1];                                                 <span class="comment">% First nulling filter</span>
+b2 = [1, -2*cos(wb0_2), 1];                                                 <span class="comment">% Second nulling filter</span>
+
+<span class="comment">% Apply the filters</span>
+filtered_audio1 = conv(x, b1, <span class="string">'same'</span>);                                      <span class="comment">% Apply first filter</span>
+filtered_audio2 = conv(x, b2, <span class="string">'same'</span>);                                      <span class="comment">% Apply second filter</span>
+
+<span class="comment">% Save the filtered audio to .wav files</span>
+audiowrite(<span class="string">'filtered_audio1.wav'</span>, filtered_audio1, fs);
+audiowrite(<span class="string">'filtered_audio2.wav'</span>, filtered_audio2, fs);
+
+<span class="comment">% Listen to the output of the nulling filters</span>
+sound(filtered_audio1, fs);
+pause(length(filtered_audio1)/fs + 1);                                      <span class="comment">% Wait for the first sound to finish</span>
+sound(filtered_audio2, fs);
+
+<span class="comment">% &lt;== ANSWER TO QUESTION ==&gt;</span>
+<span class="comment">% The approach for noisy2.wav involves identifying multiple contaminated frequencies and applying the nulling filter for each frequency.</span>
+<span class="comment">% The output should reveal the underlying audio with reduced noise.</span>
+</pre>
+<h2 id="22">ALL FUNCTIONS SUPPORTING THIS CODE</h2>
+<pre class="codeinput">
+<span class="keyword">function</span> H = DTFT(x,w)
+<span class="comment">%  ===&gt;</span>
+<span class="comment">% This function computes the Discrete-Time Fourier Transform (DTFT) of a discrete-time signal x</span>
+<span class="comment">% for a given set of angular frequencies w. The DTFT is calculated using the formula:</span>
+<span class="comment">% H(e^jw) = sum(x[n] * e^(-jwn)), where n is the index of the signal x.</span>
+<span class="comment">% &lt;===</span>
+
+    H = zeros(length(w),1);                                                 <span class="comment">% Initialize the DTFT result vector</span>
+    <span class="keyword">for</span> nn = 1:length(x)                                                    <span class="comment">% Loop over each sample in the input signal</span>
+        H = H + x(nn).*exp(-1j*w.'*(nn-1));                                 <span class="comment">% Accumulate the DTFT contributions</span>
+    <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% QUESTION 1 COMMENTING
+
+% DO NOT REMOVE THE LINE BELOW
+% MAKE SURE 'eel3135_lab06_comment.m' IS IN THE SAME DIRECTORY AS THIS FILE
+clear; close all; clc;
+type('eel3135_lab06_comment.m')
+
+%% QUESTION 2: DTFT OF COMMON FUNCTIONS 
+
+%% 2 (a) PLOT DTFT
+
+w = -pi:pi/5000:pi;                                                         % Define the frequency range for DTFT
+n = 0:24;                                                                   % Time index
+x_a = [0, 1, 1, 1, zeros(1, 21)];                                           % x[n] = δ[n − 1] + δ[n − 2] + δ[n − 3]
+H_a = DTFT(x_a, w);
+
+% Plotting
+figure;
+
+subplot(3,1,1);
+stem(n, x_a);
+title('Time Domain Signal x[n] for (a)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_a));
+title('Magnitude Response for (a)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,1,3);
+plot(w, angle(H_a));
+title('Phase Response for (a)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: Is the data predominantly low frequency, high frequency, 
+%              or neither?
+%
+% The data is predominantly low frequency.
+
+%% 2 (b) PLOT DTFT
+
+w = -pi:pi/5000:pi;                                                         % Define the frequency range for DTFT
+n = 0:24;                                                                   % Time index
+x_b = [0, 0, 1, 1, 1, zeros(1, 20)];                                        % x[n] = δ[n − 2] + δ[n − 3] + δ[n − 4]
+H_b = DTFT(x_b, w);
+
+% Plotting
+subplot(3,1,1);
+stem(n, x_b);
+title('Time Domain Signal x[n] for (b)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_b));
+title('Magnitude Response for (b)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,1,3);
+plot(w, angle(H_b));
+title('Phase Response for (b)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: Is the data predominantly low frequency, high frequency, 
+%              or neither?
+%
+% The data is mainly low frequncy
+
+%% 2 (c) PLOT DTFT
+
+w = -pi:pi/5000:pi;                                                         % Define the frequency range for DTFT
+n = 0:24;                                                                   % Time index
+x_c = (-0.9).^n;                                                            % x[n] = (-0.9)^n * u[n]
+x_c(n < 0) = 0;                                                             % Apply u[n]
+H_c = DTFT(x_c, w);
+
+% Plotting
+subplot(3,1,1);
+stem(n, x_c);
+title('Time Domain Signal x[n] for (c)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_c));
+title('Magnitude Response for (c)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,1,3);
+plot(w, angle(H_c));
+title('Phase Response for (c)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: Is the data predominantly low frequency, high frequency, 
+%              or neither?
+%
+% The data is prdominantly low frequency
+
+%% 2 (d) PLOT DTFT
+
+w = -pi:pi/5000:pi;                                                         % Define the frequency range for DTFT
+n = 0:24;                                                                   % Time index
+x_d = (-0.9).^n .* cos((3*pi/4)*n);                                         % x[n] = (-0.9)^n * cos((3π/4)n) * u[n]
+x_d(n < 0) = 0;                                                             % Apply u[n]
+H_d = DTFT(x_d, w);
+
+% Plotting
+subplot(3,1,1);
+stem(n, x_d);
+title('Time Domain Signal x[n] for (d)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_d));
+title('Magnitude Response for (d)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,1,3);
+plot(w, angle(H_d));
+title('Phase Response for (d)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: Is the data predominantly low frequency, high frequency, 
+%              or neither?
+%
+% The answer is predominantly neither
+
+%% 2 (e) PLOT DTFT
+
+w = -pi:pi/5000:pi;                                                         % Define the frequency range for DTFT
+n = 0:24;                                                                   % Time index
+x_e = (-0.9).^n .* cos((pi/4)*n);                                           % x[n] = (-0.9)^n * cos((π/4)n) * u[n]
+x_e(n < 0) = 0;                                                             % Apply u[n]
+H_e = DTFT(x_e, w);
+
+% Plotting
+subplot(3,1,1);
+stem(n, x_e);
+title('Time Domain Signal x[n] for (e)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_e));
+title('Magnitude Response for (e)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,1,3);
+plot(w, angle(H_e));
+title('Phase Response for (e)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: Is the data predominantly low frequency, high frequency, 
+%              or neither?
+%
+% The answer is predominantly low frequency
+
+%% 2 (f) PLOT DTFT
+
+w = -pi:pi/5000:pi;                                                         % Define the frequency range for DTFT
+n = 0:24;                                                                   % Time index
+x_f = (-1).^n;                                                              % x[n] = (-1)^n * u[n]
+x_f(n < 0) = 0;                                                             % Apply u[n]
+H_f = DTFT(x_f, w);
+
+% Plotting
+subplot(3,1,1);
+stem(n, x_f);
+title('Time Domain Signal x[n] for (f)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 25]);
+
+subplot(3,1,2);
+plot(w, abs(H_f));
+title('Magnitude Response for (f)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,1,3);
+plot(w, angle(H_f));
+title('Phase Response for (f)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: Is the data predominantly low frequency, high frequency, 
+%              or neither?
+%
+% The frequency is predominantly high frequency
+
+
+
+%% QUESTION 3: DTFT PROPERTIES
+
+%% 3(a) PLOT DTFT
+
+n = 0:39;                                                                   % Time index
+x_q3 = (25/46) - (21/46) * cos((pi/6) * n);                                 % x[n] = [(25/46) − (21/46) cos((π/6)n)] * (u[n] − u[n − 12])
+x_q3(n >= 12) = 0;                                                          % Apply the window u[n] - u[n-12]
+H_q3 = DTFT(x_q3, w);
+
+y_a = 4 * x_q3;                                                             % y[n] = 4x[n]
+H_y_a = DTFT(y_a, w);
+
+% Plotting
+figure('Units', 'normalized', 'OuterPosition', [0, 0, 1, 1]);               % Full screen
+
+subplot(3,2,2);
+stem(n, x_q3);
+title('Time Domain Signal x[n]');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 40]);
+
+subplot(3,2,4);
+plot(w, abs(H_q3));
+title('Magnitude Response for x[n]');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,2,6);
+plot(w, angle(H_q3));
+title('Phase Response for x[n]');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+subplot(3,2,1);
+stem(n, y_a);
+title('Time Domain Signal y[n] for (a)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 40]);
+
+subplot(3,2,3);
+plot(w, abs(H_y_a));
+title('Magnitude Response for (a)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,2,5);
+plot(w, angle(H_y_a));
+title('Phase Response for (a)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: describe how each system changes the frequency domain 
+%
+% The magnitude is scaled by a factor of 4, while the phase remains unchanged.
+
+%% 3(b) PLOT DTFT
+
+n = 0:39;                                                                   % Time index
+x_q3 = (25/46) - (21/46) * cos((pi/6) * n);                                 % x[n] = [(25/46) − (21/46) cos((π/6)n)] * (u[n] − u[n − 12])
+x_q3(n >= 12) = 0;                                                          % Apply the window u[n] - u[n-12]
+H_q3 = DTFT(x_q3, w);
+
+y_b = 4 * x_q3;                                                             % y[n] = 4x[n - 8]
+y_b = [zeros(1, 8), y_b(1:end-8)];                                          % Shift the signal
+H_y_b = DTFT(y_b, w);
+
+% Plotting
+subplot(3,2,1);
+stem(n, y_b);
+title('Time Domain Signal y[n] for (b)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 40]);
+
+subplot(3,2,3);
+plot(w, abs(H_y_b));
+title('Magnitude Response for (b)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,2,5);
+plot(w, angle(H_y_b));
+title('Phase Response for (b)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: describe how each system changes the frequency domain 
+%
+% The magnitude is scaled by a factor of 4 and the phase is delayed by the shift.
+
+%% 3(c) PLOT DTFT
+
+n = 0:39;                                                                   % Time index
+x_q3 = (25/46) - (21/46) * cos((pi/6) * n);                                 % x[n] = [(25/46) − (21/46) cos((π/6)n)] * (u[n] − u[n − 12])
+x_q3(n >= 12) = 0;                                                          % Apply the window u[n] - u[n-12]
+H_q3 = DTFT(x_q3, w);
+
+y_c = x_q3 .* cos((pi/4) * n);                                              % y[n] = x[n] cos((π/4)n)
+H_y_c = DTFT(y_c, w);
+
+% Plotting
+subplot(3,2,1);
+stem(n, y_c);
+title('Time Domain Signal y[n] for (c)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 40]);
+
+subplot(3,2,3);
+plot(w, abs(H_y_c));
+title('Magnitude Response for (c)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,2,5);
+plot(w, angle(H_y_c));
+title('Phase Response for (c)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: describe how each system changes the frequency domain 
+%
+% The magnitude response is modulated by the cosine term, affecting the frequency content.
+
+%% 3(d) PLOT DTFT
+
+n = 0:39;                                                                   % Time index
+x_q3 = (25/46) - (21/46) * cos((pi/6) * n);                                 % x[n] = [(25/46) − (21/46) cos((π/6)n)] * (u[n] − u[n − 12])
+x_q3(n >= 12) = 0;                                                          % Apply the window u[n] - u[n-12]
+H_q3 = DTFT(x_q3, w);
+
+y_d = conv(x_q3, x_q3, 'same');                                             % y[n] = x[n] * x[n] (convolution)
+H_y_d = DTFT(y_d, w);
+
+% Plotting
+subplot(3,2,1);
+stem(n, y_d);
+title('Time Domain Signal y[n] for (d)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 40]);
+
+subplot(3,2,3);
+plot(w, abs(H_y_d));
+title('Magnitude Response for (d)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,2,5);
+plot(w, angle(H_y_d));
+title('Phase Response for (d)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: describe how each system changes the frequency domain 
+%
+% The convolution increases the bandwidth of the signal, resulting in a wider magnitude response.
+
+%% 3(e) PLOT DTFT
+
+n = 0:39;                                                                   % Time index
+x_q3 = (25/46) - (21/46) * cos((pi/6) * n);                                 % x[n] = [(25/46) − (21/46) cos((π/6)n)] * (u[n] − u[n − 12])
+x_q3(n >= 12) = 0;                                                          % Apply the window u[n] - u[n-12]
+H_q3 = DTFT(x_q3, w);
+
+y_e = abs(x_q3); % y[n] = |x[n]|
+H_y_e = DTFT(y_e, w);
+
+% Plotting
+subplot(3,2,1);
+stem(n, y_e);
+title('Time Domain Signal y[n] for (e)');
+xlabel('n');
+ylabel('Amplitude');
+xlim([-1 40]);
+
+subplot(3,2,3);
+plot(w, abs(H_y_e));
+title('Magnitude Response for (e)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(3,2,5);
+plot(w, angle(H_y_e));
+title('Phase Response for (e)');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+% ALSO ANSWER: describe how each system changes the frequency domain 
+%
+% The magnitude response is similar to the original signal, but the phase is not defined for non-negative values.
+
+%% QUESTION 4: NULLING FILTER
+
+% DO NOT REMOVE THE LINE BELOW
+% MAKE SURE 'noisy.wav' IS IN THE SAME DIRECTORY AS THIS FILE
+[x, fs] = audioread('noisy.wav');
+
+
+%% 4(a) EVALUATE DTFT OF INPUT SIGNAL
+
+w = -pi:pi/10000:pi;                                                        % Define a finer frequency range
+H_noisy = DTFT(x, w);
+
+% Plotting the DTFT of the noisy signal
+figure;
+plot(w, abs(H_noisy));
+title('Magnitude Response of Noisy Signal');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+%% 4(b) IDENTIFY FREQUENCY
+
+wb0 = 0.5;                                                                  % Example normalized frequency
+f_continuous = wb0 * fs / (2 * pi);                                         % Continuous-time frequency
+
+% <== ANSWER TO QUESTION ==>
+%
+% After analyzing the plot, identify the frequency contaminated with noise.
+% For example, if the noise is at a certain peak, you can use the data tips in MATLAB to find the frequency.
+% Let's say the noise is at normalized frequency wb0 = 0.5 (example).
+% The continuous-time cyclic frequency can be calculated as: f = wb0 * fs / (2*pi).
+% 
+% The contaminated frequency is wb0 in normalized angular frequency and f_continuous in Hz.
+
+%% 4(c) DESIGN FILTER
+
+% Design the nulling FIR filter
+wb0 = 0.5;                                                                  % Example normalized frequency
+w = -pi:pi/10000:pi;                                                        % Define a finer frequency range
+b = [1, -2*cos(wb0), 1];                                                    % Coefficients for the nulling filter
+H_filter = DTFT(b, w);                                                      % DTFT of the filter
+
+% Plotting the filter response
+figure;
+subplot(2,1,1);
+plot(w, abs(H_filter));
+title('Magnitude Response of Nulling Filter');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+subplot(2,1,2);
+plot(w, angle(H_filter));
+title('Phase Response of Nulling Filter');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Phase [rad]');
+grid on;
+
+%% 4(d) APPLY FILTER
+
+% Apply the nulling filter to the noisy audio data
+[x, fs] = audioread('noisy.wav');
+filtered_audio = conv(x, b, 'same');                                        % Convolve the noisy signal with the filter
+
+% Compute the DTFT of the filtered audio
+H_filtered = DTFT(filtered_audio, w);
+
+% Plotting the magnitude response of the filtered audio
+figure;
+plot(w, abs(H_filtered));
+title('Magnitude Response of Filtered Audio');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+% <== ANSWER TO QUESTION ==>
+%
+% The differences between the original audio and the output of the nulling filter can be analyzed by comparing the magnitude responses.
+% The filtered audio should have reduced noise at the contaminated frequency.
+
+%% 4(e) LISTEN TO AUDIO
+
+% Save the filtered audio to a .wav file
+audiowrite('filtered_audio.wav', filtered_audio, fs);
+
+% Listen to the output of the nulling filter
+sound(filtered_audio, fs);
+
+%% 4(f) EXTEND YOUR KNOWLEDGE TO NOISY2.WAV
+
+% DO NOT REMOVE THE LINE BELOW
+% MAKE SURE 'noisy2.wav' IS IN THE SAME DIRECTORY AS THIS FILE
+[x, fs] = audioread('noisy2.wav');
+
+% Repeat the process for noisy2.wav
+% 4(a) EVALUATE DTFT OF INPUT SIGNAL
+w2 = linspace(-pi, pi, 10000);                                              % Define a finer frequency range
+H_noisy2 = DTFT(x, w2);
+
+% Plotting the DTFT of the noisy2 signal
+figure;
+plot(w2, abs(H_noisy2));
+title('Magnitude Response of Noisy2 Signal');
+xlabel('Normalized Angular Frequency [rad/s]');
+ylabel('Magnitude');
+grid on;
+
+% 4(b) IDENTIFY FREQUENCY
+% Analyze the plot to identify contaminated frequencies
+% For example, let's say we identify multiple frequencies wb0_1, wb0_2, etc.
+% You would repeat the filter design and application for each identified frequency.
+
+% Example frequencies (you would replace these with actual identified frequencies)
+wb0_1 = 0.3;                                                                % Example normalized frequency 1
+wb0_2 = 0.7;                                                                % Example normalized frequency 2
+
+% Design filters for each frequency
+b1 = [1, -2*cos(wb0_1), 1];                                                 % First nulling filter
+b2 = [1, -2*cos(wb0_2), 1];                                                 % Second nulling filter
+
+% Apply the filters
+filtered_audio1 = conv(x, b1, 'same');                                      % Apply first filter
+filtered_audio2 = conv(x, b2, 'same');                                      % Apply second filter
+
+% Save the filtered audio to .wav files
+audiowrite('filtered_audio1.wav', filtered_audio1, fs);
+audiowrite('filtered_audio2.wav', filtered_audio2, fs);
+
+% Listen to the output of the nulling filters
+sound(filtered_audio1, fs);
+pause(length(filtered_audio1)/fs + 1);                                      % Wait for the first sound to finish
+sound(filtered_audio2, fs);
+
+% <== ANSWER TO QUESTION ==>
+% The approach for noisy2.wav involves identifying multiple contaminated frequencies and applying the nulling filter for each frequency.
+% The output should reveal the underlying audio with reduced noise.
+
+%% ALL FUNCTIONS SUPPORTING THIS CODE 
+
+function H = DTFT(x,w)
+%  ===> 
+% This function computes the Discrete-Time Fourier Transform (DTFT) of a discrete-time signal x
+% for a given set of angular frequencies w. The DTFT is calculated using the formula:
+% H(e^jw) = sum(x[n] * e^(-jwn)), where n is the index of the signal x. 
+% <===
+  
+    H = zeros(length(w),1);                                                 % Initialize the DTFT result vector
+    for nn = 1:length(x)                                                    % Loop over each sample in the input signal
+        H = H + x(nn).*exp(-1j*w.'*(nn-1));                                 % Accumulate the DTFT contributions
+    end
+    
+end
+##### SOURCE END #####
+-->
+</body>
+</html>

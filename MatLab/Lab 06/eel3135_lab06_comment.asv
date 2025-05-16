@@ -1,0 +1,55 @@
+%% USER-DEFINED VARIABLES
+clear
+close all
+clc
+
+%% DEFINE FILTER
+N = 10;                                                                     % Defines the length of the filter
+h = (1/N)*ones(N,1);                                                        % Create a moving average filter (box filter) of length N
+
+% <-- Answer Question: What is the impulse response of this filter? 
+%     Use d in place of delta.
+% 
+% The impulse response of this filter is h[n] = (1/N) * d[n] + (1/N) * d[n-1] + ... + (1/N) * d[n-(N-1)],
+% where d[n] is the discrete-time impulse function. This means that the filter averages the last N samples.
+
+% COMPUTE THE DTFT
+n = 0:(N-1);                                                                % Defines Time index of filter
+w = -pi:pi/5000:pi;                                                         % Define the frequency range for DTFT computation
+H = DTFT(h,w);                                                              % Compute the Discrete-Time Fourier Transform (DTFT) of the filter
+
+% PLOT THE IMPULSE RESPONSE AND DTFT
+figure
+subplot(3,1,1)
+stem(n,h)
+xlim([-0.5 20.5])
+title('Impulse Response of h')
+xlabel('Time Index (n)')
+ylabel('Amplitude')
+subplot(3,1,2)
+plot(w,abs(H))
+grid on;
+title('Magnitude Response of H')
+ylabel('Magnitude [rad]')
+xlabel('Normalized Angular Frequency [rad/s]')
+subplot(3,1,3)
+plot(w,angle(H))
+grid on;
+title('Phase Response of H')
+ylabel('Phase [rad]')
+xlabel('Normalized Angular Frequency [rad/s]')
+
+
+function H = DTFT(x,w)
+%  ===> 
+% This function computes the Discrete-Time Fourier Transform (DTFT) of a discrete-time signal x
+% for a given set of angular frequencies w. The DTFT is calculated using the formula:
+% H(e^jw) = sum(x[n] * e^(-jwn)), where n is the index of the signal x. 
+% <===
+  
+    H = zeros(length(w),1);                                                 % Initialize the DTFT result vector
+    for nn = 1:length(x)                                                    % Loop over each sample in the input signal
+        H = H + x(nn).*exp(-1j*w.'*(nn-1));                                 % Accumulate the DTFT contributions
+    end
+    
+end

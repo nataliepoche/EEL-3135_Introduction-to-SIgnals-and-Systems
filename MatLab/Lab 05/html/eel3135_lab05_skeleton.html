@@ -1,0 +1,800 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>eel3135_lab05_skeleton</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-02-24">
+<meta name="DC.source" content="eel3135_lab05_skeleton.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">QUESTION 1 COMMENTING</a>
+</li>
+<li>
+<a href="#2">QUESTION 2 FREQUENCY FILTERING</a>
+</li>
+<li>
+<a href="#3">2(a) FILL IN CODE</a>
+</li>
+<li>
+<a href="#4">2(b) PLOT FREQUENCY RESPONSE</a>
+</li>
+<li>
+<a href="#5">2(c) EVALUATE FREQUENCY RESPONSE FOR CERTAIN FREQUENCIES</a>
+</li>
+<li>
+<a href="#6">2(d) COMPUTE AND PLOT OUTPUT</a>
+</li>
+<li>
+<a href="#7">2(e) PLOT OUTPUTS</a>
+</li>
+<li>
+<a href="#8">2(f) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#9">QUESTION 3</a>
+</li>
+<li>
+<a href="#10">3(a) PLOT FREQUENCY RESPONSE</a>
+</li>
+<li>
+<a href="#11">3(b) APPLY FILTER</a>
+</li>
+<li>
+<a href="#12">3(c) PLOT FREQUENCY RESPONSE</a>
+</li>
+<li>
+<a href="#13">3(d) APPLY FILTER</a>
+</li>
+<li>
+<a href="#14">3(e) PLOT FREQUENCY RESPONSE</a>
+</li>
+<li>
+<a href="#15">3(f) APPLY FILTER</a>
+</li>
+<li>
+<a href="#16">3(g) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#17">ALL FUNCTIONS SUPPORTING THIS CODE %%</a>
+</li>
+</ul>
+</div>
+<h2 id="1">QUESTION 1 COMMENTING</h2>
+<pre class="codeinput">
+<span class="comment">% DO NOT REMOVE THE LINE BELOW</span>
+<span class="comment">% MAKE SURE 'eel3135_lab05_comment.m' IS IN SAME DIRECTORY AS THIS FILE</span>
+clear; close <span class="string">all</span>;
+type(<span class="string">'eel3135_lab05_comment.m'</span>)
+</pre>
+<pre class="codeoutput">
+
+%% USER-DEFINED VARIABLES
+
+w = -pi:(pi/100):pi;
+% &lt;-- Answer: Why is w from -pi to pi?
+% 
+% The variable 'w' represents the normalized radian frequency range for the frequency response analysis. 
+% It is defined from -pi to pi to cover the full spectrum of frequencies for periodic signals, 
+% allowing for the examination of both positive and negative frequencies, which is important in 
+% signal processing to understand the behavior of filters across the entire frequency range.
+
+%% HIGHPASS FILTER
+
+% FREQUENCY RESPONSE
+H2 = (1-exp(-1j*w*1));
+% &lt;-- Answer: What is the difference equation for this frequency response?
+
+% -------------------&gt; 
+% The difference equation corresponding to this frequency response can be derived from the 
+% transfer function H(z) = 1 - z^(-1). In the time domain, this can be expressed as
+% y[n] = x[n] - x[n-1], where y[n] is the output and x[n] is the input signal. 
+% This indicates that the output is the difference between the current input and the previous input, 
+% allowing high-frequency components to pass while attenuating low-frequency components.
+% &lt;----------------------
+
+% PLOT
+figure;
+subplot(2,1,1)
+plot(w,abs(H2));    % ==&gt; What does the abs() function do? 
+                    % The abs() function computes the magnitude of the complex frequency response H2. 
+                    % It returns the absolute value of each element in H2, which represents the amplitude of the 
+                    % frequency response at each frequency 'w'. This is important for understanding how much 
+                    % of each frequency component is passed through the filter.
+                    % &lt;==
+grid on;
+title('Magnitude Response')
+xlabel('Normalized Radian Frequency');
+ylabel('Amplitude');
+subplot(2,1,2)
+plot(w,angle(H2));  % ==&gt; What does the angle() function do? 
+                    % The angle() function calculates the phase angle (in radians) of the complex frequency response H2. 
+                    % It returns the angle of each element in H2, which indicates the phase shift introduced by the 
+                    % filter at each frequency 'w'. This is crucial for understanding how the filter affects the timing 
+                    % of different frequency components in the input signal.
+                    % &lt;==
+grid on;
+title('Phase Response')
+xlabel('Normalized Radian Frequency');
+ylabel('Phase');
+
+% &lt;-- Answer: If you input a DC value into a highpass filter, what will be
+%             its amplitude?
+%
+% The amplitude of a DC value (0 Hz frequency) input into a highpass filter will be 0. 
+% This is because highpass filters are designed to attenuate low-frequency signals, including 
+% DC components, effectively blocking them and allowing only higher frequency signals to pass through.
+</pre>
+<h2 id="2">QUESTION 2 FREQUENCY FILTERING</h2>
+<h2 id="3">2(a) FILL IN CODE</h2>
+<p>----------- Fill in FreqResponse function down below --------------</p>
+<h2 id="4">2(b) PLOT FREQUENCY RESPONSE</h2>
+<pre class="codeinput">
+<span class="comment">% Define filter coefficients</span>
+b = [-1, -2, -1, 1, 2, 1, -1, -2, -1];
+w = -pi:(pi/100):pi; <span class="comment">% Frequency range</span>
+
+<span class="comment">% Generate frequency response</span>
+H = FreqResponse(b, w);
+
+<span class="comment">% Plot magnitude and phase responses</span>
+figure;
+subplot(2,1,1);
+plot(w, abs(H)); <span class="comment">% Magnitude response</span>
+grid <span class="string">on</span>;
+title(<span class="string">'Magnitude Response'</span>);
+xlabel(<span class="string">'Normalized Radian Frequency'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+
+subplot(2,1,2);
+plot(w, angle(H)); <span class="comment">% Phase response</span>
+grid <span class="string">on</span>;
+title(<span class="string">'Phase Response'</span>);
+xlabel(<span class="string">'Normalized Radian Frequency'</span>);
+ylabel(<span class="string">'Phase'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab05_skeleton_01.png" alt=""> <h2 id="5">2(c) EVALUATE FREQUENCY RESPONSE FOR CERTAIN FREQUENCIES</h2>
+<pre class="codeinput">wb = [0 pi/3 (2*pi)/3];
+
+H_wb1 = FreqResponse(b, 0);
+disp([<span class="string">'H('</span> num2str(0) <span class="string">') = '</span> num2str(H_wb1)]);
+H_wb2 = FreqResponse(b, pi/3);
+disp([<span class="string">'H('</span> num2str(pi/3) <span class="string">') = '</span> num2str(H_wb2)]);
+H_wb3 = FreqResponse(b, (2*pi)/3);
+disp([<span class="string">'H('</span> num2str((2 * pi)/3) <span class="string">') = '</span> num2str(H_wb3)]);
+y_2 = FreqResponse(b,wb);
+disp(y_2);
+</pre>
+<pre class="codeoutput">H(0) = -4
+H(1.0472) = -4.5+7.7942i
+H(2.0944) = 0.5+0.86603i
+  -4.0000 + 0.0000i  -4.5000 + 7.7942i   0.5000 + 0.8660i
+
+</pre>
+<h2 id="6">2(d) COMPUTE AND PLOT OUTPUT</h2>
+<pre class="codeinput">n = -12:12; <span class="comment">% Define range for n</span>
+x = 1 + 2*cos((pi/3)*n) - cos((2*pi/3)*n + pi/4); <span class="comment">% Input signal</span>
+
+<span class="comment">%</span>
+y = (y_2(1) * y_2(2) * y_2(3)) * x;
+
+<span class="comment">% Plot x[n]</span>
+figure;
+subplot(2,1,1);
+stem(n, x, <span class="string">'filled'</span>);
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'x[n]'</span>);
+title(<span class="string">'Input Signal'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% Plot frequency response of y[n]</span>
+subplot(2,1,2);
+stem(n, y, <span class="string">'filled'</span>); <span class="comment">% Magnitude response</span>
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'y[n]'</span>);
+title(<span class="string">'Frequency Response'</span>);
+grid <span class="string">on</span>;
+</pre>
+<pre class="codeoutput">Warning: Using only the real component of complex data. 
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab05_skeleton_02.png" alt=""> <h2 id="7">2(e) PLOT OUTPUTS</h2>
+<pre class="codeinput">
+<span class="comment">% Using conv function to compute z[n]</span>
+z = conv(x, b, <span class="string">'same'</span>);
+
+<span class="comment">% Plot x[n] and z[n]</span>
+figure;
+subplot(2,1,1);
+stem(n, x);
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'x[n]'</span>);
+title(<span class="string">'Input Signal'</span>);
+
+subplot(2,1,2);
+stem(n, z);
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'z[n]'</span>);
+title(<span class="string">'Convolution Result'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab05_skeleton_03.png" alt=""> <h2 id="8">2(f) ANSWER QUESTION</h2>
+<pre class="codeinput">
+<span class="comment">% y[n] is the output from the filter applied to x[n], while z[n] is the result of convolution.</span>
+<span class="comment">% Differences may arise due to boundary effects in convolution or differences in how the filter is applied.</span>
+</pre>
+<h2 id="9">QUESTION 3</h2>
+<pre class="codeinput">
+<span class="comment">% DO NOT REMOVE THE LINE BELOW</span>
+<span class="comment">% MAKE SURE 'lite_saturation.wav' IS IN SAME DIRECTORY AS THIS FILE</span>
+<span class="comment">% Audio from: https://freemusicarchive.org/music/lite-saturation/</span>
+[x, fs] = audioread(<span class="string">'lite_saturation.wav'</span>);
+</pre>
+<h2 id="10">3(a) PLOT FREQUENCY RESPONSE</h2>
+<pre class="codeinput">a = [  <span class="keyword">...</span>
+    0.0200    0.0191    0.0163    0.0120    0.0064         0   -0.0066   -0.0130 <span class="keyword">...</span>
+   -0.0185   -0.0225   -0.0247   -0.0247   -0.0222   -0.0172   -0.0097         0 <span class="keyword">...</span>
+    0.0115    0.0244    0.0380    0.0517    0.0647    0.0765    0.0863    0.0938 <span class="keyword">...</span>
+    0.0984    0.1000    0.0984    0.0938    0.0863    0.0765    0.0647    0.0517 <span class="keyword">...</span>
+    0.0380    0.0244    0.0115         0   -0.0097   -0.0172   -0.0222   -0.0247 <span class="keyword">...</span>
+   -0.0247   -0.0225   -0.0185   -0.0130   -0.0066         0    0.0064    0.0120 <span class="keyword">...</span>
+    0.0163    0.0191
+    ];
+
+<span class="comment">% Compute frequency response for filter coefficients a</span>
+Ha = FreqResponse(a, w);
+
+<span class="comment">% Plot magnitude and phase responses</span>
+figure;
+subplot(2,1,1);
+plot(w, abs(Ha));
+grid <span class="string">on</span>;
+title(<span class="string">'Magnitude Response of Filter a'</span>);
+xlabel(<span class="string">'Normalized Radian Frequency'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+
+subplot(2,1,2);
+plot(w, angle(Ha));
+grid <span class="string">on</span>;
+title(<span class="string">'Phase Response of Filter a'</span>);
+xlabel(<span class="string">'Normalized Radian Frequency'</span>);
+ylabel(<span class="string">'Phase'</span>);
+
+<span class="comment">% &lt;== ANSWER TO QUESTION ==&gt;</span>
+<span class="comment">%</span>
+<span class="comment">% The filter a is a lowpass filter because it allows low frequencies to</span>
+<span class="comment">% pass while attenuating high frequencies.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab05_skeleton_04.png" alt=""> <h2 id="11">3(b) APPLY FILTER</h2>
+<pre class="codeinput">
+<span class="comment">% Play original sound</span>
+soundsc(x, fs);
+
+<span class="comment">% Apply filter a on x</span>
+xa = conv(x, a, <span class="string">'same'</span>);
+
+<span class="comment">% Play filtered sound</span>
+soundsc(xa, fs);
+
+<span class="comment">% &lt;==== ANSWER TO QUESTION ====&gt;</span>
+<span class="comment">%</span>
+<span class="comment">% The original sound x and the filtered sound xa differ in that xa has</span>
+<span class="comment">% reduced high-frequency content due to the lowpass filtering effect.</span>
+</pre>
+<h2 id="12">3(c) PLOT FREQUENCY RESPONSE</h2>
+<pre class="codeinput">b = [ <span class="keyword">...</span>
+    0.0200    0.0181    0.0128    0.0051   -0.0039   -0.0124   -0.0188   -0.0221 <span class="keyword">...</span>
+   -0.0212   -0.0162   -0.0076    0.0033    0.0147    0.0247    0.0311    0.0324 <span class="keyword">...</span>
+    0.0272    0.0153   -0.0029   -0.0262   -0.0524   -0.0790   -0.1034   -0.1230 <span class="keyword">...</span>
+   -0.1356    0.8600   -0.1356   -0.1230   -0.1034   -0.0790   -0.0524   -0.0262 <span class="keyword">...</span>
+   -0.0029    0.0153    0.0272    0.0324    0.0311    0.0247    0.0147    0.0033 <span class="keyword">...</span>
+   -0.0076   -0.0162   -0.0212   -0.0221   -0.0188   -0.0124   -0.0039    0.0051 <span class="keyword">...</span>
+    0.0128    0.0181
+    ];
+
+<span class="comment">% Compute frequency response for filter coefficients b</span>
+Hb = FreqResponse(b, w);
+
+<span class="comment">% Plot magnitude and phase responses</span>
+figure;
+subplot(2,1,1);
+plot(w, abs(Hb));
+grid <span class="string">on</span>;
+title(<span class="string">'Magnitude Response of Filter b'</span>);
+xlabel(<span class="string">'Normalized Radian Frequency'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+
+subplot(2,1,2);
+plot(w, angle(Hb));
+grid <span class="string">on</span>;
+title(<span class="string">'Phase Response of Filter b'</span>);
+xlabel(<span class="string">'Normalized Radian Frequency'</span>);
+ylabel(<span class="string">'Phase'</span>);
+
+<span class="comment">% &lt;==== ANSWER TO QUESTION ====&gt;</span>
+<span class="comment">%</span>
+<span class="comment">% The filter b is a bandstop filter because it attenuates frequencies in a</span>
+<span class="comment">% specific range while allowing others to pass.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab05_skeleton_05.png" alt=""> <h2 id="13">3(d) APPLY FILTER</h2>
+<pre class="codeinput">
+<span class="comment">% Apply filter b on x</span>
+xb = conv(x, b, <span class="string">'same'</span>);
+
+<span class="comment">% Play filtered sound</span>
+soundsc(xb, fs);
+
+<span class="comment">% &lt;==== ANSWER TO QUESTION ====&gt;</span>
+<span class="comment">%</span>
+<span class="comment">% The original sound x and the filtered sound xb differ significantly.</span>
+<span class="comment">% The bandstop filter b removes certain frequency components from the original sound, resulting in a sound that lacks those frequencies.</span>
+</pre>
+<h2 id="14">3(e) PLOT FREQUENCY RESPONSE</h2>
+<pre class="codeinput">
+<span class="comment">% Compute new filter coefficients c</span>
+c = [1, zeros(1, length(b)-1)] - b - a; <span class="comment">% c[n] = δ[n] - b[n] - a[n]</span>
+Hc = FreqResponse(c, w); <span class="comment">% Compute frequency response for c</span>
+
+<span class="comment">% Plot magnitude and phase responses</span>
+figure;
+subplot(2,1,1);
+plot(w, abs(Hc));
+grid <span class="string">on</span>;
+title(<span class="string">'Magnitude Response of Filter c'</span>);
+xlabel(<span class="string">'Normalized Radian Frequency'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+
+subplot(2,1,2);
+plot(w, angle(Hc));
+grid <span class="string">on</span>;
+title(<span class="string">'Phase Response of Filter c'</span>);
+xlabel(<span class="string">'Normalized Radian Frequency'</span>);
+ylabel(<span class="string">'Phase'</span>);
+
+<span class="comment">% &lt;==== ANSWER TO QUESTION ====&gt;</span>
+<span class="comment">%</span>
+<span class="comment">% The filter c is a highpass filter because it allows high frequencies to</span>
+<span class="comment">% pass while attenuating low frequencies.</span>
+<span class="comment">%</span>
+<span class="comment">% This result occurs because the filter coefficients are designed to</span>
+<span class="comment">% subtract the effects of the lowpass filters a and b from the input signal.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab05_skeleton_06.png" alt=""> <h2 id="15">3(f) APPLY FILTER</h2>
+<pre class="codeinput">
+<span class="comment">% Apply filter c on x</span>
+xc = conv(x, c, <span class="string">'same'</span>);
+
+<span class="comment">% Play filtered sound</span>
+soundsc(xc, fs);
+
+<span class="comment">% &lt;==== ANSWER TO QUESTION ====&gt;</span>
+<span class="comment">%</span>
+<span class="comment">% The original sound x and the filtered sound xc differ in that xc emphasizes higher frequency components while attenuating lower frequencies.</span>
+<span class="comment">% This is consistent with the highpass nature of filter c, which removes low-frequency content from the audio signal.</span>
+</pre>
+<h2 id="16">3(g) ANSWER QUESTION</h2>
+<pre class="codeinput">
+<span class="comment">% Plot impulse responses of the three filters</span>
+figure;
+subplot(3,1,1);
+stem(a);
+title(<span class="string">'Impulse Response of Filter a'</span>);
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+
+subplot(3,1,2);
+stem(b);
+title(<span class="string">'Impulse Response of Filter b'</span>);
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+
+subplot(3,1,3);
+stem(c);
+title(<span class="string">'Impulse Response of Filter c'</span>);
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+
+<span class="comment">% &lt;==== ANSWER TO QUESTION ====&gt;</span>
+<span class="comment">%</span>
+<span class="comment">% The distinguishing difference between these three impulse responses is their shape and the frequency characteristics they represent.</span>
+<span class="comment">% Filter a has a lowpass characteristic, filter b has a bandstop characteristic, and filter c has a highpass characteristic.</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab05_skeleton_07.png" alt=""> <h2 id="17">ALL FUNCTIONS SUPPORTING THIS CODE %%</h2>
+<pre class="codeinput">
+<span class="keyword">function</span> H = FreqResponse(b,w)
+<span class="comment">%  ===&gt; FreqResponse computes the frequency response of an FIR filter.</span>
+    <span class="comment">% Inputs:</span>
+    <span class="comment">%   b - vector of filter coefficients</span>
+    <span class="comment">%   w - vector of angular frequencies</span>
+    <span class="comment">% Output:</span>
+    <span class="comment">%   H - complex-valued frequency response &lt;===</span>
+
+    M = length(b) - 1; <span class="comment">% Order of the filter</span>
+    H = zeros(size(w)); <span class="comment">% Initialize frequency response</span>
+
+    <span class="keyword">for</span> k = 0:M
+        H = H + b(k+1) * exp(-1j * w * k); <span class="comment">% Compute frequency response</span>
+    <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% QUESTION 1 COMMENTING
+
+% DO NOT REMOVE THE LINE BELOW 
+% MAKE SURE 'eel3135_lab05_comment.m' IS IN SAME DIRECTORY AS THIS FILE
+clear; close all;
+type('eel3135_lab05_comment.m')
+
+%% QUESTION 2 FREQUENCY FILTERING 
+
+%% 2(a) FILL IN CODE
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Fill in FreqResponse function down below REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+
+%% 2(b) PLOT FREQUENCY RESPONSE
+
+% Define filter coefficients
+b = [-1, -2, -1, 1, 2, 1, -1, -2, -1];
+w = -pi:(pi/100):pi; % Frequency range
+
+% Generate frequency response
+H = FreqResponse(b, w);
+
+% Plot magnitude and phase responses
+figure;
+subplot(2,1,1);
+plot(w, abs(H)); % Magnitude response
+grid on;
+title('Magnitude Response');
+xlabel('Normalized Radian Frequency');
+ylabel('Amplitude');
+
+subplot(2,1,2);
+plot(w, angle(H)); % Phase response
+grid on;
+title('Phase Response');
+xlabel('Normalized Radian Frequency');
+ylabel('Phase');
+
+%% 2(c) EVALUATE FREQUENCY RESPONSE FOR CERTAIN FREQUENCIES
+
+wb = [0 pi/3 (2*pi)/3];
+
+H_wb1 = FreqResponse(b, 0);
+disp(['H(' num2str(0) ') = ' num2str(H_wb1)]);
+H_wb2 = FreqResponse(b, pi/3);
+disp(['H(' num2str(pi/3) ') = ' num2str(H_wb2)]);
+H_wb3 = FreqResponse(b, (2*pi)/3);
+disp(['H(' num2str((2 * pi)/3) ') = ' num2str(H_wb3)]);
+y_2 = FreqResponse(b,wb);
+disp(y_2);
+%% 2(d) COMPUTE AND PLOT OUTPUT
+
+n = -12:12; % Define range for n
+x = 1 + 2*cos((pi/3)*n) - cos((2*pi/3)*n + pi/4); % Input signal
+
+% 
+y = (y_2(1) * y_2(2) * y_2(3)) * x;
+
+% Plot x[n]
+figure;
+subplot(2,1,1);
+stem(n, x, 'filled');
+xlabel('Samples');
+ylabel('x[n]');
+title('Input Signal');
+grid on;
+
+% Plot frequency response of y[n]
+subplot(2,1,2);
+stem(n, y, 'filled'); % Magnitude response
+xlabel('Samples');
+ylabel('y[n]');
+title('Frequency Response');
+grid on;
+
+%% 2(e) PLOT OUTPUTS
+
+% Using conv function to compute z[n]
+z = conv(x, b, 'same');
+
+% Plot x[n] and z[n]
+figure;
+subplot(2,1,1);
+stem(n, x);
+xlabel('Samples');
+ylabel('x[n]');
+title('Input Signal');
+
+subplot(2,1,2);
+stem(n, z);
+xlabel('Samples');
+ylabel('z[n]');
+title('Convolution Result');
+
+%% 2(f) ANSWER QUESTION
+
+% y[n] is the output from the filter applied to x[n], while z[n] is the result of convolution.
+% Differences may arise due to boundary effects in convolution or differences in how the filter is applied.
+
+%% QUESTION 3
+
+% DO NOT REMOVE THE LINE BELOW 
+% MAKE SURE 'lite_saturation.wav' IS IN SAME DIRECTORY AS THIS FILE
+% Audio from: https://freemusicarchive.org/music/lite-saturation/
+[x, fs] = audioread('lite_saturation.wav');
+
+%% 3(a) PLOT FREQUENCY RESPONSE
+
+
+a = [  ...
+    0.0200    0.0191    0.0163    0.0120    0.0064         0   -0.0066   -0.0130 ...
+   -0.0185   -0.0225   -0.0247   -0.0247   -0.0222   -0.0172   -0.0097         0 ...
+    0.0115    0.0244    0.0380    0.0517    0.0647    0.0765    0.0863    0.0938 ...
+    0.0984    0.1000    0.0984    0.0938    0.0863    0.0765    0.0647    0.0517 ...
+    0.0380    0.0244    0.0115         0   -0.0097   -0.0172   -0.0222   -0.0247 ...
+   -0.0247   -0.0225   -0.0185   -0.0130   -0.0066         0    0.0064    0.0120 ...
+    0.0163    0.0191
+    ];
+
+% Compute frequency response for filter coefficients a
+Ha = FreqResponse(a, w);
+
+% Plot magnitude and phase responses
+figure;
+subplot(2,1,1);
+plot(w, abs(Ha));
+grid on;
+title('Magnitude Response of Filter a');
+xlabel('Normalized Radian Frequency');
+ylabel('Amplitude');
+
+subplot(2,1,2);
+plot(w, angle(Ha));
+grid on;
+title('Phase Response of Filter a');
+xlabel('Normalized Radian Frequency');
+ylabel('Phase');
+
+% <== ANSWER TO QUESTION ==>
+%
+% The filter a is a lowpass filter because it allows low frequencies to 
+% pass while attenuating high frequencies.
+
+%% 3(b) APPLY FILTER
+
+% Play original sound
+soundsc(x, fs);
+
+% Apply filter a on x
+xa = conv(x, a, 'same');
+
+% Play filtered sound
+soundsc(xa, fs);
+
+% <==== ANSWER TO QUESTION ====>
+%
+% The original sound x and the filtered sound xa differ in that xa has 
+% reduced high-frequency content due to the lowpass filtering effect.
+
+%% 3(c) PLOT FREQUENCY RESPONSE
+
+b = [ ...
+    0.0200    0.0181    0.0128    0.0051   -0.0039   -0.0124   -0.0188   -0.0221 ...
+   -0.0212   -0.0162   -0.0076    0.0033    0.0147    0.0247    0.0311    0.0324 ...
+    0.0272    0.0153   -0.0029   -0.0262   -0.0524   -0.0790   -0.1034   -0.1230 ...
+   -0.1356    0.8600   -0.1356   -0.1230   -0.1034   -0.0790   -0.0524   -0.0262 ...
+   -0.0029    0.0153    0.0272    0.0324    0.0311    0.0247    0.0147    0.0033 ...
+   -0.0076   -0.0162   -0.0212   -0.0221   -0.0188   -0.0124   -0.0039    0.0051 ...
+    0.0128    0.0181
+    ];
+
+% Compute frequency response for filter coefficients b
+Hb = FreqResponse(b, w);
+
+% Plot magnitude and phase responses
+figure;
+subplot(2,1,1);
+plot(w, abs(Hb));
+grid on;
+title('Magnitude Response of Filter b');
+xlabel('Normalized Radian Frequency');
+ylabel('Amplitude');
+
+subplot(2,1,2);
+plot(w, angle(Hb));
+grid on;
+title('Phase Response of Filter b');
+xlabel('Normalized Radian Frequency');
+ylabel('Phase');
+
+% <==== ANSWER TO QUESTION ====>
+%
+% The filter b is a bandstop filter because it attenuates frequencies in a
+% specific range while allowing others to pass.
+
+%% 3(d) APPLY FILTER
+
+% Apply filter b on x
+xb = conv(x, b, 'same');
+
+% Play filtered sound
+soundsc(xb, fs);
+
+% <==== ANSWER TO QUESTION ====>
+%
+% The original sound x and the filtered sound xb differ significantly. 
+% The bandstop filter b removes certain frequency components from the original sound, resulting in a sound that lacks those frequencies.
+
+%% 3(e) PLOT FREQUENCY RESPONSE
+
+% Compute new filter coefficients c
+c = [1, zeros(1, length(b)-1)] - b - a; % c[n] = δ[n] - b[n] - a[n]
+Hc = FreqResponse(c, w); % Compute frequency response for c
+
+% Plot magnitude and phase responses
+figure;
+subplot(2,1,1);
+plot(w, abs(Hc));
+grid on;
+title('Magnitude Response of Filter c');
+xlabel('Normalized Radian Frequency');
+ylabel('Amplitude');
+
+subplot(2,1,2);
+plot(w, angle(Hc));
+grid on;
+title('Phase Response of Filter c');
+xlabel('Normalized Radian Frequency');
+ylabel('Phase');
+
+% <==== ANSWER TO QUESTION ====>
+%
+% The filter c is a highpass filter because it allows high frequencies to 
+% pass while attenuating low frequencies.
+% 
+% This result occurs because the filter coefficients are designed to 
+% subtract the effects of the lowpass filters a and b from the input signal.
+
+
+%% 3(f) APPLY FILTER
+
+% Apply filter c on x
+xc = conv(x, c, 'same');
+
+% Play filtered sound
+soundsc(xc, fs);
+
+% <==== ANSWER TO QUESTION ====>
+%
+% The original sound x and the filtered sound xc differ in that xc emphasizes higher frequency components while attenuating lower frequencies.
+% This is consistent with the highpass nature of filter c, which removes low-frequency content from the audio signal.
+
+
+%% 3(g) ANSWER QUESTION
+
+% Plot impulse responses of the three filters
+figure;
+subplot(3,1,1);
+stem(a);
+title('Impulse Response of Filter a');
+xlabel('Samples');
+ylabel('Amplitude');
+
+subplot(3,1,2);
+stem(b);
+title('Impulse Response of Filter b');
+xlabel('Samples');
+ylabel('Amplitude');
+
+subplot(3,1,3);
+stem(c);
+title('Impulse Response of Filter c');
+xlabel('Samples');
+ylabel('Amplitude');
+
+% <==== ANSWER TO QUESTION ====>
+%
+% The distinguishing difference between these three impulse responses is their shape and the frequency characteristics they represent.
+% Filter a has a lowpass characteristic, filter b has a bandstop characteristic, and filter c has a highpass characteristic.
+
+
+%% ALL FUNCTIONS SUPPORTING THIS CODE %%
+
+function H = FreqResponse(b,w)
+%  ===> FreqResponse computes the frequency response of an FIR filter.
+    % Inputs:
+    %   b - vector of filter coefficients
+    %   w - vector of angular frequencies
+    % Output:
+    %   H - complex-valued frequency response <===
+
+    M = length(b) - 1; % Order of the filter
+    H = zeros(size(w)); % Initialize frequency response
+
+    for k = 0:M
+        H = H + b(k+1) * exp(-1j * w * k); % Compute frequency response
+    end
+
+end
+##### SOURCE END #####
+-->
+</body>
+</html>

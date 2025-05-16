@@ -1,0 +1,177 @@
+%% QUESTION #1 COMMENTING
+clear
+close all
+clc
+
+%% DEFINE FILTER AND INPUT
+w = -pi:pi/8000:pi-pi/8000; % Frequency range for plotting
+N = 100; % Number of Samples
+n = 0:(N-1); % Sample indices
+
+% FILTER 1
+a1 = [1 0 0 0 0 0 0 -0.9]; % Coefficients for the denomintor (poles)
+b1 = 1; % Coefficients fro the numerator (zeros)
+% <-- Answer: Is this an IIR filter or a FIR filter? Why?
+% This is an Infinite Impulse Response (IIR) filter because it has poles
+% that are in it's structure (not at 0; z = -1, 0.9)
+
+% <-- Answer: How many poles does this system have? How many zeros? 
+% This system has 7 poles and 1 zero
+
+% FILTER 2
+a2 = [1 -0.9]; % Coeffieients of the denominatior (poles)
+b2 = 1; % Coeffiecients of the numerator (zeros)
+% <-- Answer: Is this an IIR filter or a FIR filter? Why?
+% This is an IIR filter becausee it has poles in locations other than zero
+% (z = -1, 0.9)
+
+% <-- Answer: How many poles does this system have? How many zeros? 
+% The system has 1 pole and 1 zero
+
+% INPUT
+x = zeros(N,1); % Initializes input signal
+x(1) = 1; % Sets first sample to 1 (impulse signal)
+
+%% DEFINE AND PLOT OUTPUT
+
+% OUTPUT 1
+y1 = filter(b1,a1,x); % Applies filter 1 to input signal
+y2 = filter(b2,a2,x); % Applies filter 2 to input signal
+
+% OUTPUT 2
+H1 = DTFT(y1,w); % Compute the DTFT of the output from filter 1
+H2 = DTFT(y2,w); % Compute the DTFT of the output from filter 2
+
+% OUTPUT 3: CASCADE FILTERS
+y3 = filter(b2, a2, filter(b1, a1, x)); % Cascade filter 1 and filter 2
+H3 = DTFT(y3,w); % Computes the DTFT of the cascaded output
+% <-- Express H3(z) as a function of H1(z) and H2(z) 
+% H3(z) = H1(z) * H2(z), since casecading filters in the time domain
+% corresponds to multiplication in the frequency domain, specifically 
+% H3(z) = z^8/[(z^7 - 0.9)*(z^7 + 0.8)]
+
+
+% PLOT THE FREQUENCY REPONSE IMPULSE RESPONSE AND DTFT
+figure(1) 
+subplot(3,1,1)
+stem(n,y1)
+xlabel('Time (Samples)')
+ylabel('h[n]')
+subplot(3,1,2)
+plot(w,abs(H1))
+title('Magnitude Response of h1')
+xlabel('Normalized Frequency (Radians)')
+ylabel('Magnitude')
+subplot(3,1,3)
+pzplot(b1,a1)
+axis equal
+
+% PLOT THE FREQUENCY REPONSE IMPULSE RESPONSE AND DTFT
+figure(2) 
+subplot(3,1,1)
+stem(n,y2)
+xlabel('Time (Samples)')
+ylabel('h[n]')
+subplot(3,1,2)
+plot(w,abs(H2))
+title('Magnitude Response of h2')
+xlabel('Normalized Frequency (Radians)')
+ylabel('Magnitude')
+subplot(3,1,3)
+pzplot(b2,a2)
+axis equal
+
+% PLOT THE FREQUENCY REPONSE IMPULSE RESPONSE AND DTFT
+figure(3) 
+subplot(2,1,1)
+stem(n,y3)
+xlabel('Time (Samples)')
+ylabel('h[n]')
+subplot(2,1,2)
+plot(w,abs(H3))
+title('Magnitude Response of h3')
+xlabel('Normalized Frequency (Radians)')
+ylabel('Magnitude')
+
+
+
+
+
+%% ALL FUNCTIONS SUPPORTING THIS CODE %%
+% ==================================================================
+% NOTE: YOU DO NOT NEED TO ADD COMMENTS IN THE CODE BELOW. WE JUST 
+% NEEDED POLE-ZERO PLOTTING CODE AND THUS WROTE IT. 
+% ==================================================================
+function pzplot(b,a)
+% PZPLOT(B,A)  plots the pole-zero plot for the filter described by
+% vectors A and B.  The filter is a "Direct Form II Transposed"
+% implementation of the standard difference equation:
+% 
+%    a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)
+%                          - a(2)*y(n-1) - ... - a(na+1)*y(n-na)
+% 
+
+    % MODIFY THE POLYNOMIALS TO FIND THE ROOTS 
+    b  = b(1:find(b,1,'last'));
+    a  = a(1:find(a,1,'last'));
+    b1 = zeros(max(length(a),length(b)),1); % Need to add zeros to get the right roots
+    a1 = zeros(max(length(a),length(b)),1); % Need to add zeros to get the right roots
+    b1(1:length(b)) = b;    % New a with all values
+    a1(1:length(a)) = a;    % New a with all values
+
+    % FIND THE ROOTS OF EACH POLYNOMIAL AND PLOT THE LOCATIONS OF THE ROOTS
+    h1 = plot(real(roots(a1)), imag(roots(a1)));
+    hold on;
+    h2 = plot(real(roots(b1)), imag(roots(b1)));
+    hold off;
+
+    % DRAW THE UNIT CIRCLE
+    circle(0,0,1)
+    
+    % MAKE THE POLES AND ZEROS X's AND O's
+    set(h1, 'LineStyle', 'none', 'Marker', 'x', 'MarkerFaceColor','none', 'linewidth', 1.5, 'markersize', 8); 
+    set(h2, 'LineStyle', 'none', 'Marker', 'o', 'MarkerFaceColor','none', 'linewidth', 1.5, 'markersize', 8); 
+    axis equal;
+    
+    % DRAW VERTICAL AND HORIZONTAL LINES
+    xminmax = xlim();
+    yminmax = ylim();
+    line([xminmax(1) xminmax(2)],[0 0], 'linestyle', ':', 'linewidth', 0.5, 'color', [1 1 1]*.1)
+    line([0 0],[yminmax(1) yminmax(2)], 'linestyle', ':', 'linewidth', 0.5, 'color', [1 1 1]*.1)
+    
+    % ADD LABELS AND TITLE
+    xlabel('Real Part')
+    ylabel('Imaginary Part')
+    title('Pole-Zero Plot')
+    
+end
+
+function circle(x,y,r)
+% CIRCLE(X,Y,R)  draws a circle with horizontal center X, vertical center
+% Y, and radius R. 
+%
+    
+    % ANGLES TO DRAW
+    ang=0:0.01:2*pi; 
+    
+    % DEFINE LOCATIONS OF CIRCLE
+    xp=r*cos(ang);
+    yp=r*sin(ang);
+    
+    % PLOT CIRCLE
+    hold on;
+    plot(x+xp,y+yp, ':', 'linewidth', 0.5, 'color', [1 1 1]*.1);
+    hold off;
+    
+end
+
+function H = DTFT(x,w)
+% DTFT(X,W)  compute the Discrete-time Fourier Transform of signal X
+% acroess frequencies defined by W. 
+
+    H = zeros(length(w),1);
+    for nn = 1:length(x)
+        H = H + x(nn).*exp(-1j*w.'*(nn-1));
+    end
+    
+end

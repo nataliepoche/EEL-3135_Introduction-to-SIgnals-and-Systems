@@ -1,0 +1,1107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>eel3135_lab09_skeleton</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-04-08">
+<meta name="DC.source" content="eel3135_lab09_skeleton.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">QUESTION 1 COMMENTING</a>
+</li>
+<li>
+<a href="#2">QUESTION 2 Thinking in Three Domains 1</a>
+</li>
+<li>
+<a href="#3">2 (a) Answer question</a>
+</li>
+<li>
+<a href="#4">2 (b) Answer question</a>
+</li>
+<li>
+<a href="#5">2 (c) Plot inputs and outputs</a>
+</li>
+<li>
+<a href="#6">2 (d) Answer question</a>
+</li>
+<li>
+<a href="#7">2 (e) Plot impulse response</a>
+</li>
+<li>
+<a href="#8">2 (f) Answer question</a>
+</li>
+<li>
+<a href="#9">2 (g) Plot freqeuency response</a>
+</li>
+<li>
+<a href="#10">2 (h) Answer question</a>
+</li>
+<li>
+<a href="#11">2 (i) Plot pole-zero plot</a>
+</li>
+<li>
+<a href="#12">2 (j) Answer question</a>
+</li>
+<li>
+<a href="#13">2 (k) Submit file on Canvas</a>
+</li>
+<li>
+<a href="#14">QUESTION 3 Thinking in Three Domains 2</a>
+</li>
+<li>
+<a href="#15">3 (a) Answer question</a>
+</li>
+<li>
+<a href="#16">3 (b) Answer question</a>
+</li>
+<li>
+<a href="#17">3 (c) Plot inputs and outputs</a>
+</li>
+<li>
+<a href="#18">3 (d) Answer question</a>
+</li>
+<li>
+<a href="#19">3 (e) Plot impulse response</a>
+</li>
+<li>
+<a href="#20">3 (f) Answer question</a>
+</li>
+<li>
+<a href="#21">3 (g) Plot freqeuency response</a>
+</li>
+<li>
+<a href="#22">3 (h) Answer question</a>
+</li>
+<li>
+<a href="#23">3 (i) Plot pole-zero plot</a>
+</li>
+<li>
+<a href="#24">3 (j) Answer question</a>
+</li>
+<li>
+<a href="#25">3 (k) Submit file on Canvas</a>
+</li>
+<li>
+<a href="#26">ALL FUNCTIONS SUPPORTING THIS CODE %% function pzplot(b,a)</a>
+</li>
+</ul>
+</div>
+<h2 id="1">QUESTION 1 COMMENTING</h2>
+<pre class="codeinput">
+<span class="comment">% DO NOT REMOVE THE LINE BELOW</span>
+clear; close <span class="string">all</span>; clc;
+</pre>
+<h2 id="2">QUESTION 2 Thinking in Three Domains 1</h2>
+<pre class="codeinput">
+<span class="comment">% LOAD AUDIO</span>
+<span class="comment">% MAKE SURE 'music.wav' is in the same directory!</span>
+[x, fs] = audioread(<span class="string">'music.wav'</span>);
+
+<span class="comment">% DEFINE AXES</span>
+w = -pi:pi/8000:pi-pi/8000;
+t = 1/fs:1/fs:length(x)/fs;
+
+N = 100;
+n = 0:(N-1);
+x1 = zeros(2*N, 1);
+x1(1) = 1;
+</pre>
+<h2 id="3">2 (a) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% A Low-pass filter is used because the string bass have lower frequencies</span>
+<span class="comment">% compared to guitars, which have higher frequencies. A Low-pass filter</span>
+<span class="comment">% allows the lower frequencies of the pass to pass through while</span>
+<span class="comment">% accentuating higher frequencies, the guitar.</span>
+</pre>
+<h2 id="4">2 (b) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% IIR Filters because even though there are only a limited number of values</span>
+<span class="comment">% for poles and zeroes, poles are used to amplify signals arount certain center</span>
+<span class="comment">% frequencies</span>
+</pre>
+<h2 id="5">2 (c) Plot inputs and outputs</h2>
+<pre class="codeinput">
+<span class="comment">% DEFINE POLES (for a low-pass filter)</span>
+center = (0.5e4/5e4)*2*pi*2*pi;
+
+mypoles = [ <span class="keyword">...</span>
+    0.9*exp(1j*center*0.1) <span class="keyword">...</span>
+    0.9*exp(-1j*center*0.1) <span class="keyword">...</span>
+    0.85*exp(1j*center*0.25) <span class="keyword">...</span>
+    0.85*exp(-1j*center*0.25) <span class="keyword">...</span>
+    0.8*exp(1j*center*(1/10)) <span class="keyword">...</span>
+    0.8*exp(-1j*center*(1/10)) <span class="keyword">...</span>
+    0.8*exp(1j*center*(1/6)) <span class="keyword">...</span>
+    0.8*exp(-1j*center*(1/6)) <span class="keyword">...</span>
+    0.8*exp(1j*center*(1/5)) <span class="keyword">...</span>
+    0.8*exp(-1j*center*(1/5)) <span class="keyword">...</span>
+];
+
+<span class="comment">% DEFINE ZEROS (to shape the filter response)</span>
+myzeros = [ <span class="keyword">...</span>
+    -1 <span class="keyword">...</span>
+    0.99*exp(1j*(((2*pi*0.98)/fs)+0.5)*2*pi) <span class="keyword">...</span>
+    0.99*exp(-1j*(((2*pi*0.98)/fs)+0.5)*2*pi) <span class="keyword">...</span>
+    0.99*exp(1j*(((2*pi*0.95)/fs)+0.5)*2*pi) <span class="keyword">...</span>
+    0.99*exp(-1j*(((2*pi*0.95)/fs)+0.5)*2*pi) <span class="keyword">...</span>
+    0.99*exp(1j*(((2*pi*0.97)/fs)+0.5)*2*pi) <span class="keyword">...</span>
+    0.99*exp(-1j*(((2*pi*0.97)/fs)+0.5)*2*pi) <span class="keyword">...</span>
+    0.99*exp(1j*(((2*pi*0.93)/fs)+0.5)*2*pi) <span class="keyword">...</span>
+    0.99*exp(-1j*(((2*pi*0.93)/fs)+0.5)*2*pi) <span class="keyword">...</span>
+];
+
+<span class="comment">% CONVERT POLES AND ZEROS INTO COEFFICIENTS</span>
+[b1, a1] = pz2ba(mypoles, myzeros);
+
+<span class="comment">% COMPUTE GAIN TO MAINTAIN SIGNAL AMPLITUDE AROUND SOME FREQUENCY</span>
+G = abs(sum(a1.*exp(-1j.*0.5e4/5e4*2*pi.*(0:(length(a1)-1))))./sum(b1.*exp(-1j.*0.5e4/5e4*2*pi.*(0:(length(b1)-1)))));
+
+<span class="comment">% FILTER INPUT</span>
+y = filter(G*b1, a1, x);
+
+<span class="comment">% PLOT FREQUENCY DOMAIN AND TIME DOMAIN INPUT / OUTPUT</span>
+
+<span class="comment">% COMPUTE FREQUENCY DOMAIN REPRESENTATION</span>
+X = DTFT(x, w);
+Y = DTFT(y, w);
+
+<span class="comment">% PLOT FREQUENCY DOMAIN</span>
+figure;
+subplot(211);
+plot(w, abs(X));
+xlabel(<span class="string">'Normalized Frequency (Radians)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'Input Signal Frequency Domain'</span>);
+
+subplot(212)
+plot(w, abs(Y));
+xlabel(<span class="string">'Normalized Frequency (Radians)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'Output Signal Frequency Domain'</span>);
+
+<span class="comment">% PLOT TIME DOMAIN</span>
+figure;
+subplot(211);
+plot(t, x);
+xlabel(<span class="string">'Time [s]'</span>);
+ylabel(<span class="string">'x[n]'</span>);
+title(<span class="string">'Input Signal Time Domain'</span>);
+
+subplot(212);
+plot(t, y);
+xlabel(<span class="string">'Time [s]'</span>);
+ylabel(<span class="string">'y[n]'</span>);
+title(<span class="string">'Output Signal Time Domain'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab09_skeleton_01.png" alt=""> <img vspace="5" hspace="5" src="eel3135_lab09_skeleton_02.png" alt=""> <h2 id="6">2 (d) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% The plots show that the filter attentuates high frequencies whil passing</span>
+<span class="comment">% the lower frequncies. So the flter does show the areas where the guitar</span>
+<span class="comment">% dominates as they are lower in the output time domain.</span>
+</pre>
+<h2 id="7">2 (e) Plot impulse response</h2>
+<pre class="codeinput">y1 = filter(b1, a1, x1);
+
+figure;
+stem(y1);
+title(<span class="string">'Impulse Repsonse h[n]'</span>);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'h[n]'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab09_skeleton_03.png" alt=""> <h2 id="8">2 (f) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% The system is an IIR filter with a damped response where there are zeros</span>
+<span class="comment">% with magnitudes less than 1. Also, since there are a lot of poles near</span>
+<span class="comment">% the unit cercle smaller than one, the systme is stable.</span>
+</pre>
+<h2 id="9">2 (g) Plot freqeuency response</h2>
+<pre class="codeinput">H_1 = DTFT(y1, w);
+
+figure;
+plot(w,abs(H_1));
+title(<span class="string">'Frequency Response |H(w)|'</span>);
+xlabel(<span class="string">'Magnitude (Radians)'</span>);
+ylabel(<span class="string">'|H(w)|'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab09_skeleton_04.png" alt=""> <h2 id="10">2 (h) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% The filter shows a low pass response, which is what we are looking for.</span>
+<span class="comment">% It does have a transition band slope that could be caused by anything.</span>
+<span class="comment">% The filter also has a mirror effect, but looking only at the positive</span>
+<span class="comment">% numbers, it is low-pass</span>
+</pre>
+<h2 id="11">2 (i) Plot pole-zero plot</h2>
+<pre class="codeinput">
+<span class="comment">% PLOT POLE-ZERO PLOT</span>
+figure;
+pzplot(b1, a1);
+axis <span class="string">equal</span>;
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab09_skeleton_05.png" alt=""> <h2 id="12">2 (j) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% The filter is a lowpass filter since all the poles are centered around</span>
+<span class="comment">% lower frequencies to aplify them. And the zeros are centered around the</span>
+<span class="comment">% higher frequencies. There is a zero at the origin, but there isn't much</span>
+<span class="comment">% signigicance since there are much more poles than zeros. The system is</span>
+<span class="comment">% table since all the poles have a magnitude less than 0.</span>
+</pre>
+<h2 id="13">2 (k) Submit file on Canvas</h2>
+<pre class="codeinput">
+<span class="comment">% PLAY MUSIC</span>
+
+disp(<span class="string">'Playing Original Music ... '</span>)
+soundsc(x, fs)
+pause(length(x)/fs*1.1)
+
+disp(<span class="string">'Playing Filtered Music ... '</span>)
+soundsc(y, fs)
+
+<span class="comment">% SAVE RESULT</span>
+
+<span class="comment">% NORMALIZE THE SIGNAL TO AVOID CLIPPING</span>
+audiowrite(<span class="string">'q2.wav'</span>, y./max(abs(y)), fs)
+save(<span class="string">'q2.mat'</span>, <span class="string">'b1'</span>, <span class="string">'a1'</span>);
+</pre>
+<pre class="codeoutput">Playing Original Music ... 
+Playing Filtered Music ... 
+</pre>
+<h2 id="14">QUESTION 3 Thinking in Three Domains 2</h2>
+<pre class="codeinput">
+<span class="comment">% LOAD AUDIO</span>
+<span class="comment">% MAKE SURE 'music.wav' is in the same directory!</span>
+[x, fs] = audioread(<span class="string">'music.wav'</span>);
+
+<span class="comment">% DEFINE AXES</span>
+w = -pi:pi/8000:pi-pi/8000;
+t = 1/fs:1/fs:length(x)/fs;
+
+N = 200;
+n = 0:(N-1);
+x1 = zeros(2*N, 1);
+x1(1) = 1;
+</pre>
+<h2 id="15">3 (a) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% The type of filter is high pass because the guitar has higher frequencies</span>
+<span class="comment">% compared to the string bass, so high-pass filter will allow for the</span>
+<span class="comment">% higher frequencies while attentuating the lower frequencies. The bass is</span>
+<span class="comment">% somewhat removed, so the sound is really smalle, but due to the harmonics</span>
+<span class="comment">% of the bass, some of the sound isn't moved, espacially at the end.</span>
+</pre>
+<h2 id="16">3 (b) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% FIR Filter because FIR filters are generally stable and can be designed</span>
+<span class="comment">% to have linear phase responses, which is good for audio applications.</span>
+<span class="comment">% Additionally the requirement of having no more than non-zero coefficients</span>
+<span class="comment">% fits well with FIR.</span>
+</pre>
+<h2 id="17">3 (c) Plot inputs and outputs</h2>
+<pre class="codeinput">
+<span class="comment">% DEFINE POLES (for a high-pass filter)</span>
+mypoles = [];
+
+<span class="comment">% DEFINE ZEROS (to shape the filter response)</span>
+center = (0.5e4/5e4)*2*pi*2*pi;
+myzeros = [ <span class="keyword">...</span>
+    0.9*exp(1j*center*0.1) <span class="keyword">...</span>
+    0.9*exp(-1j*center*0.1) <span class="keyword">...</span>
+    0.85*exp(1j*center*0.25) <span class="keyword">...</span>
+    0.85*exp(-1j*center*0.25) <span class="keyword">...</span>
+    0.8*exp(1j*center*(1/10)) <span class="keyword">...</span>
+    0.8*exp(-1j*center*(1/10)) <span class="keyword">...</span>
+    0.8*exp(1j*center*(1/6)) <span class="keyword">...</span>
+    0.8*exp(-1j*center*(1/6)) <span class="keyword">...</span>
+    0.8*exp(1j*center*(1/5)) <span class="keyword">...</span>
+    0.8*exp(-1j*center*(1/5)) <span class="keyword">...</span>
+];
+
+<span class="comment">% CONVERT POLES AND ZEROS INTO COEFFICIENTS</span>
+[b2, a2] = pz2ba(mypoles, myzeros);
+
+<span class="comment">% COMPUTE GAIN TO MAINTAIN SIGNAL AMPLITUDE AROUND SOME FREQUENCY</span>
+G = abs(sum(a2.*exp(-1j.*0.5e4/5e4*2*pi.*(0:(length(a2)-1))))./sum(b2.*exp(-1j.*0.5e4/5e4*2*pi.*(0:(length(b2)-1)))));
+
+<span class="comment">% FILTER INPUT</span>
+y = filter(G*b2, a2, x);
+
+<span class="comment">% PLOT FREQUENCY DOMAIN AND TIME DOMAIN INPUT / OUTPUT</span>
+
+<span class="comment">% COMPUTE FREQUENCY DOMAIN REPRESENTATION</span>
+X = DTFT(x, w);
+Y = DTFT(y, w);
+
+<span class="comment">% PLOT FREQUENCY DOMAIN</span>
+figure;
+subplot(211);
+plot(w, abs(X));
+xlabel(<span class="string">'Normalized Frequency (Radians)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'Input Signal Frequency Domain'</span>);
+
+subplot(212)
+plot(w, abs(Y));
+xlabel(<span class="string">'Normalized Frequency (Radians)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'Output Signal Frequency Domain'</span>);
+
+<span class="comment">% PLOT TIME DOMAIN</span>
+figure;
+subplot(211);
+plot(t, x);
+xlabel(<span class="string">'Time [s]'</span>);
+ylabel(<span class="string">'x[n]'</span>);
+title(<span class="string">'Input Signal Time Domain'</span>);
+
+subplot(212);
+plot(t, y);
+xlabel(<span class="string">'Time [s]'</span>);
+ylabel(<span class="string">'y[n]'</span>);
+title(<span class="string">'Output Signal Time Domain'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab09_skeleton_06.png" alt=""> <img vspace="5" hspace="5" src="eel3135_lab09_skeleton_07.png" alt=""> <h2 id="18">3 (d) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% The plot should show a high pass filter where the output at the end where</span>
+<span class="comment">% the string bass is most prominent is smaller than the original input.</span>
+</pre>
+<h2 id="19">3 (e) Plot impulse response</h2>
+<pre class="codeinput">y1 = filter(b2, a2, x1);
+
+figure;
+stem(y1);
+title(<span class="string">'Impulse Repsonse h[n]'</span>);
+xlabel(<span class="string">'Time[s]'</span>);
+ylabel(<span class="string">'h[n]'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab09_skeleton_08.png" alt=""> <h2 id="20">3 (f) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% The impulse response shows that the system is stable since there are no</span>
+<span class="comment">% non-zero poles and the system is finite since there are only 10 values in</span>
+<span class="comment">% the filtered response.</span>
+</pre>
+<h2 id="21">3 (g) Plot freqeuency response</h2>
+<pre class="codeinput">H_1 = DTFT(y1, w);
+
+figure;
+plot(w,abs(H_1));
+title(<span class="string">'Frequency Response |H(w)|'</span>);
+xlabel(<span class="string">'Magnitude (Radians)'</span>);
+ylabel(<span class="string">'|H(w)|'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab09_skeleton_09.png" alt=""> <h2 id="22">3 (h) Answer question</h2>
+<pre class="codeinput">
+<span class="comment">% The magnitude response should confirm that the filter allows high</span>
+<span class="comment">% frequencues to pass wile attentuating lower frequencies. Due to the</span>
+<span class="comment">% steepness we know the order of the high pass is greater than 1.</span>
+</pre>
+<h2 id="23">3 (i) Plot pole-zero plot</h2>
+<pre class="codeinput">
+<span class="comment">% PLOT POLE-ZERO PLOT</span>
+figure;
+pzplot(b2, a2);
+axis <span class="string">equal</span>;
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab09_skeleton_10.png" alt=""> <h2 id="24">3 (j) Answer question</h2>
+<pre class="codeinput"> <span class="comment">% The pole=zero plot shows a high pass filtering system since all the</span>
+ <span class="comment">% zeros are around the 0 radian line, and the system is FIR since there is</span>
+ <span class="comment">% only one pole at the origin. Additionally the system is stable because</span>
+ <span class="comment">% the poles are only inside the unit circle.</span>
+</pre>
+<h2 id="25">3 (k) Submit file on Canvas</h2>
+<pre class="codeinput">
+<span class="comment">% PLAY MUSIC</span>
+
+disp(<span class="string">'Playing Original Music ... '</span>)
+soundsc(x, fs)
+pause(length(x)/fs*1.1)
+
+disp(<span class="string">'Playing Filtered Music ... '</span>)
+soundsc(y, fs)
+
+<span class="comment">% SAVE RESULT</span>
+
+<span class="comment">% NORMALIZE THE SIGNAL TO AVOID CLIPPING</span>
+audiowrite(<span class="string">'q3.wav'</span>, y./max(abs(y)), fs)
+save(<span class="string">'q3.mat'</span>, <span class="string">'b2'</span>, <span class="string">'a2'</span>);
+</pre>
+<pre class="codeoutput">Playing Original Music ... 
+Playing Filtered Music ... 
+</pre>
+<h2 id="26">ALL FUNCTIONS SUPPORTING THIS CODE %% function pzplot(b,a)</h2>
+<p>PZPLOT(B,A) plots the pole-zero plot for the filter described by vectors A and B. The filter is a "Direct Form II Transposed" implementation of the standard difference equation:</p>
+<pre>  a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)
+                        - a(2)*y(n-1) - ... - a(na+1)*y(n-na)</pre>
+<pre class="codeinput">    <span class="comment">% MODIFY THE POLYNOMIALS TO FIND THE ROOTS</span>
+    b1 = zeros(max(length(a),length(b)),1); <span class="comment">% Need to add zeros to get the right roots</span>
+    a1 = zeros(max(length(a),length(b)),1); <span class="comment">% Need to add zeros to get the right roots</span>
+    b1(1:length(b)) = b;    <span class="comment">% New a with all values</span>
+    a1(1:length(a)) = a;    <span class="comment">% New a with all values</span>
+
+    <span class="comment">% FIND THE ROOTS OF EACH POLYNOMIAL AND PLOT THE LOCATIONS OF THE ROOTS</span>
+    h1 = plot(real(roots(a1)), imag(roots(a1)));
+    hold <span class="string">on</span>;
+    h2 = plot(real(roots(b1)), imag(roots(b1)));
+    hold <span class="string">off</span>;
+
+    <span class="comment">% DRAW THE UNIT CIRCLE</span>
+    circle(0,0,1)
+
+    <span class="comment">% MAKE THE POLES AND ZEROS X's AND O's</span>
+    set(h1, <span class="string">'LineStyle'</span>, <span class="string">'none'</span>, <span class="string">'Marker'</span>, <span class="string">'x'</span>, <span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>, <span class="string">'linewidth'</span>, 1.5, <span class="string">'markersize'</span>, 8);
+    set(h2, <span class="string">'LineStyle'</span>, <span class="string">'none'</span>, <span class="string">'Marker'</span>, <span class="string">'o'</span>, <span class="string">'MarkerFaceColor'</span>,<span class="string">'none'</span>, <span class="string">'linewidth'</span>, 1.5, <span class="string">'markersize'</span>, 8);
+    axis <span class="string">equal</span>;
+
+    <span class="comment">% DRAW VERTICAL AND HORIZONTAL LINES</span>
+    xminmax = xlim();
+    yminmax = ylim();
+    line([xminmax(1) xminmax(2)],[0 0], <span class="string">'linestyle'</span>, <span class="string">':'</span>, <span class="string">'linewidth'</span>, 0.5, <span class="string">'color'</span>, [1 1 1]*.1)
+    line([0 0],[yminmax(1) yminmax(2)], <span class="string">'linestyle'</span>, <span class="string">':'</span>, <span class="string">'linewidth'</span>, 0.5, <span class="string">'color'</span>, [1 1 1]*.1)
+
+    <span class="comment">% ADD LABELS AND TITLE</span>
+    xlabel(<span class="string">'Real Part'</span>)
+    ylabel(<span class="string">'Imaginary Part'</span>)
+    title(<span class="string">'Pole-Zero Plot'</span>)
+
+<span class="keyword">end</span>
+
+
+<span class="keyword">function</span> circle(x,y,r)
+<span class="comment">% CIRCLE(X,Y,R)  draws a circle with horizontal center X, vertical center</span>
+<span class="comment">% Y, and radius R.</span>
+<span class="comment">%</span>
+
+    <span class="comment">% ANGLES TO DRAW</span>
+    ang=0:0.01:2*pi;
+
+    <span class="comment">% DEFINE LOCATIONS OF CIRCLE</span>
+    xp=r*cos(ang);
+    yp=r*sin(ang);
+
+    <span class="comment">% PLOT CIRCLE</span>
+    hold <span class="string">on</span>;
+    plot(x+xp,y+yp, <span class="string">':'</span>, <span class="string">'linewidth'</span>, 0.5, <span class="string">'color'</span>, [1 1 1]*.1);
+    hold <span class="string">off</span>;
+
+<span class="keyword">end</span>
+
+
+
+<span class="keyword">function</span> H = DTFT(x,w)
+<span class="comment">% DTFT(X,W)  compute the Discrete-time Fourier Transform of signal X</span>
+<span class="comment">% acroess frequencies defined by W.</span>
+
+    H = zeros(length(w),1);
+    <span class="keyword">for</span> nn = 1:length(x)
+        H = H + x(nn).*exp(-1j*w.'*(nn-1));
+    <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+
+
+<span class="keyword">function</span> xs = shift(x, s)
+<span class="comment">% SHIFT(x, s) shifts signal x by s such that the output can be defined by</span>
+<span class="comment">% xs[n] = x[n - s]</span>
+
+    <span class="comment">% INITIALIZE THE OUTPUT</span>
+    xs = zeros(length(x), 1);
+
+    <span class="keyword">for</span> n = 1:length(x)
+        <span class="comment">% CHECK IF THE SHIFT IS OUT OF BOUNDS FOR THIS SAMPLE</span>
+        <span class="keyword">if</span> n-s &gt; 0 &amp;&amp; n-s &lt; length(x)
+            <span class="comment">% SHIFT DATA</span>
+            xs(n) = x(n-s);
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+
+
+
+<span class="keyword">function</span> [b,a] = pz2ba(p,z)
+<span class="comment">% PZ2BA(P,Z)  Converts poles P and zeros Z to filter coefficients</span>
+<span class="comment">%             B and A</span>
+<span class="comment">%</span>
+<span class="comment">% Filter coefficients are defined by:</span>
+<span class="comment">%    a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)</span>
+<span class="comment">%                          - a(2)*y(n-1) - ... - a(na+1)*y(n-na)</span>
+<span class="comment">%</span>
+
+    <span class="comment">% CONVERT ROOTS (POLES AND ZEROS) INTO POLYNOMIALS</span>
+    b = poly(z);
+    a = poly(p);
+
+<span class="keyword">end</span>
+
+
+<span class="keyword">function</span> [p,z] = ba2pz(b,a)
+<span class="comment">% BA2PZ(B,A)  Converts filter coefficients B and A into poles P and zeros Z</span>
+<span class="comment">%</span>
+<span class="comment">% Filter coefficients are defined by:</span>
+<span class="comment">%    a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)</span>
+<span class="comment">%                          - a(2)*y(n-1) - ... - a(na+1)*y(n-na)</span>
+<span class="comment">%</span>
+
+    <span class="comment">% MODIFY THE POLYNOMIALS TO FIND THE ROOTS</span>
+    b1 = zeros(max(length(a),length(b)),1); <span class="comment">% Need to add zeros to get the right roots</span>
+    a1 = zeros(max(length(a),length(b)),1); <span class="comment">% Need to add zeros to get the right roots</span>
+    b1(1:length(b)) = b;    <span class="comment">% New a with all values</span>
+    a1(1:length(a)) = a;    <span class="comment">% New a with all values</span>
+
+    <span class="comment">% FIND THE ROOTS OF EACH POLYNOMIAL AND PLOT THE LOCATIONS OF THE ROOTS</span>
+    p = real(roots(a1))+1j*imag(roots(a1));
+    z = real(roots(b1))+1j*imag(roots(b1));
+
+<span class="keyword">end</span>
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% QUESTION 1 COMMENTING
+
+% DO NOT REMOVE THE LINE BELOW
+clear; close all; clc;
+
+%% QUESTION 2 Thinking in Three Domains 1
+
+% LOAD AUDIO
+% MAKE SURE 'music.wav' is in the same directory!
+[x, fs] = audioread('music.wav');
+
+% DEFINE AXES
+w = -pi:pi/8000:pi-pi/8000;
+t = 1/fs:1/fs:length(x)/fs;
+
+N = 100;
+n = 0:(N-1);
+x1 = zeros(2*N, 1);
+x1(1) = 1;
+
+%% 2 (a) Answer question
+
+% A Low-pass filter is used because the string bass have lower frequencies
+% compared to guitars, which have higher frequencies. A Low-pass filter
+% allows the lower frequencies of the pass to pass through while
+% accentuating higher frequencies, the guitar.
+
+%% 2 (b) Answer question
+
+% IIR Filters because even though there are only a limited number of values
+% for poles and zeroes, poles are used to amplify signals arount certain center 
+% frequencies 
+
+%% 2 (c) Plot inputs and outputs
+
+% DEFINE POLES (for a low-pass filter)
+center = (0.5e4/5e4)*2*pi*2*pi;
+
+mypoles = [ ...
+    0.9*exp(1j*center*0.1) ...
+    0.9*exp(-1j*center*0.1) ...
+    0.85*exp(1j*center*0.25) ...
+    0.85*exp(-1j*center*0.25) ...
+    0.8*exp(1j*center*(1/10)) ...
+    0.8*exp(-1j*center*(1/10)) ...
+    0.8*exp(1j*center*(1/6)) ...
+    0.8*exp(-1j*center*(1/6)) ...
+    0.8*exp(1j*center*(1/5)) ...
+    0.8*exp(-1j*center*(1/5)) ...
+];
+
+% DEFINE ZEROS (to shape the filter response)
+myzeros = [ ...
+    -1 ...
+    0.99*exp(1j*(((2*pi*0.98)/fs)+0.5)*2*pi) ...
+    0.99*exp(-1j*(((2*pi*0.98)/fs)+0.5)*2*pi) ...
+    0.99*exp(1j*(((2*pi*0.95)/fs)+0.5)*2*pi) ...
+    0.99*exp(-1j*(((2*pi*0.95)/fs)+0.5)*2*pi) ...
+    0.99*exp(1j*(((2*pi*0.97)/fs)+0.5)*2*pi) ...
+    0.99*exp(-1j*(((2*pi*0.97)/fs)+0.5)*2*pi) ...
+    0.99*exp(1j*(((2*pi*0.93)/fs)+0.5)*2*pi) ...
+    0.99*exp(-1j*(((2*pi*0.93)/fs)+0.5)*2*pi) ...
+];
+
+% CONVERT POLES AND ZEROS INTO COEFFICIENTS
+[b1, a1] = pz2ba(mypoles, myzeros);
+
+% COMPUTE GAIN TO MAINTAIN SIGNAL AMPLITUDE AROUND SOME FREQUENCY
+G = abs(sum(a1.*exp(-1j.*0.5e4/5e4*2*pi.*(0:(length(a1)-1))))./sum(b1.*exp(-1j.*0.5e4/5e4*2*pi.*(0:(length(b1)-1)))));
+
+% FILTER INPUT
+y = filter(G*b1, a1, x);
+
+% PLOT FREQUENCY DOMAIN AND TIME DOMAIN INPUT / OUTPUT
+
+% COMPUTE FREQUENCY DOMAIN REPRESENTATION
+X = DTFT(x, w);
+Y = DTFT(y, w);
+
+% PLOT FREQUENCY DOMAIN
+figure;
+subplot(211);
+plot(w, abs(X));
+xlabel('Normalized Frequency (Radians)');
+ylabel('Magnitude');
+title('Input Signal Frequency Domain');
+
+subplot(212)
+plot(w, abs(Y));
+xlabel('Normalized Frequency (Radians)');
+ylabel('Magnitude');
+title('Output Signal Frequency Domain');
+
+% PLOT TIME DOMAIN
+figure;
+subplot(211);
+plot(t, x);
+xlabel('Time [s]');
+ylabel('x[n]');
+title('Input Signal Time Domain');
+
+subplot(212);
+plot(t, y);
+xlabel('Time [s]');
+ylabel('y[n]');
+title('Output Signal Time Domain');
+
+%% 2 (d) Answer question
+
+% The plots show that the filter attentuates high frequencies whil passing
+% the lower frequncies. So the flter does show the areas where the guitar
+% dominates as they are lower in the output time domain. 
+
+%% 2 (e) Plot impulse response
+y1 = filter(b1, a1, x1);
+
+figure;
+stem(y1);
+title('Impulse Repsonse h[n]');
+xlabel('n');
+ylabel('h[n]');
+
+%% 2 (f) Answer question
+
+% The system is an IIR filter with a damped response where there are zeros 
+% with magnitudes less than 1. Also, since there are a lot of poles near 
+% the unit cercle smaller than one, the systme is stable.  
+
+%% 2 (g) Plot freqeuency response
+H_1 = DTFT(y1, w);
+
+figure;
+plot(w,abs(H_1));
+title('Frequency Response |H(w)|');
+xlabel('Magnitude (Radians)');
+ylabel('|H(w)|');
+
+%% 2 (h) Answer question
+
+% The filter shows a low pass response, which is what we are looking for.
+% It does have a transition band slope that could be caused by anything.
+% The filter also has a mirror effect, but looking only at the positive
+% numbers, it is low-pass
+
+%% 2 (i) Plot pole-zero plot
+
+% PLOT POLE-ZERO PLOT
+figure;
+pzplot(b1, a1);
+axis equal;
+
+%% 2 (j) Answer question
+
+% The filter is a lowpass filter since all the poles are centered around
+% lower frequencies to aplify them. And the zeros are centered around the
+% higher frequencies. There is a zero at the origin, but there isn't much
+% signigicance since there are much more poles than zeros. The system is
+% table since all the poles have a magnitude less than 0.
+
+%% 2 (k) Submit file on Canvas
+
+% PLAY MUSIC
+
+disp('Playing Original Music ... ')
+soundsc(x, fs)
+pause(length(x)/fs*1.1)
+
+disp('Playing Filtered Music ... ')
+soundsc(y, fs)
+
+% SAVE RESULT
+
+% NORMALIZE THE SIGNAL TO AVOID CLIPPING
+audiowrite('q2.wav', y./max(abs(y)), fs)
+save('q2.mat', 'b1', 'a1');
+
+%% QUESTION 3 Thinking in Three Domains 2
+
+% LOAD AUDIO
+% MAKE SURE 'music.wav' is in the same directory!
+[x, fs] = audioread('music.wav');
+
+% DEFINE AXES
+w = -pi:pi/8000:pi-pi/8000;
+t = 1/fs:1/fs:length(x)/fs;
+
+N = 200;
+n = 0:(N-1);
+x1 = zeros(2*N, 1);
+x1(1) = 1;
+
+%% 3 (a) Answer question
+
+% The type of filter is high pass because the guitar has higher frequencies
+% compared to the string bass, so high-pass filter will allow for the
+% higher frequencies while attentuating the lower frequencies. The bass is
+% somewhat removed, so the sound is really smalle, but due to the harmonics
+% of the bass, some of the sound isn't moved, espacially at the end. 
+
+%% 3 (b) Answer question
+
+% FIR Filter because FIR filters are generally stable and can be designed
+% to have linear phase responses, which is good for audio applications.
+% Additionally the requirement of having no more than non-zero coefficients
+% fits well with FIR.
+
+%% 3 (c) Plot inputs and outputs
+
+% DEFINE POLES (for a high-pass filter)
+mypoles = [];
+
+% DEFINE ZEROS (to shape the filter response)
+center = (0.5e4/5e4)*2*pi*2*pi;
+myzeros = [ ...
+    0.9*exp(1j*center*0.1) ...
+    0.9*exp(-1j*center*0.1) ...
+    0.85*exp(1j*center*0.25) ...
+    0.85*exp(-1j*center*0.25) ...
+    0.8*exp(1j*center*(1/10)) ...
+    0.8*exp(-1j*center*(1/10)) ...
+    0.8*exp(1j*center*(1/6)) ...
+    0.8*exp(-1j*center*(1/6)) ...
+    0.8*exp(1j*center*(1/5)) ...
+    0.8*exp(-1j*center*(1/5)) ...
+];
+
+% CONVERT POLES AND ZEROS INTO COEFFICIENTS
+[b2, a2] = pz2ba(mypoles, myzeros);
+
+% COMPUTE GAIN TO MAINTAIN SIGNAL AMPLITUDE AROUND SOME FREQUENCY
+G = abs(sum(a2.*exp(-1j.*0.5e4/5e4*2*pi.*(0:(length(a2)-1))))./sum(b2.*exp(-1j.*0.5e4/5e4*2*pi.*(0:(length(b2)-1)))));
+
+% FILTER INPUT
+y = filter(G*b2, a2, x);
+
+% PLOT FREQUENCY DOMAIN AND TIME DOMAIN INPUT / OUTPUT
+
+% COMPUTE FREQUENCY DOMAIN REPRESENTATION
+X = DTFT(x, w);
+Y = DTFT(y, w);
+
+% PLOT FREQUENCY DOMAIN
+figure;
+subplot(211);
+plot(w, abs(X));
+xlabel('Normalized Frequency (Radians)');
+ylabel('Magnitude');
+title('Input Signal Frequency Domain');
+
+subplot(212)
+plot(w, abs(Y));
+xlabel('Normalized Frequency (Radians)');
+ylabel('Magnitude');
+title('Output Signal Frequency Domain');
+
+% PLOT TIME DOMAIN
+figure;
+subplot(211);
+plot(t, x);
+xlabel('Time [s]');
+ylabel('x[n]');
+title('Input Signal Time Domain');
+
+subplot(212);
+plot(t, y);
+xlabel('Time [s]');
+ylabel('y[n]');
+title('Output Signal Time Domain');
+
+%% 3 (d) Answer question
+
+% The plot should show a high pass filter where the output at the end where
+% the string bass is most prominent is smaller than the original input. 
+
+%% 3 (e) Plot impulse response
+
+y1 = filter(b2, a2, x1);
+
+figure;
+stem(y1);
+title('Impulse Repsonse h[n]');
+xlabel('Time[s]');
+ylabel('h[n]');
+
+%% 3 (f) Answer question
+
+% The impulse response shows that the system is stable since there are no
+% non-zero poles and the system is finite since there are only 10 values in
+% the filtered response. 
+
+%% 3 (g) Plot freqeuency response
+
+H_1 = DTFT(y1, w);
+
+figure;
+plot(w,abs(H_1));
+title('Frequency Response |H(w)|');
+xlabel('Magnitude (Radians)');
+ylabel('|H(w)|');
+
+%% 3 (h) Answer question
+
+% The magnitude response should confirm that the filter allows high
+% frequencues to pass wile attentuating lower frequencies. Due to the
+% steepness we know the order of the high pass is greater than 1.
+
+%% 3 (i) Plot pole-zero plot
+
+% PLOT POLE-ZERO PLOT
+figure;
+pzplot(b2, a2);
+axis equal;
+
+%% 3 (j) Answer question
+
+ % The pole=zero plot shows a high pass filtering system since all the
+ % zeros are around the 0 radian line, and the system is FIR since there is
+ % only one pole at the origin. Additionally the system is stable because
+ % the poles are only inside the unit circle.
+
+%% 3 (k) Submit file on Canvas
+
+% PLAY MUSIC
+
+disp('Playing Original Music ... ')
+soundsc(x, fs)
+pause(length(x)/fs*1.1)
+
+disp('Playing Filtered Music ... ')
+soundsc(y, fs)
+
+% SAVE RESULT
+
+% NORMALIZE THE SIGNAL TO AVOID CLIPPING
+audiowrite('q3.wav', y./max(abs(y)), fs)
+save('q3.mat', 'b2', 'a2');
+
+%% ALL FUNCTIONS SUPPORTING THIS CODE %%
+function pzplot(b,a)
+% PZPLOT(B,A)  plots the pole-zero plot for the filter described by
+% vectors A and B.  The filter is a "Direct Form II Transposed"
+% implementation of the standard difference equation:
+% 
+%    a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)
+%                          - a(2)*y(n-1) - ... - a(na+1)*y(n-na)
+% 
+
+    % MODIFY THE POLYNOMIALS TO FIND THE ROOTS 
+    b1 = zeros(max(length(a),length(b)),1); % Need to add zeros to get the right roots
+    a1 = zeros(max(length(a),length(b)),1); % Need to add zeros to get the right roots
+    b1(1:length(b)) = b;    % New a with all values
+    a1(1:length(a)) = a;    % New a with all values
+
+    % FIND THE ROOTS OF EACH POLYNOMIAL AND PLOT THE LOCATIONS OF THE ROOTS
+    h1 = plot(real(roots(a1)), imag(roots(a1)));
+    hold on;
+    h2 = plot(real(roots(b1)), imag(roots(b1)));
+    hold off;
+
+    % DRAW THE UNIT CIRCLE
+    circle(0,0,1)
+    
+    % MAKE THE POLES AND ZEROS X's AND O's
+    set(h1, 'LineStyle', 'none', 'Marker', 'x', 'MarkerFaceColor','none', 'linewidth', 1.5, 'markersize', 8); 
+    set(h2, 'LineStyle', 'none', 'Marker', 'o', 'MarkerFaceColor','none', 'linewidth', 1.5, 'markersize', 8); 
+    axis equal;
+    
+    % DRAW VERTICAL AND HORIZONTAL LINES
+    xminmax = xlim();
+    yminmax = ylim();
+    line([xminmax(1) xminmax(2)],[0 0], 'linestyle', ':', 'linewidth', 0.5, 'color', [1 1 1]*.1)
+    line([0 0],[yminmax(1) yminmax(2)], 'linestyle', ':', 'linewidth', 0.5, 'color', [1 1 1]*.1)
+    
+    % ADD LABELS AND TITLE
+    xlabel('Real Part')
+    ylabel('Imaginary Part')
+    title('Pole-Zero Plot')
+    
+end
+
+
+function circle(x,y,r)
+% CIRCLE(X,Y,R)  draws a circle with horizontal center X, vertical center
+% Y, and radius R. 
+%
+    
+    % ANGLES TO DRAW
+    ang=0:0.01:2*pi; 
+    
+    % DEFINE LOCATIONS OF CIRCLE
+    xp=r*cos(ang);
+    yp=r*sin(ang);
+    
+    % PLOT CIRCLE
+    hold on;
+    plot(x+xp,y+yp, ':', 'linewidth', 0.5, 'color', [1 1 1]*.1);
+    hold off;
+    
+end
+
+
+
+function H = DTFT(x,w)
+% DTFT(X,W)  compute the Discrete-time Fourier Transform of signal X
+% acroess frequencies defined by W. 
+
+    H = zeros(length(w),1);
+    for nn = 1:length(x)
+        H = H + x(nn).*exp(-1j*w.'*(nn-1));
+    end
+    
+end
+
+
+function xs = shift(x, s)
+% SHIFT(x, s) shifts signal x by s such that the output can be defined by 
+% xs[n] = x[n - s]
+
+    % INITIALIZE THE OUTPUT
+    xs = zeros(length(x), 1);
+    
+    for n = 1:length(x)
+        % CHECK IF THE SHIFT IS OUT OF BOUNDS FOR THIS SAMPLE
+        if n-s > 0 && n-s < length(x)
+            % SHIFT DATA
+            xs(n) = x(n-s);
+        end
+    end
+
+end
+
+
+
+function [b,a] = pz2ba(p,z)
+% PZ2BA(P,Z)  Converts poles P and zeros Z to filter coefficients
+%             B and A
+%
+% Filter coefficients are defined by:
+%    a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)
+%                          - a(2)*y(n-1) - ... - a(na+1)*y(n-na)
+% 
+
+    % CONVERT ROOTS (POLES AND ZEROS) INTO POLYNOMIALS
+    b = poly(z);
+    a = poly(p);
+
+end
+
+
+function [p,z] = ba2pz(b,a)
+% BA2PZ(B,A)  Converts filter coefficients B and A into poles P and zeros Z
+% 
+% Filter coefficients are defined by:
+%    a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)
+%                          - a(2)*y(n-1) - ... - a(na+1)*y(n-na)
+% 
+
+    % MODIFY THE POLYNOMIALS TO FIND THE ROOTS 
+    b1 = zeros(max(length(a),length(b)),1); % Need to add zeros to get the right roots
+    a1 = zeros(max(length(a),length(b)),1); % Need to add zeros to get the right roots
+    b1(1:length(b)) = b;    % New a with all values
+    a1(1:length(a)) = a;    % New a with all values
+
+    % FIND THE ROOTS OF EACH POLYNOMIAL AND PLOT THE LOCATIONS OF THE ROOTS
+    p = real(roots(a1))+1j*imag(roots(a1));
+    z = real(roots(b1))+1j*imag(roots(b1));
+    
+end
+##### SOURCE END #####
+-->
+</body>
+</html>

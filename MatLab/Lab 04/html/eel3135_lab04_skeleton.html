@@ -1,0 +1,820 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>eel3135_lab04_skeleton</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-02-17">
+<meta name="DC.source" content="eel3135_lab04_skeleton.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">QUESTION 1 COMMENTING</a>
+</li>
+<li>
+<a href="#2">QUESTION 2 AUDIO (DO NOT CHANGE)</a>
+</li>
+<li>
+<a href="#3">2(a) CREATE FUNCTION (SEE END OF FILE)</a>
+</li>
+<li>
+<a href="#4">2(b) APPLY ECHO</a>
+</li>
+<li>
+<a href="#5">2(c) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#6">2(d) CREATE FUNCTION (SEE END OF FILE)</a>
+</li>
+<li>
+<a href="#7">2(e) APPLY RING MODULATOR</a>
+</li>
+<li>
+<a href="#8">2(f) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#9">2(g) TEST LINEARITY AND ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#10">2(h) TEST TIME-INVARIANCE AND ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#11">QUESTION 3 Image Set-up (DO NOT CHANGE!)</a>
+</li>
+<li>
+<a href="#12">3(a) APPLY FILTER 1</a>
+</li>
+<li>
+<a href="#13">3(b) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#14">3(c) APPLY THRESHOLDING</a>
+</li>
+<li>
+<a href="#15">3(d) APPLY FILTER 2</a>
+</li>
+<li>
+<a href="#16">3(e) ANSWER QUESTION</a>
+</li>
+<li>
+<a href="#17">ALL FUNCTIONS SUPPORTING THIS CODE %%</a>
+</li>
+</ul>
+</div>
+<h2 id="1">QUESTION 1 COMMENTING</h2>
+<pre class="codeinput">
+<span class="comment">% DO NOT REMOVE THE LINE BELOW</span>
+<span class="comment">% MAKE SURE 'eel3135_lab03_comment.m' IS IN SAME DIRECTORY AS THIS FILE</span>
+clear; close <span class="string">all</span>;
+type(<span class="string">'eel3135_lab04_comment.m'</span>)
+</pre>
+<pre class="codeoutput">
+% Convolution can be seen as the mathematical expression of how one signal
+% can modify the other, you will need to comment the answers to the 
+% questions on the following lines of code to demonstrate the basics of 
+% convolution. Also answer the question at the end in order to understand 
+% the effects that convolution may have on the original signal. 
+
+
+%% ONE-DIMENSIONAL CONVOLUTION
+
+% INPUT SIGNAL
+xx = [1 1 -1 -1 1 1 -1 -1 1 1 1 1 -1 -1 -1 -1]; 
+% &lt;-- Answer: What is the length of xx? 
+% 17
+
+% FILTER COEFFICIENTS / IMPULSE RESPONSE
+bk = [1/4 1/4 1/4 1/4]; 
+% &lt;-- Answer: What is the length of bk? 
+% 4
+
+% FILTER OUTPUT
+yy = conv(bk, xx); 
+% &lt;-- Answer: What is the length of yy? 
+% 20 = (17 + 4 -1) = (xx length + bk length - 1)
+
+% PERFORM FILTERING IN ALTERNATIVE WAY
+zz = 1/4*shift(xx, 0) + 1/4*shift(xx, 1) + 1/4*shift(xx, 2) + 1/4*shift(xx, 3);
+% &lt;-- Answer: What is the length of zz? 
+% xx length = zz length = 17
+
+% --&gt; ANSWER BELOW: Explain why yy and zz are different lengths. &lt;--
+% The output of the convolution (yy) is longer than the input signal (xx)
+% because convolution overlaps the filter (bk) with the input signal (xx)
+% at each position to introduce more sam[les at the edges. The alternative
+% filtering method (zz) makes a weighted sum of shifted versions of the
+% input signal (xx) that doesn't add other samples, so the output (zz) is
+% the same length of the input (xx)
+
+% PLOT
+figure(1)
+subplot(411)
+stem(xx); axis([0 20 -1 1])
+ylabel('Amplitude')
+subplot(412)
+stem(bk); axis([0 20 -1 1])
+ylabel('Amplitude')
+subplot(413)
+stem(yy); axis([0 20 -1 1])
+ylabel('Amplitude')
+subplot(414)
+stem(zz); axis([0 20 -1 1])
+ylabel('Amplitude')
+xlabel('Samples')
+
+
+%% TWO-DIMENSIONAL CONVOLUTION
+
+% INPUT SIGNAL
+x2 = [ones(15) -1*ones(15)]*255; 
+
+% FILTER COEFFICIENTS
+b2 = (1/8)*[0 1 1  1  1  0; 0 1 1  1  1  0]; 
+b3 =       [1 1 1 -1 -1 -1; 1 1 1 -1 -1 -1]; 
+
+% OUTPUT
+y2 = conv2(x2,b2); 
+y3 = conv2(x2,b3);
+
+% NORMALIZATION
+y3 = y3 - min(y3(:));
+y3 = y3./max(y3(:))*255;
+% --&gt; ANSWER BELOW: How does this normalization change the range of values in y3?
+% Normalization rescales the value in y3 to fit in the range 0-255, first
+% by subtracting the minimum value of the shift the entire range up, then
+% by divifing the maximum value to scale it down, and finally multiplying
+% by 255 to stretch the range in the interval 0-255.
+
+% --&gt; ANSWER BELOW: Why does filter b2 affect the image as it does? 
+%     What are possible applications of filter b2? &lt;--
+% Filter b2 averages the pixel values to those close by which creates a
+% smoothing filter affect.
+% The possible applications of filter b2 is that it can reduce noise and
+% blur images. S, it can ve used to include pre-processing images for edge
+% detection or reducing high frequency noise. 
+
+% --&gt; ANSWER BELOW: Why does filter b3 affect the image as it does? 
+%     What are possible applications of filter b3? &lt;--
+% Filter b3 subtracts the average surrounding pixels from the center pixel
+% which creates a high-pass filter that enhances edges.
+% The b3 filter essentially highlights transitions and edges in an image,
+% so it can be used to detect edges and sharpen images.
+
+% SAVE IMAGES
+imwrite(uint8(y2), 'comment_image1.png')
+imwrite(uint8(y3), 'comment_image2.png')
+
+% PLOT THE FIRST FILTER RESULTS
+figure(2) 
+subplot(231)
+imagesc(x2)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('x2')
+axis equal; axis tight; colormap('gray');
+subplot(232)
+imagesc(b2)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('b2')
+axis equal; axis tight; colormap('gray');
+subplot(233)
+imagesc(y2)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('y2')
+axis equal; axis tight; colormap('gray');
+
+% PLOT THE SECOND FILTER RESULTS
+subplot(234)
+imagesc(x2)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('x2')
+axis equal; axis tight; colormap('gray');
+subplot(235)
+imagesc(b3)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('b3')
+axis equal; axis tight; colormap('gray');
+subplot(236)
+imagesc(y3)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('y3')
+axis equal; axis tight; colormap('gray');
+
+
+function xs = shift(x, s)
+%SHIFT   ===&gt; This function shifts the input signal x by s samples. &lt;===
+% If s is positive, the signal is delayed; if s is negative, it is advanced.
+
+    % ====&gt; Initialize output with an array of zeros that is the same length as the input &lt;====
+    xs = zeros(length(x), 1);
+    
+    for n = 1:length(x)
+        % ====&gt; Checks if the shifted index is in the same bounds as input signal &lt;====
+        if n-s &gt; 0 &amp;&amp; n-s &lt;= length(x)
+            % ====&gt; Assigns value from input signal to shifted output if they overlap &lt;====
+            xs(n) = x(n-s);
+        end
+    end
+
+end
+</pre>
+<h2 id="2">QUESTION 2 AUDIO (DO NOT CHANGE)</h2>
+<p>MAKE SURE 'loubarlow.wav' is in the same directory! You can find it here: <a href="https://freemusicarchive.org/music/Lou_Barlow/">https://freemusicarchive.org/music/Lou_Barlow/</a>
+</p>
+<pre class="codeinput">[x, fs] = audioread(<span class="string">'loubarlow.wav'</span>);
+</pre>
+<h2 id="3">2(a) CREATE FUNCTION (SEE END OF FILE)</h2>
+<h2 id="4">2(b) APPLY ECHO</h2>
+<pre class="codeinput">s = 20000; <span class="comment">% Delay in samples</span>
+A = 0.5; <span class="comment">% Echo amplitude</span>
+xr = echo(x, s, A); <span class="comment">% Applies echo to the input signal)</span>
+
+<span class="comment">% Normalize</span>
+xrn = xr / max(abs(xr));
+
+audiowrite(<span class="string">'b_echo.wav'</span>, xrn, fs); <span class="comment">% Saves the output audio</span>
+</pre>
+<h2 id="5">2(c) ANSWER QUESTION</h2>
+<p>If the sampling frequency is 44100 samples per second, delaying by 200000 samples, the delay on the signal in seconds is delay/sampling frequency = 20000/44100 = 0.4535 seconds.</p>
+<h2 id="6">2(d) CREATE FUNCTION (SEE END OF FILE)</h2>
+<h2 id="7">2(e) APPLY RING MODULATOR</h2>
+<pre class="codeinput">A = 1; <span class="comment">% Amplitude</span>
+m1 = 1/1250; <span class="comment">% Modulation frequency 1</span>
+m2 = 1/250;  <span class="comment">% Modulation frequency 2</span>
+xt1 = ring_modulator(x, m1, A); <span class="comment">% Apply ring modulator for m1</span>
+xt1n = xt1 / max(abs(xt1));
+xt2 = ring_modulator(x, m2, A); <span class="comment">% Apply ring modulator for m2</span>
+xt2n = xt2 / max(abs(xt2));
+audiowrite(<span class="string">'e_modulator1.wav'</span>, xt1n, fs); <span class="comment">% Save output for m1</span>
+audiowrite(<span class="string">'e_modulator2.wav'</span>, xt2n, fs); <span class="comment">% Save output for m2</span>
+</pre>
+<h2 id="8">2(f) ANSWER QUESTION</h2>
+<p>Ring modulation creates new frequencies that are the sum and difference of the original frequencies and modulation frequency that can create a metallic or bell-like sound.</p>
+<h2 id="9">2(g) TEST LINEARITY AND ANSWER QUESTION</h2>
+<pre class="codeinput">a = 10; <span class="comment">% Test scalar</span>
+xr_original = 10 * echo(x, 20000, 0.5); <span class="comment">% Scale the original echo output</span>
+xr_original_r = 10 * ring_modulator(x, 1/1250, 1); <span class="comment">% Scales the original ring modular output</span>
+
+<span class="comment">% % Normalize xr_original</span>
+<span class="comment">% xr_original = xr_original / max(abs(xr_original));</span>
+
+xr_test_echo = echo(10 * x, 20000, 0.5); <span class="comment">% Test echo with scaled input</span>
+
+<span class="comment">% Compare xr_test_echo and xr_original to check linearity</span>
+<span class="keyword">if</span> xr_test_echo == xr_original
+    disp(<span class="string">'The system is linear: xr_test_echo is equal to xr_original.'</span>);
+<span class="keyword">else</span>
+    disp(<span class="string">'The system is not linear: xr_test_echo is not equal to xr_original.'</span>);
+
+    <span class="comment">% Maximum difference between outputs</span>
+    max_difference = max(abs(xr_test_echo - xr_original));
+    disp([<span class="string">'Maximum difference between outputs: '</span>, num2str(max_difference)]);
+<span class="keyword">end</span>
+
+xr_test_modulator = ring_modulator(10 * x, 1/1250, 1); <span class="comment">% Test ring modularity with the scaled input</span>
+
+<span class="comment">% Compare xr_test_modulator and xr_original to check linearity</span>
+<span class="keyword">if</span> xr_test_modulator == xr_original_r
+    disp(<span class="string">'The system is linear: xr_test_modulator is equal to xr_original_r.'</span>);
+<span class="keyword">else</span>
+    disp(<span class="string">'The system is not linear: xr_test_modulator is not equal to xr_original_r.'</span>);
+
+    <span class="comment">% Maximum difference between outputs</span>
+    max_difference = max(abs(xr_test_modulator - xr_original_r));
+    disp([<span class="string">'Maximum difference between outputs: '</span>, num2str(max_difference)]);
+<span class="keyword">end</span>
+
+<span class="comment">% The echo system is linear beacause the ouput from applying the echo</span>
+<span class="comment">% scaled input is equal to the scaled output of the original input, which</span>
+<span class="comment">% satisfies the homogeneity of the linearity property. However, when I</span>
+<span class="comment">% solve it myself, it is linear.</span>
+<span class="comment">%</span>
+<span class="comment">% The ring modulation system is non linear beccause when comparing the</span>
+<span class="comment">% ring modulator to the scaled input with the scaled output of the original</span>
+<span class="comment">% input, they are not equal, whcih indicates the ring modulation does not</span>
+<span class="comment">% satisfied the homogeneity of the linearity property.</span>
+</pre>
+<pre class="codeoutput">The system is linear: xr_test_echo is equal to xr_original.
+The system is not linear: xr_test_modulator is not equal to xr_original_r.
+Maximum difference between outputs: 1.7764e-15
+</pre>
+<h2 id="10">2(h) TEST TIME-INVARIANCE AND ANSWER QUESTION</h2>
+<pre class="codeinput">N = 4000; <span class="comment">% Shift amount</span>
+xs = shift(x, N); <span class="comment">% Shift input</span>
+<span class="comment">% xr_original_echo_shifted = echo(xs, s, A); % Shift the original output</span>
+xr = echo(x, 20000, 0.5);
+xr_original_echo_shifted = shift(xr, N); <span class="comment">% Takes the original echo(x, s, A) and shifts</span>
+<span class="comment">% xr_mod_original_shifted = shift(xr, N); % Shift the original output</span>
+xt1 = ring_modulator(x, 1/1250, 1);
+xr_mod_original_shifted = shift(xt1, N); <span class="comment">% Takes the original ring_modulator(x, m, A) and shifts</span>
+
+
+xr_shifted_echo = echo(xs, 20000, 0.5); <span class="comment">% Apply echo to shifted input</span>
+<span class="comment">% Compare xr_shifted with shifted xr to check time invariance</span>
+<span class="keyword">if</span> isequal(xr_shifted_echo, xr_original_echo_shifted)
+    disp(<span class="string">'The echo system is time-invariant: xr_shifted_echo is equal to xr_original_echo_shifted.'</span>);
+<span class="keyword">else</span>
+    disp(<span class="string">'The echo system is time-varying: xr_shifted_echo is not equal to xr_original_echo_shifted.'</span>);
+
+    <span class="comment">% Maximum difference between outputs</span>
+    max_difference = max(abs(xr_shifted_echo - xr_original_echo_shifted));
+    disp([<span class="string">'Maximum difference between outputs: '</span>, num2str(max_difference)]);
+<span class="keyword">end</span>
+
+xr_mod_shifted = ring_modulator(xs, 1/1250, 1); <span class="comment">% Applies ring_modulator for the shifted input</span>
+<span class="comment">% Compare xr_shifted with shifted xr to check time invariance</span>
+<span class="keyword">if</span> isequal(xr_mod_shifted, xr_mod_original_shifted)
+    disp(<span class="string">'The ring modulation system is time-invariant: xr_mod_shifted is equal to xr_mod_original_shifted.'</span>);
+<span class="keyword">else</span>
+    disp(<span class="string">'The ring modulation system is time-varying: xr_mod_shifted is not equal to xr_mod_original_shifted.'</span>);
+
+    <span class="comment">% Maximum difference between outputs</span>
+    max_difference = max(abs(xr_mod_shifted - xr_mod_original_shifted));
+    disp([<span class="string">'Maximum difference between outputs: '</span>, num2str(max_difference)]);
+<span class="keyword">end</span>
+
+<span class="comment">% The echo system is time invaariant since the output form the echo to to the</span>
+<span class="comment">% shifted input is euqal to the shifted output of the original input,</span>
+<span class="comment">% which indicates the system changes over time is what the result states,</span>
+<span class="comment">% Additionally, working it out myself it is time invariant since there is no</span>
+<span class="comment">% n on the outside so shifting the original echo output and using the new</span>
+<span class="comment">% shifted x value as an echo input should yield the same results.</span>
+<span class="comment">%</span>
+<span class="comment">% The ring modulation system is time varying since the output from the</span>
+<span class="comment">% ring modulator to the shifted inpput is differnt from the shifted ouput</span>
+<span class="comment">% of the original input, so not time in-variant.</span>
+</pre>
+<pre class="codeoutput">The echo system is time-invariant: xr_shifted_echo is equal to xr_original_echo_shifted.
+The ring modulation system is time-varying: xr_mod_shifted is not equal to xr_mod_original_shifted.
+Maximum difference between outputs: 1.1571
+</pre>
+<h2 id="11">QUESTION 3 Image Set-up (DO NOT CHANGE!)</h2>
+<p>Make sure 'ai_dragon_small.png' is in the same directory!</p>
+<pre class="codeinput">img = imread(<span class="string">'ai_dragon_small.png'</span>);      <span class="comment">% Load image</span>
+img = double(img);                        <span class="comment">% Convert image from integers to doubles</span>
+</pre>
+<h2 id="12">3(a) APPLY FILTER 1</h2>
+<p>Define the filter kernel</p>
+<pre class="codeinput">w = [-2 -1 0; -1 1 1; 0 1 2];
+
+<span class="comment">% Apply the filter using 2D convolution</span>
+f1 = conv2(img, w, <span class="string">'same'</span>); <span class="comment">% Use 'same' to keep the output size the same as the input</span>
+
+<span class="comment">% Normalize the image</span>
+f1 = (f1 - min(f1(:))) / (max(f1(:)) - min(f1(:))) * 255;
+
+<span class="comment">% Use subplot to display the original and filtered images</span>
+figure;
+subplot(1, 2, 1); <span class="comment">% 1 row, 2 columns, 1st subplot</span>
+imagesc(img); <span class="comment">% Display original image</span>
+title(<span class="string">'Original Image'</span>);
+axis <span class="string">equal</span>; axis <span class="string">tight</span>; colormap(<span class="string">'gray'</span>); <span class="comment">% Set axis properties</span>
+
+subplot(1, 2, 2); <span class="comment">% 1 row, 2 columns, 2nd subplot</span>
+imagesc(f1); <span class="comment">% Display filtered image</span>
+title(<span class="string">'Filtered Image (Filter 1)'</span>);
+axis <span class="string">equal</span>; axis <span class="string">tight</span>; colormap(<span class="string">'gray'</span>); <span class="comment">% Set axis properties</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab04_skeleton_01.png" alt=""> <h2 id="13">3(b) ANSWER QUESTION</h2>
+<p>The filter is designed to emphasize changes in intensity by extracting edges from the high-pass nature of the kernel.</p>
+<p>The negative values on the left and bottom sides of the kernel indicate that it will subtract the average of the surrounding pixels from the center pixel, while the positive values on the right and top sides will add to the center pixel. As a result, this filter emphasizes transitions in pixel intensity, effectively extracting edges from the image.</p>
+<p>The filter can be classified as a high-pass filter, which is commonly used in image processing for edge detection and sharpening.</p>
+<h2 id="14">3(c) APPLY THRESHOLDING</h2>
+<p>Perform thresholding operation on f1[u, v]</p>
+<pre class="codeinput">f2 = (f1 &gt; 140); <span class="comment">% Create a binary image where pixels greater than 140 are set to 1, others to 0</span>
+</pre>
+<h2 id="15">3(d) APPLY FILTER 2</h2>
+<p>Define the new filter impulse response (kernel)</p>
+<pre class="codeinput">w2 = (1/9) * ones(3, 3); <span class="comment">% A 3x3 averaging filter</span>
+
+<span class="comment">% Apply the new filter to f2</span>
+f3 = conv2(f2, w2, <span class="string">'same'</span>); <span class="comment">% Use 'same' to keep the output size the same as the input</span>
+
+<span class="comment">% Use subplot to display the binary image and the filtered image</span>
+figure;
+subplot(1, 2, 1); <span class="comment">% 1 row, 2 columns, 1st subplot</span>
+imagesc(f2); <span class="comment">% Display binary image</span>
+title(<span class="string">'Binary Image (Thresholding)'</span>);
+axis <span class="string">equal</span>; axis <span class="string">tight</span>; colormap(<span class="string">'gray'</span>); <span class="comment">% Set axis properties</span>
+
+subplot(1, 2, 2); <span class="comment">% 1 row, 2 columns, 2nd subplot</span>
+imagesc(f3); <span class="comment">% Display filtered image</span>
+title(<span class="string">'Filtered Image (Filter 2)'</span>);
+axis <span class="string">equal</span>; axis <span class="string">tight</span>; colormap(<span class="string">'gray'</span>); <span class="comment">% Set axis properties</span>
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab04_skeleton_02.png" alt=""> <h2 id="16">3(e) ANSWER QUESTION</h2>
+<p>The second filter applied in section 3(d) is an averaging filter, which is designed to blur the image. The kernel is: w2 = (1/9) * ones(3, 3)</p>
+<p>This filter takes the average of the surrounding pixels in a 3x3 neighborhood, effectively smoothing the image and reducing noise. The averaging filter is commonly used in image processing for noise reduction and to create a softening effect on images.</p>
+<h2 id="17">ALL FUNCTIONS SUPPORTING THIS CODE %%</h2>
+<pre class="codeinput">
+<span class="keyword">function</span> y = echo(x, s, A)
+<span class="comment">%ECHO   ===&gt; Creates an echo affect in input signal x. That is calcluated as</span>
+<span class="comment">% y[n] = x[n] + (A * x[n-s]), where A is the echo amplitude and s is the delay in samples &lt;===</span>
+
+    <span class="comment">% x_s = shift(x, s);</span>
+    <span class="comment">%</span>
+    <span class="comment">% y = x + (A * x_s); % Apply echo effect using the shift function</span>
+
+    <span class="comment">% Initialize the output signal with zeros</span>
+    y = zeros(length(x), 1);
+
+    <span class="comment">% Apply the echo effect</span>
+    <span class="keyword">for</span> n = 1:length(x)
+        y(n) = x(n); <span class="comment">% Original signal</span>
+        <span class="keyword">if</span> n - s &gt; 0 &amp;&amp; n - s &lt;= length(x) <span class="comment">% Check for valid index</span>
+            y(n) = y(n) + (A * x(n - s)); <span class="comment">% Add the echo</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="comment">% Normalize the output to the range [-1, 1]</span>
+    <span class="comment">% y = y / max(abs(y)); % Scale the output by its maximum absolute value</span>
+
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> y = ring_modulator(x, m, A)
+<span class="comment">%RING_MODULATOR   ===&gt; Applies ring modulation to input signal x. &lt;===</span>
+<span class="comment">% Ouput is calculated as y[n] = A * x[n] * cos( 2 * pi * m * n) where A is</span>
+<span class="comment">% amplitude and m is modulation frequency</span>
+
+    n = (0:length(x) - 1)'; <span class="comment">% Creates a time vector</span>
+    y = A * x .* cos(2 * pi * m * n); <span class="comment">% Applying ring modulation</span>
+
+    <span class="comment">% Normalize the output to the range [-1, 1]</span>
+    <span class="comment">% y = y / max(abs(y)); % Scale the output by its maximum absolute value</span>
+
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> xs = shift(x, s)
+<span class="comment">%SHIFT   ===&gt; Shifts the input x by samples s &lt;===</span>
+<span class="comment">% If s is positive, the signal is delayed; if s is negative, it is advanced.</span>
+
+    <span class="comment">% ====&gt; Initialize the output array with zeros, same length as input &lt;====</span>
+    xs = zeros(length(x), 1);
+
+    <span class="keyword">for</span> n = 1:length(x)
+        <span class="comment">% ====&gt; Check if the shifted index is within the bounds of the input signal &lt;====</span>
+        <span class="keyword">if</span> n-s &gt; 0 &amp;&amp; n-s &lt;= length(x)
+            <span class="comment">% ====&gt; Assigns value from input signal to shifted output if they overlap &lt;====</span>
+            xs(n) = x(n-s);
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="comment">% Normalize the output to the range [-1, 1]</span>
+    <span class="comment">% xs = xs / max(abs(xs)); % Scale the output by its maximum absolute value</span>
+
+<span class="keyword">end</span>
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% QUESTION 1 COMMENTING
+
+% DO NOT REMOVE THE LINE BELOW 
+% MAKE SURE 'eel3135_lab03_comment.m' IS IN SAME DIRECTORY AS THIS FILE
+clear; close all;
+type('eel3135_lab04_comment.m')
+
+
+%% QUESTION 2 AUDIO (DO NOT CHANGE)
+% MAKE SURE 'loubarlow.wav' is in the same directory!
+% You can find it here: https://freemusicarchive.org/music/Lou_Barlow/
+[x, fs] = audioread('loubarlow.wav');
+
+
+%% 2(a) CREATE FUNCTION (SEE END OF FILE)
+
+%% 2(b) APPLY ECHO
+s = 20000; % Delay in samples
+A = 0.5; % Echo amplitude
+xr = echo(x, s, A); % Applies echo to the input signal)
+
+% Normalize
+xrn = xr / max(abs(xr));
+
+audiowrite('b_echo.wav', xrn, fs); % Saves the output audio
+
+%% 2(c) ANSWER QUESTION 
+% If the sampling frequency is 44100 samples per second, delaying by 200000
+% samples, the delay on the signal in seconds is delay/sampling frequency =
+% 20000/44100 = 0.4535 seconds.
+
+%% 2(d) CREATE FUNCTION (SEE END OF FILE)
+
+%% 2(e) APPLY RING MODULATOR
+A = 1; % Amplitude
+m1 = 1/1250; % Modulation frequency 1
+m2 = 1/250;  % Modulation frequency 2
+xt1 = ring_modulator(x, m1, A); % Apply ring modulator for m1
+xt1n = xt1 / max(abs(xt1));
+xt2 = ring_modulator(x, m2, A); % Apply ring modulator for m2
+xt2n = xt2 / max(abs(xt2));
+audiowrite('e_modulator1.wav', xt1n, fs); % Save output for m1
+audiowrite('e_modulator2.wav', xt2n, fs); % Save output for m2
+
+%% 2(f) ANSWER QUESTION
+% Ring modulation creates new frequencies that are the sum and difference
+% of the original frequencies and modulation frequency that can create a
+% metallic or bell-like sound.
+
+%% 2(g) TEST LINEARITY AND ANSWER QUESTION
+a = 10; % Test scalar
+xr_original = 10 * echo(x, 20000, 0.5); % Scale the original echo output
+xr_original_r = 10 * ring_modulator(x, 1/1250, 1); % Scales the original ring modular output
+
+% % Normalize xr_original
+% xr_original = xr_original / max(abs(xr_original));
+
+xr_test_echo = echo(10 * x, 20000, 0.5); % Test echo with scaled input
+
+% Compare xr_test_echo and xr_original to check linearity
+if xr_test_echo == xr_original
+    disp('The system is linear: xr_test_echo is equal to xr_original.');
+else
+    disp('The system is not linear: xr_test_echo is not equal to xr_original.');
+
+    % Maximum difference between outputs
+    max_difference = max(abs(xr_test_echo - xr_original));
+    disp(['Maximum difference between outputs: ', num2str(max_difference)]);
+end
+
+xr_test_modulator = ring_modulator(10 * x, 1/1250, 1); % Test ring modularity with the scaled input
+
+% Compare xr_test_modulator and xr_original to check linearity
+if xr_test_modulator == xr_original_r
+    disp('The system is linear: xr_test_modulator is equal to xr_original_r.');
+else
+    disp('The system is not linear: xr_test_modulator is not equal to xr_original_r.');
+
+    % Maximum difference between outputs
+    max_difference = max(abs(xr_test_modulator - xr_original_r));
+    disp(['Maximum difference between outputs: ', num2str(max_difference)]);
+end
+
+% The echo system is linear beacause the ouput from applying the echo
+% scaled input is equal to the scaled output of the original input, which
+% satisfies the homogeneity of the linearity property. However, when I
+% solve it myself, it is linear.
+% 
+% The ring modulation system is non linear beccause when comparing the
+% ring modulator to the scaled input with the scaled output of the original
+% input, they are not equal, whcih indicates the ring modulation does not
+% satisfied the homogeneity of the linearity property.
+
+%% 2(h) TEST TIME-INVARIANCE AND ANSWER QUESTION
+N = 4000; % Shift amount
+xs = shift(x, N); % Shift input
+% xr_original_echo_shifted = echo(xs, s, A); % Shift the original output
+xr = echo(x, 20000, 0.5);
+xr_original_echo_shifted = shift(xr, N); % Takes the original echo(x, s, A) and shifts
+% xr_mod_original_shifted = shift(xr, N); % Shift the original output
+xt1 = ring_modulator(x, 1/1250, 1);
+xr_mod_original_shifted = shift(xt1, N); % Takes the original ring_modulator(x, m, A) and shifts
+
+
+xr_shifted_echo = echo(xs, 20000, 0.5); % Apply echo to shifted input
+% Compare xr_shifted with shifted xr to check time invariance
+if isequal(xr_shifted_echo, xr_original_echo_shifted)
+    disp('The echo system is time-invariant: xr_shifted_echo is equal to xr_original_echo_shifted.');
+else
+    disp('The echo system is time-varying: xr_shifted_echo is not equal to xr_original_echo_shifted.');
+
+    % Maximum difference between outputs
+    max_difference = max(abs(xr_shifted_echo - xr_original_echo_shifted));
+    disp(['Maximum difference between outputs: ', num2str(max_difference)]);
+end
+
+xr_mod_shifted = ring_modulator(xs, 1/1250, 1); % Applies ring_modulator for the shifted input
+% Compare xr_shifted with shifted xr to check time invariance
+if isequal(xr_mod_shifted, xr_mod_original_shifted)
+    disp('The ring modulation system is time-invariant: xr_mod_shifted is equal to xr_mod_original_shifted.');
+else
+    disp('The ring modulation system is time-varying: xr_mod_shifted is not equal to xr_mod_original_shifted.');
+    
+    % Maximum difference between outputs
+    max_difference = max(abs(xr_mod_shifted - xr_mod_original_shifted));
+    disp(['Maximum difference between outputs: ', num2str(max_difference)]);
+end
+
+% The echo system is time invaariant since the output form the echo to to the
+% shifted input is euqal to the shifted output of the original input,
+% which indicates the system changes over time is what the result states,
+% Additionally, working it out myself it is time invariant since there is no
+% n on the outside so shifting the original echo output and using the new
+% shifted x value as an echo input should yield the same results.
+% 
+% The ring modulation system is time varying since the output from the
+% ring modulator to the shifted inpput is differnt from the shifted ouput
+% of the original input, so not time in-variant.  
+
+%% QUESTION 3 Image Set-up (DO NOT CHANGE!)
+% Make sure 'ai_dragon_small.png' is in the same directory!
+img = imread('ai_dragon_small.png');      % Load image
+img = double(img);                        % Convert image from integers to doubles
+
+%% 3(a) APPLY FILTER 1
+% Define the filter kernel
+w = [-2 -1 0; -1 1 1; 0 1 2];
+
+% Apply the filter using 2D convolution
+f1 = conv2(img, w, 'same'); % Use 'same' to keep the output size the same as the input
+
+% Normalize the image
+f1 = (f1 - min(f1(:))) / (max(f1(:)) - min(f1(:))) * 255;
+
+% Use subplot to display the original and filtered images
+figure;
+subplot(1, 2, 1); % 1 row, 2 columns, 1st subplot
+imagesc(img); % Display original image
+title('Original Image');
+axis equal; axis tight; colormap('gray'); % Set axis properties
+
+subplot(1, 2, 2); % 1 row, 2 columns, 2nd subplot
+imagesc(f1); % Display filtered image
+title('Filtered Image (Filter 1)');
+axis equal; axis tight; colormap('gray'); % Set axis properties
+
+%% 3(b) ANSWER QUESTION
+% The filter is designed to emphasize changes in intensity by extracting
+% edges from the high-pass nature of the kernel.
+% 
+% The negative values on the left and bottom sides of the kernel indicate that 
+% it will subtract the average of the surrounding pixels from the center pixel, 
+% while the positive values on the right and top sides will add to the center pixel.
+% As a result, this filter emphasizes transitions in pixel intensity, effectively 
+% extracting edges from the image.
+% 
+% The filter can be classified as a high-pass filter, which is commonly used 
+% in image processing for edge detection and sharpening.
+
+
+%% 3(c) APPLY THRESHOLDING
+% Perform thresholding operation on f1[u, v]
+f2 = (f1 > 140); % Create a binary image where pixels greater than 140 are set to 1, others to 0
+
+%% 3(d) APPLY FILTER 2
+% Define the new filter impulse response (kernel)
+w2 = (1/9) * ones(3, 3); % A 3x3 averaging filter
+
+% Apply the new filter to f2
+f3 = conv2(f2, w2, 'same'); % Use 'same' to keep the output size the same as the input
+
+% Use subplot to display the binary image and the filtered image
+figure;
+subplot(1, 2, 1); % 1 row, 2 columns, 1st subplot
+imagesc(f2); % Display binary image
+title('Binary Image (Thresholding)');
+axis equal; axis tight; colormap('gray'); % Set axis properties
+
+subplot(1, 2, 2); % 1 row, 2 columns, 2nd subplot
+imagesc(f3); % Display filtered image
+title('Filtered Image (Filter 2)');
+axis equal; axis tight; colormap('gray'); % Set axis properties
+
+%% 3(e) ANSWER QUESTION
+% The second filter applied in section 3(d) is an averaging filter, which is designed to 
+% blur the image. The kernel is:
+% w2 = (1/9) * ones(3, 3)
+%
+% This filter takes the average of the surrounding pixels in a 3x3 neighborhood, 
+% effectively smoothing the image and reducing noise. 
+% The averaging filter is commonly used in image processing for noise reduction 
+% and to create a softening effect on images.
+
+
+%% ALL FUNCTIONS SUPPORTING THIS CODE %%
+
+function y = echo(x, s, A)
+%ECHO   ===> Creates an echo affect in input signal x. That is calcluated as 
+% y[n] = x[n] + (A * x[n-s]), where A is the echo amplitude and s is the delay in samples <===
+
+    % x_s = shift(x, s);
+    % 
+    % y = x + (A * x_s); % Apply echo effect using the shift function
+
+    % Initialize the output signal with zeros
+    y = zeros(length(x), 1); 
+
+    % Apply the echo effect
+    for n = 1:length(x)
+        y(n) = x(n); % Original signal
+        if n - s > 0 && n - s <= length(x) % Check for valid index
+            y(n) = y(n) + (A * x(n - s)); % Add the echo
+        end
+    end
+
+    % Normalize the output to the range [-1, 1]
+    % y = y / max(abs(y)); % Scale the output by its maximum absolute value
+
+end
+
+function y = ring_modulator(x, m, A)
+%RING_MODULATOR   ===> Applies ring modulation to input signal x. <===
+% Ouput is calculated as y[n] = A * x[n] * cos( 2 * pi * m * n) where A is
+% amplitude and m is modulation frequency
+
+    n = (0:length(x) - 1)'; % Creates a time vector
+    y = A * x .* cos(2 * pi * m * n); % Applying ring modulation
+
+    % Normalize the output to the range [-1, 1]
+    % y = y / max(abs(y)); % Scale the output by its maximum absolute value
+
+end
+
+function xs = shift(x, s)
+%SHIFT   ===> Shifts the input x by samples s <===
+% If s is positive, the signal is delayed; if s is negative, it is advanced.
+
+    % ====> Initialize the output array with zeros, same length as input <====
+    xs = zeros(length(x), 1);
+    
+    for n = 1:length(x)
+        % ====> Check if the shifted index is within the bounds of the input signal <====
+        if n-s > 0 && n-s <= length(x)
+            % ====> Assigns value from input signal to shifted output if they overlap <====
+            xs(n) = x(n-s);
+        end
+    end
+
+    % Normalize the output to the range [-1, 1]
+    % xs = xs / max(abs(xs)); % Scale the output by its maximum absolute value
+
+end
+##### SOURCE END #####
+-->
+</body>
+</html>

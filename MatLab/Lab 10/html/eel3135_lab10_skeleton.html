@@ -1,0 +1,950 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>eel3135_lab10_skeleton</title>
+<meta name="generator" content="MATLAB 24.1">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-04-14">
+<meta name="DC.source" content="eel3135_lab10_skeleton.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">QUESTION 1</a>
+</li>
+<li>
+<a href="#2">Question 2</a>
+</li>
+<li>
+<a href="#3">Question 2a - Changes in the code below</a>
+</li>
+<li>
+<a href="#4">Question 2b</a>
+</li>
+<li>
+<a href="#5">Question 2c</a>
+</li>
+<li>
+<a href="#6">Question 2d</a>
+</li>
+<li>
+<a href="#7">Question 2e</a>
+</li>
+<li>
+<a href="#8">Question 2f</a>
+</li>
+<li>
+<a href="#9">Question 2g</a>
+</li>
+<li>
+<a href="#10">Question 3</a>
+</li>
+<li>
+<a href="#11">Question 3a - At the function of for IDFT</a>
+</li>
+<li>
+<a href="#12">Question 3b</a>
+</li>
+<li>
+<a href="#13">Question 3c</a>
+</li>
+<li>
+<a href="#14">Question 3d</a>
+</li>
+<li>
+<a href="#15">Question 3e</a>
+</li>
+<li>
+<a href="#16">Question 3f</a>
+</li>
+<li>
+<a href="#17">Question 4</a>
+</li>
+<li>
+<a href="#18">Question 4a</a>
+</li>
+<li>
+<a href="#19">Question 4b</a>
+</li>
+<li>
+<a href="#20">Question 4c</a>
+</li>
+<li>
+<a href="#21">Question 4d</a>
+</li>
+<li>
+<a href="#22">Question 4e</a>
+</li>
+<li>
+<a href="#23">Functions provided for the lab</a>
+</li>
+</ul>
+</div>
+<h2 id="1">QUESTION 1</h2>
+<p>DO NOT REMOVE THE LINE BELOW MAKE SURE 'eel3135_lab11_comment.m' IS IN THE SAME DIRECTORY AS THIS FILE</p>
+<pre class="codeinput">clear; close <span class="string">all</span>; clc;
+type(<span class="string">'eel3135_lab10_comment.m'</span>)
+</pre>
+<pre class="codeoutput">
+%% Question 1 Comment Code
+clear all; clc; close all;
+
+fs = 16000;
+tt = 0:1/fs:0.01-1/fs;
+
+w0 = 888*pi;
+w1 = 3520*pi;
+w2 = 14080*pi;
+
+x = 0.5 + cos(w0*tt) + cos(w1*tt + pi/4) + cos(w2*tt + 2*pi/3);
+
+N = [50,length(x),500,1000];
+
+X1 = fft(x,N(1));
+X2 = fft(x,N(2));
+X3 = fft(x,N(3));
+X4 = fft(x,N(4));
+
+% Answer in your comments: How is the DFT (using the FFT algorithm) 
+% calculated when N is larger than the length of X? 
+% (Hint: read help FFT)
+%
+% When N is larger then the length of x, the input signal x is zero-padded
+% to length N before computing the FTT. The zero-padding allows for
+% increased frequency resolution of the DFT without adding new information.
+
+% Answer on your comments: How is the DFT (using the FFT algorithm) 
+% calculated  when N is smaller than the length of X? 
+%
+%  When N is smaller than the length of x, the input signal is truanced to
+%  length N before computing FFT. This truancation may cause loss of
+%  information and spectral leakage. 
+
+% Answer in your comments: Why would you not want to always make N as large
+% as possible?
+%
+% Making N very large increases computational complexity and processing
+% time. Also, zero-padding beyond a certain point does not add a new
+% frequency content, only interpolates the spectrum. Very large N may also
+% reduce the amplitude of spectral peaks due to energy over more bins. 
+
+b1 = -ceil((N(1)-1)/2):floor((N(1)-1)/2);
+b2 = -ceil((N(2)-1)/2):floor((N(2)-1)/2);
+b3 = -ceil((N(3)-1)/2):floor((N(3)-1)/2);
+b4 = -ceil((N(4)-1)/2):floor((N(4)-1)/2);
+
+% Answer in your comments: What frequencies do the peaks represent?
+%
+% The peaks correspond to the frequencies of the cosing components in the
+% signal x. Specifically, the preaks represent frequencies at +/- w0/(2*pi),
+% +/- w1/(2*pi), and +/- w2/(2*pi) in Hz. These correspond to the normalized
+% frequencies of the cosines in the signal. 
+
+f1 = b1*fs/N(1);
+f2 = b2*fs/N(2);
+f3 = b3*fs/N(3);
+f4 = b4*fs/N(4);
+
+w1 = 2*pi/N(1)*b1;
+w2 = 2*pi/N(2)*b2;
+w3 = 2*pi/N(3)*b3;
+w4 = 2*pi/N(4)*b4;
+
+figure
+subplot(221)
+plot(b1,fftshift(abs(X1)))
+hold on;
+plot(b1,fftshift(abs(X1)), '.', 'markersize', 8)
+hold off;
+xlim([-N(1)/2 N(1)/2]); ylim([0 100]);
+xlabel('Bin Number')
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(1)))
+
+subplot(222)
+plot(b2,fftshift(abs(X2)))
+hold on;
+plot(b2,fftshift(abs(X2)), '.', 'markersize', 8)
+hold off;
+xlim([-N(2)/2 N(2)/2]); ylim([0 100]);
+xlabel('Bin Number')
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(2)))
+
+subplot(223)
+plot(b3,fftshift(abs(X3)))
+hold on;
+plot(b3,fftshift(abs(X3)), '.', 'markersize', 8)
+hold off;
+xlim([-N(3)/2 N(3)/2]); ylim([0 100]);
+xlabel('Bin Number')
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(3)))
+
+subplot(224)
+plot(b4,fftshift(abs(X4)))
+hold on;
+plot(b4,fftshift(abs(X4)), '.', 'markersize', 8)
+hold off;
+xlim([-N(4)/2 N(4)/2]); ylim([0 81]);
+xlabel('Bin Number')
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(4)))
+
+
+
+figure
+subplot(221)
+plot(f1,fftshift(abs(X1)))
+hold on;
+plot(f1,fftshift(abs(X1)), '.', 'markersize', 8)
+hold off;
+xlim([-fs/2 fs/2]); ylim([0 81]);
+xlabel('Frequency (Hz)')
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(1)))
+
+subplot(222)
+plot(f2,fftshift(abs(X2)))
+hold on;
+plot(f2,fftshift(abs(X2)), '.', 'markersize', 8)
+hold off;
+xlim([-fs/2 fs/2]); ylim([0 81]);
+xlabel('Frequency (Hz)')
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(2)))
+
+subplot(223)
+plot(f3,fftshift(abs(X3)))
+hold on;
+plot(f3,fftshift(abs(X3)), '.', 'markersize', 8)
+hold off;
+xlim([-fs/2 fs/2]); ylim([0 81]);
+xlabel('Frequency (Hz)')
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(3)))
+
+subplot(224)
+plot(f4,fftshift(abs(X4)))
+hold on;
+plot(f4,fftshift(abs(X4)), '.', 'markersize', 8)
+hold off;
+xlim([-fs/2 fs/2]); ylim([0 81]);
+xlabel('Frequency (Hz)')
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(4)))
+
+
+
+
+
+figure
+subplot(221)
+plot(w1,fftshift(abs(X1)))
+hold on;
+plot(w1,fftshift(abs(X1)), '.', 'markersize', 8)
+hold off;
+xlim([-pi pi]); ylim([0 81]);
+xlabel('Normalized Frequency (rad/s)');
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(1)))
+
+subplot(222)
+plot(w2,fftshift(abs(X2)))
+hold on;
+plot(w2,fftshift(abs(X2)), '.', 'markersize', 8)
+hold off;
+xlim([-pi pi]); ylim([0 81]);
+xlabel('Normalized Frequency (rad/s)');
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(2)))
+
+subplot(223)
+plot(w3,fftshift(abs(X3)))
+hold on;
+plot(w3,fftshift(abs(X3)), '.', 'markersize', 8)
+hold off;
+xlim([-pi pi]); ylim([0 81]);
+xlabel('Normalized Frequency (rad/s)');
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(3)))
+
+subplot(224)
+plot(w4,fftshift(abs(X4)))
+hold on;
+plot(w4,fftshift(abs(X4)), '.', 'markersize', 8)
+hold off;
+xlim([-pi pi]); ylim([0 81]);
+xlabel('Normalized Frequency (rad/s)')
+ylabel('Magnitude')
+title(sprintf('Length %i DFT',N(4)))
+
+% Answer in your comments: How does the length of the DFT affect the
+% magnitude? Be sure to zoom in on the bases of the peaks in each DFT
+% magnitude plot.
+%
+% Increasing the length of the DTF (N) increases frequency resolution,
+% making peaks sharper and more distinguishable. With small N, peaks are
+% broader and may overlap, reducing frequency resolution. Zero-padding (N
+% &gt; length(x)) interpolates the specturm, making peaking appear smoother.
+% However, the magnitude of the peaks remains approximately the same; only
+% the resolution changes. 
+</pre>
+<h2 id="2">Question 2</h2>
+<pre class="codeinput">n=0:59;
+x = 0.75 + cos(pi*n/20) + cos(pi*n/15) + cos(pi*n + 2*pi/3);
+w_DTFT = linspace(0, 2*pi-pi/5000, 10000);
+
+<span class="comment">% NOTE: USE THE FOLLOWING COMMENTED LINE FOR PLOTTING THE DFT ATOP THE DTFT</span>
+<span class="comment">% (YOU NEED TO DEFINE w_DFT), THIS WILL MAKE THE PLOTS EASIER TO INTERPRET</span>
+<span class="comment">% plot(w_DTFT,abs(X_DTFT));</span>
+<span class="comment">% hold on; plot(w_DFT,abs(X_DFT),'.', 'markersize', 10); hold off;</span>
+</pre>
+<h2 id="3">Question 2a - Changes in the code below</h2>
+<h2 id="4">Question 2b</h2>
+<pre class="codeinput">x_dft = DFT(x);
+f = (0:length(x_dft)-1)*(1/length(x_dft)); <span class="comment">% frequency bins(normalized)</span>
+figure;
+plot(f, abs(x_dft));
+xlabel(<span class="string">'Normalized Frequency (cycles/sample)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'Magnitude of DFT of x[n]'</span>);
+grid <span class="string">on</span>;
+
+x_dtft = DTFT(x, w_DTFT);
+figure;
+plot(w_DTFT, abs(x_dtft));
+xlabel(<span class="string">'Normalized Frequency \omega (Radians/Sample)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'Magnitude of DTFT of x[n] for 60 samples'</span>);
+grid <span class="string">on</span>;
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_01.png" alt=""> <h2 id="5">Question 2c</h2>
+<pre class="codeinput">
+<span class="comment">% Frequency vector for DFT (normalized)</span>
+w_dft = 2*pi*(0:length(x)-1)/length(x);
+
+figure;
+x_dtft = DTFT(x, w_DTFT);
+plot(w_DTFT, abs(x_dtft));
+x_dft = DFT(x);
+hold <span class="string">on</span>;
+plot(w_dft, abs(x_dft),<span class="string">'.'</span>, <span class="string">'MarkerSize'</span>,10); <span class="comment">% Use red circles for DFT points</span>
+legend(<span class="string">'DTFT'</span>, <span class="string">'60-length DFT'</span>);
+hold <span class="string">off</span>;
+xlabel(<span class="string">'Normalized Freqeuncy \omega (rads/s)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'DFT and DTFT Plot for 60 samples'</span>);
+grid <span class="string">on</span>;
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_02.png" alt=""> <h2 id="6">Question 2d</h2>
+<pre class="codeinput">figure;
+x_1 = x(1:55);
+<span class="comment">% Freqency vector for DFT (normalized)</span>
+w_dft = 2*pi*(0:length(x_1)-1)/length(x_1);
+x_dtft = DTFT(x_1, w_DTFT);
+plot(w_DTFT, abs(x_dtft));
+x_dft = DFT(x_1);
+hold <span class="string">on</span>;
+plot(w_dft, abs(x_dft),<span class="string">'.'</span>, <span class="string">'MarkerSize'</span>,10); <span class="comment">% Use red circles for DFT points</span>
+legend(<span class="string">'DTFT'</span>, <span class="string">'55-length DFT'</span>);
+hold <span class="string">off</span>;
+xlabel(<span class="string">'Normalized Freqeuncy \omega (rads/s)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'DFT and DTFT Plot for 55 samples'</span>);
+grid <span class="string">on</span>;
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_03.png" alt=""> <h2 id="7">Question 2e</h2>
+<pre class="codeinput">figure;
+n = 0:64;
+x = 0.75 + cos(pi*n/20) + cos(pi*n/15) + cos(pi*n + 2*pi/3);
+<span class="comment">% Freqency vector for DFT (normalized)</span>
+w_dft = 2*pi*(0:length(x)-1)/length(x);
+x_dtft = DTFT(x, w_DTFT);
+plot(w_DTFT, abs(x_dtft));
+x_dft = DFT(x);
+hold <span class="string">on</span>;
+plot(w_dft, abs(x_dft),<span class="string">'.'</span>, <span class="string">'MarkerSize'</span>,10); <span class="comment">% Use red circles for DFT points</span>
+legend(<span class="string">'DTFT'</span>, <span class="string">'65-length DFT'</span>);
+hold <span class="string">off</span>;
+xlabel(<span class="string">'Normalized Freqeuncy \omega (rads/s)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'DFT and DTFT Plot for 65 samples'</span>);
+grid <span class="string">on</span>;
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_04.png" alt=""> <h2 id="8">Question 2f</h2>
+<pre class="codeinput">figure;
+n = 0:199;
+x = 0.75 + cos(pi*n/20) + cos(pi*n/15) + cos(pi*n + 2*pi/3);
+<span class="comment">% Freqency vector for DFT (normalized)</span>
+w_dft = 2*pi*(0:length(x)-1)/length(x);
+x_dtft = DTFT(x, w_DTFT);
+plot(w_DTFT, abs(x_dtft));
+x_dft = DFT(x);
+hold <span class="string">on</span>;
+plot(w_dft, abs(x_dft),<span class="string">'.'</span>, <span class="string">'MarkerSize'</span>,10); <span class="comment">% Use red circles for DFT points</span>
+legend(<span class="string">'DTFT'</span>, <span class="string">'200-length DFT'</span>);
+hold <span class="string">off</span>;
+xlabel(<span class="string">'Normalized Freqeuncy \omega (rads/s)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'DFT and DTFT Plot for 200 samples'</span>);
+grid <span class="string">on</span>;
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_05.png" alt=""> <h2 id="9">Question 2g</h2>
+<pre class="codeinput">
+<span class="comment">% The DF is the same as the DFT, but it's in discrete time. The DFT is</span>
+<span class="comment">% sampling a few points from the DTFT. This makes sense as instead of a</span>
+<span class="comment">% continuous omega_hat term, the DFT transform uses the discreter term</span>
+<span class="comment">% 2*pi*k/N. It is easier for computers to utilize since it's sampling</span>
+<span class="comment">% the DTFT with N samples. The result would be the same when there is</span>
+<span class="comment">% double over the number of samples as the number of input values.</span>
+</pre>
+<h2 id="10">Question 3</h2>
+<pre class="codeinput">clear <span class="string">all</span>; clc;
+x = [zeros(1,10) ones(1,35)];
+</pre>
+<h2 id="11">Question 3a - At the function of for IDFT</h2>
+<h2 id="12">Question 3b</h2>
+<pre class="codeinput">n = 0:99;
+x_2 = [x zeros(1, 55)];
+figure;
+stem(n, x_2);
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'x[n]'</span>);
+title(<span class="string">'Stem Plot of Input Signal'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_06.png" alt=""> <h2 id="13">Question 3c</h2>
+<pre class="codeinput">y_n = conv(x_2, x_2);
+y_sampled = y_n(1:100);
+figure;
+stem(n, y_sampled);
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'y[n]'</span>);
+title(<span class="string">'Stem Plot of Output Signal'</span>);
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_07.png" alt=""> <h2 id="14">Question 3d</h2>
+<pre class="codeinput">x_dft_2 = DFT(x_2); <span class="comment">% Converts to time domain</span>
+<span class="comment">% Multiply both DFT's together to get frequency domain equivalent of</span>
+<span class="comment">% convolution</span>
+x_s = x_dft_2.*x_dft_2;
+
+<span class="comment">% Take inverse DFT</span>
+y = IDFT(x_s);
+
+figure;
+stem(n, y);
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'y[n]'</span>);
+title(<span class="string">'Stem Plot of Output Signal using DFT and IDFT'</span>);
+ylim([0,35]);
+</pre>
+<pre class="codeoutput">Warning: Using only the real component of complex data. 
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_08.png" alt=""> <h2 id="15">Question 3e</h2>
+<pre class="codeinput">n2 = 0:59;
+x_60 = [x zeros(1,15)];
+x_60 = DFT(x_60);
+x_s60 = x_60.*x_60;
+y_60 = IDFT(x_s60);
+
+figure;
+stem(n2, y_60(1:60));
+xlabel(<span class="string">'Samples'</span>);
+ylabel(<span class="string">'y[n]'</span>);
+title(<span class="string">'Stem Plot of Output Signal using DFT and IDFT for 60 Samples'</span>);
+</pre>
+<pre class="codeoutput">Warning: Using only the real component of complex data. 
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_09.png" alt=""> <h2 id="16">Question 3f</h2>
+<pre class="codeinput">
+<span class="comment">% There is a big difference between the last two solutions and this is due</span>
+<span class="comment">% to the zero-padding. This could be because DFT and IDFT rely on circular</span>
+<span class="comment">% convolution, is the length of the sampled signal is shorter than the</span>
+<span class="comment">% length of the of the convolution, then some previous valies would wrap</span>
+<span class="comment">% around and affect DFT (ailiasing). This happens with the length 60 input</span>
+<span class="comment">% signal since it is not 2*length(x). However, the 100 length signal avoids</span>
+<span class="comment">% this because it is padded to a value greater than 90, so it never wraps</span>
+<span class="comment">% around.</span>
+</pre>
+<h2 id="17">Question 4</h2>
+<p>Choose a song at least 3 minutes long to use in this problem, and include it in your submission. Load it into MATLAB using audioread. Note that mose audio files will be stereo, so you need to make Sure that you only use one column of audio data for this part of the lab This site has a large archive of free music that you can choose from: <a href="https://freemusicarchive.org/static">https://freemusicarchive.org/static</a>
+</p>
+<pre class="codeinput">clear <span class="string">all</span>; clc;
+[x,fs] = audioread(<span class="string">'porcelain-face-official-audio.wav'</span>);
+x = x(:,1);
+</pre>
+<h2 id="18">Question 4a</h2>
+<pre class="codeinput">x3 = x(1:10000);
+n = 0:9999;
+w_DFT = 2*pi*(0:length(x3)-1)/length(x3);
+
+tic;
+x3 = DFT(x3);
+time = toc;
+
+disp([<span class="string">'The calculation time is: '</span>, num2str(time), <span class="string">' seconds'</span>]);
+figure;
+plot(w_DFT, abs(x3));
+xlabel(<span class="string">'Normalized Freqeuncy \omega (rads/s)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'DFT Plot for Audio Sample'</span>);
+</pre>
+<pre class="codeoutput">The calculation time is: 1.8475 seconds
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_10.png" alt=""> <h2 id="19">Question 4b</h2>
+<pre class="codeinput">x3_f = x(1:10000);
+n = 0:9999;
+w_DFT = 2*pi*(0:length(x3_f)-1)/length(x3_f);
+
+tic;
+x3_f = fft(x3_f, length(x3_f));
+time = toc;
+
+disp([<span class="string">'The calculation time is: '</span>, num2str(time), <span class="string">' seconds'</span>]);
+figure;
+plot(w_DFT, abs(x3_f));
+xlabel(<span class="string">'Normalized Freqeuncy \omega (rads/s)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'FFT Plot for Audio Sample'</span>);
+</pre>
+<pre class="codeoutput">The calculation time is: 0.0003745 seconds
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_11.png" alt=""> <h2 id="20">Question 4c</h2>
+<pre class="codeinput">
+<span class="comment">% The difference in the magnitude results aren't apparent. The audio sample</span>
+<span class="comment">% is relatively long since it has 10,000 samples, but both magnitude plots</span>
+<span class="comment">% appear the same even though they were calculated differently.</span>
+</pre>
+<h2 id="21">Question 4d</h2>
+<pre class="codeinput">
+<span class="comment">% THe FFT is much faster than the DFT.</span>
+</pre>
+<h2 id="22">Question 4e</h2>
+<pre class="codeinput">w_DFT = 2*pi*(0:length(x)-1)/length(x);
+
+tic;
+x = fft(x);
+time = toc;
+
+disp([<span class="string">'The calculation time is: '</span>, num2str(time), <span class="string">' seconds'</span>]);
+figure;
+plot(w_DFT, abs(x));
+xlabel(<span class="string">'Normalized Freqeuncy \omega (rads/s)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+title(<span class="string">'FFT Plot for Audio Sample'</span>);
+</pre>
+<pre class="codeoutput">The calculation time is: 0.21429 seconds
+</pre>
+<img vspace="5" hspace="5" src="eel3135_lab10_skeleton_12.png" alt=""> <h2 id="23">Functions provided for the lab</h2>
+<pre class="codeinput">
+<span class="keyword">function</span> H = DTFT(x,w)
+<span class="comment">% DTFT(X,W)  compute the Discrete-time Fourier Transform of signal X</span>
+<span class="comment">% acroess frequencies defined by W.</span>
+
+    H = zeros(1, length(w));
+    <span class="keyword">for</span> nn = 1:length(x)
+        H = H + x(nn).*exp(-1j*w.*(nn-1));
+    <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> X = DFT(x)
+<span class="comment">% DFT(x)  compute the N-point Discrete Fourier Transform of signal x</span>
+<span class="comment">% Where N is the length of signal x</span>
+    N = length(x); <span class="comment">% FILL THIS LINE IN</span>
+    w = 2*pi*(0:N-1)/N; <span class="comment">% FILL THIS LINE IN</span>
+    X = zeros(1, length(w));
+    <span class="keyword">for</span> nn = 1:length(x)
+        X = X + x(nn).*exp(-1j*w.*(nn-1));
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> x = IDFT(X)
+<span class="comment">% IDFT(x)  compute the N-point Inverse Discrete Fourier Transform of signal</span>
+<span class="comment">% X where N is the length of signal X</span>
+    N = length(X);<span class="comment">% FILL THIS LINE IN</span>
+    w = 2*pi*(0:N-1)/N;<span class="comment">% FILL THIS LINE IN</span>
+    x = zeros(1, length(w));
+    <span class="keyword">for</span> nn = 1:length(X)
+        x = x + X(nn)*exp(1j*w.*(nn-1));<span class="comment">% FILL THIS LINE IN</span>
+    <span class="keyword">end</span>
+    x=x/N;
+<span class="keyword">end</span>
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% QUESTION 1
+% DO NOT REMOVE THE LINE BELOW
+% MAKE SURE 'eel3135_lab11_comment.m' IS IN THE SAME DIRECTORY AS THIS FILE
+clear; close all; clc;
+type('eel3135_lab10_comment.m')
+
+%% Question 2
+n=0:59;
+x = 0.75 + cos(pi*n/20) + cos(pi*n/15) + cos(pi*n + 2*pi/3);
+w_DTFT = linspace(0, 2*pi-pi/5000, 10000);
+
+% NOTE: USE THE FOLLOWING COMMENTED LINE FOR PLOTTING THE DFT ATOP THE DTFT
+% (YOU NEED TO DEFINE w_DFT), THIS WILL MAKE THE PLOTS EASIER TO INTERPRET
+% plot(w_DTFT,abs(X_DTFT)); 
+% hold on; plot(w_DFT,abs(X_DFT),'.', 'markersize', 10); hold off;
+
+%% Question 2a - Changes in the code below
+
+%% Question 2b
+
+x_dft = DFT(x);
+f = (0:length(x_dft)-1)*(1/length(x_dft)); % frequency bins(normalized)
+figure;
+plot(f, abs(x_dft));
+xlabel('Normalized Frequency (cycles/sample)');
+ylabel('Magnitude');
+title('Magnitude of DFT of x[n]');
+grid on;
+
+x_dtft = DTFT(x, w_DTFT);
+figure;
+plot(w_DTFT, abs(x_dtft));
+xlabel('Normalized Frequency \omega (Radians/Sample)');
+ylabel('Magnitude');
+title('Magnitude of DTFT of x[n] for 60 samples');
+grid on;
+
+%% Question 2c
+
+% Frequency vector for DFT (normalized)
+w_dft = 2*pi*(0:length(x)-1)/length(x);
+
+figure;
+x_dtft = DTFT(x, w_DTFT);
+plot(w_DTFT, abs(x_dtft));
+x_dft = DFT(x);
+hold on;
+plot(w_dft, abs(x_dft),'.', 'MarkerSize',10); % Use red circles for DFT points
+legend('DTFT', '60-length DFT');
+hold off;
+xlabel('Normalized Freqeuncy \omega (rads/s)');
+ylabel('Magnitude');
+title('DFT and DTFT Plot for 60 samples');
+grid on;
+
+%% Question 2d
+
+figure;
+x_1 = x(1:55);
+% Freqency vector for DFT (normalized)
+w_dft = 2*pi*(0:length(x_1)-1)/length(x_1);
+x_dtft = DTFT(x_1, w_DTFT);
+plot(w_DTFT, abs(x_dtft));
+x_dft = DFT(x_1);
+hold on;
+plot(w_dft, abs(x_dft),'.', 'MarkerSize',10); % Use red circles for DFT points
+legend('DTFT', '55-length DFT');
+hold off;
+xlabel('Normalized Freqeuncy \omega (rads/s)');
+ylabel('Magnitude');
+title('DFT and DTFT Plot for 55 samples');
+grid on;
+
+%% Question 2e
+
+figure;
+n = 0:64;
+x = 0.75 + cos(pi*n/20) + cos(pi*n/15) + cos(pi*n + 2*pi/3);
+% Freqency vector for DFT (normalized)
+w_dft = 2*pi*(0:length(x)-1)/length(x);
+x_dtft = DTFT(x, w_DTFT);
+plot(w_DTFT, abs(x_dtft));
+x_dft = DFT(x);
+hold on;
+plot(w_dft, abs(x_dft),'.', 'MarkerSize',10); % Use red circles for DFT points
+legend('DTFT', '65-length DFT');
+hold off;
+xlabel('Normalized Freqeuncy \omega (rads/s)');
+ylabel('Magnitude');
+title('DFT and DTFT Plot for 65 samples');
+grid on;
+
+%% Question 2f
+
+figure;
+n = 0:199;
+x = 0.75 + cos(pi*n/20) + cos(pi*n/15) + cos(pi*n + 2*pi/3);
+% Freqency vector for DFT (normalized)
+w_dft = 2*pi*(0:length(x)-1)/length(x);
+x_dtft = DTFT(x, w_DTFT);
+plot(w_DTFT, abs(x_dtft));
+x_dft = DFT(x);
+hold on;
+plot(w_dft, abs(x_dft),'.', 'MarkerSize',10); % Use red circles for DFT points
+legend('DTFT', '200-length DFT');
+hold off;
+xlabel('Normalized Freqeuncy \omega (rads/s)');
+ylabel('Magnitude');
+title('DFT and DTFT Plot for 200 samples');
+grid on;
+
+%% Question 2g
+
+% The DF is the same as the DFT, but it's in discrete time. The DFT is
+% sampling a few points from the DTFT. This makes sense as instead of a
+% continuous omega_hat term, the DFT transform uses the discreter term
+% 2*pi*k/N. It is easier for computers to utilize since it's sampling
+% the DTFT with N samples. The result would be the same when there is
+% double over the number of samples as the number of input values.
+
+%% Question 3
+clear all; clc;
+x = [zeros(1,10) ones(1,35)];
+
+
+%% Question 3a - At the function of for IDFT
+
+%% Question 3b
+
+n = 0:99;
+x_2 = [x zeros(1, 55)];
+figure;
+stem(n, x_2);
+xlabel('Samples');
+ylabel('x[n]');
+title('Stem Plot of Input Signal');
+
+%% Question 3c
+
+y_n = conv(x_2, x_2);
+y_sampled = y_n(1:100);
+figure;
+stem(n, y_sampled);
+xlabel('Samples');
+ylabel('y[n]');
+title('Stem Plot of Output Signal');
+
+%% Question 3d
+
+x_dft_2 = DFT(x_2); % Converts to time domain
+% Multiply both DFT's together to get frequency domain equivalent of
+% convolution
+x_s = x_dft_2.*x_dft_2;
+
+% Take inverse DFT
+y = IDFT(x_s);
+
+figure;
+stem(n, y);
+xlabel('Samples');
+ylabel('y[n]');
+title('Stem Plot of Output Signal using DFT and IDFT');
+ylim([0,35]);
+
+%% Question 3e
+
+n2 = 0:59;
+x_60 = [x zeros(1,15)];
+x_60 = DFT(x_60);
+x_s60 = x_60.*x_60;
+y_60 = IDFT(x_s60);
+
+figure;
+stem(n2, y_60(1:60));
+xlabel('Samples');
+ylabel('y[n]');
+title('Stem Plot of Output Signal using DFT and IDFT for 60 Samples');
+
+
+%% Question 3f
+
+% There is a big difference between the last two solutions and this is due
+% to the zero-padding. This could be because DFT and IDFT rely on circular
+% convolution, is the length of the sampled signal is shorter than the
+% length of the of the convolution, then some previous valies would wrap
+% around and affect DFT (ailiasing). This happens with the length 60 input
+% signal since it is not 2*length(x). However, the 100 length signal avoids
+% this because it is padded to a value greater than 90, so it never wraps
+% around. 
+
+%% Question 4
+% Choose a song at least 3 minutes long to use in this
+% problem, and include it in your submission. Load it into MATLAB using
+% audioread. Note that mose audio files will be stereo, so you need to make
+% Sure that you only use one column of audio data for this part of the lab
+% This site has a large archive of free music that you can choose from:
+% https://freemusicarchive.org/static
+clear all; clc;
+[x,fs] = audioread('porcelain-face-official-audio.wav');
+x = x(:,1);
+
+%% Question 4a
+
+x3 = x(1:10000);
+n = 0:9999;
+w_DFT = 2*pi*(0:length(x3)-1)/length(x3);
+
+tic;
+x3 = DFT(x3);
+time = toc;
+
+disp(['The calculation time is: ', num2str(time), ' seconds']);
+figure;
+plot(w_DFT, abs(x3));
+xlabel('Normalized Freqeuncy \omega (rads/s)');
+ylabel('Magnitude');
+title('DFT Plot for Audio Sample');
+
+
+%% Question 4b
+
+x3_f = x(1:10000);
+n = 0:9999;
+w_DFT = 2*pi*(0:length(x3_f)-1)/length(x3_f);
+
+tic;
+x3_f = fft(x3_f, length(x3_f));
+time = toc;
+
+disp(['The calculation time is: ', num2str(time), ' seconds']);
+figure;
+plot(w_DFT, abs(x3_f));
+xlabel('Normalized Freqeuncy \omega (rads/s)');
+ylabel('Magnitude');
+title('FFT Plot for Audio Sample');
+
+%% Question 4c
+
+% The difference in the magnitude results aren't apparent. The audio sample
+% is relatively long since it has 10,000 samples, but both magnitude plots
+% appear the same even though they were calculated differently. 
+
+%% Question 4d
+
+% THe FFT is much faster than the DFT. 
+
+%% Question 4e
+
+w_DFT = 2*pi*(0:length(x)-1)/length(x);
+
+tic;
+x = fft(x);
+time = toc;
+
+disp(['The calculation time is: ', num2str(time), ' seconds']);
+figure;
+plot(w_DFT, abs(x));
+xlabel('Normalized Freqeuncy \omega (rads/s)');
+ylabel('Magnitude');
+title('FFT Plot for Audio Sample');
+
+%% Functions provided for the lab
+function H = DTFT(x,w)
+% DTFT(X,W)  compute the Discrete-time Fourier Transform of signal X
+% acroess frequencies defined by W. 
+
+    H = zeros(1, length(w));
+    for nn = 1:length(x)
+        H = H + x(nn).*exp(-1j*w.*(nn-1));
+    end
+    
+end
+
+function X = DFT(x)
+% DFT(x)  compute the N-point Discrete Fourier Transform of signal x  
+% Where N is the length of signal x
+    N = length(x); % FILL THIS LINE IN
+    w = 2*pi*(0:N-1)/N; % FILL THIS LINE IN
+    X = zeros(1, length(w));    
+    for nn = 1:length(x)    
+        X = X + x(nn).*exp(-1j*w.*(nn-1));    
+    end
+end
+
+function x = IDFT(X)
+% IDFT(x)  compute the N-point Inverse Discrete Fourier Transform of signal
+% X where N is the length of signal X
+    N = length(X);% FILL THIS LINE IN
+    w = 2*pi*(0:N-1)/N;% FILL THIS LINE IN
+    x = zeros(1, length(w));    
+    for nn = 1:length(X)    
+        x = x + X(nn)*exp(1j*w.*(nn-1));% FILL THIS LINE IN    
+    end
+    x=x/N;
+end
+##### SOURCE END #####
+-->
+</body>
+</html>

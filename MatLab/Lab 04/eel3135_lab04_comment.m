@@ -1,0 +1,147 @@
+% Convolution can be seen as the mathematical expression of how one signal
+% can modify the other, you will need to comment the answers to the 
+% questions on the following lines of code to demonstrate the basics of 
+% convolution. Also answer the question at the end in order to understand 
+% the effects that convolution may have on the original signal. 
+
+
+%% ONE-DIMENSIONAL CONVOLUTION
+
+% INPUT SIGNAL
+xx = [1 1 -1 -1 1 1 -1 -1 1 1 1 1 -1 -1 -1 -1]; 
+% <-- Answer: What is the length of xx? 
+% 17
+
+% FILTER COEFFICIENTS / IMPULSE RESPONSE
+bk = [1/4 1/4 1/4 1/4]; 
+% <-- Answer: What is the length of bk? 
+% 4
+
+% FILTER OUTPUT
+yy = conv(bk, xx); 
+% <-- Answer: What is the length of yy? 
+% 20 = (17 + 4 -1) = (xx length + bk length - 1)
+
+% PERFORM FILTERING IN ALTERNATIVE WAY
+zz = 1/4*shift(xx, 0) + 1/4*shift(xx, 1) + 1/4*shift(xx, 2) + 1/4*shift(xx, 3);
+% <-- Answer: What is the length of zz? 
+% xx length = zz length = 17
+
+% --> ANSWER BELOW: Explain why yy and zz are different lengths. <--
+% The output of the convolution (yy) is longer than the input signal (xx)
+% because convolution overlaps the filter (bk) with the input signal (xx)
+% at each position to introduce more sam[les at the edges. The alternative
+% filtering method (zz) makes a weighted sum of shifted versions of the
+% input signal (xx) that doesn't add other samples, so the output (zz) is
+% the same length of the input (xx)
+
+% PLOT
+figure(1)
+subplot(411)
+stem(xx); axis([0 20 -1 1])
+ylabel('Amplitude')
+subplot(412)
+stem(bk); axis([0 20 -1 1])
+ylabel('Amplitude')
+subplot(413)
+stem(yy); axis([0 20 -1 1])
+ylabel('Amplitude')
+subplot(414)
+stem(zz); axis([0 20 -1 1])
+ylabel('Amplitude')
+xlabel('Samples')
+
+
+%% TWO-DIMENSIONAL CONVOLUTION
+
+% INPUT SIGNAL
+x2 = [ones(15) -1*ones(15)]*255; 
+
+% FILTER COEFFICIENTS
+b2 = (1/8)*[0 1 1  1  1  0; 0 1 1  1  1  0]; 
+b3 =       [1 1 1 -1 -1 -1; 1 1 1 -1 -1 -1]; 
+
+% OUTPUT
+y2 = conv2(x2,b2); 
+y3 = conv2(x2,b3);
+
+% NORMALIZATION
+y3 = y3 - min(y3(:));
+y3 = y3./max(y3(:))*255;
+% --> ANSWER BELOW: How does this normalization change the range of values in y3?
+% Normalization rescales the value in y3 to fit in the range 0-255, first
+% by subtracting the minimum value of the shift the entire range up, then
+% by divifing the maximum value to scale it down, and finally multiplying
+% by 255 to stretch the range in the interval 0-255.
+
+% --> ANSWER BELOW: Why does filter b2 affect the image as it does? 
+%     What are possible applications of filter b2? <--
+% Filter b2 averages the pixel values to those close by which creates a
+% smoothing filter affect.
+% The possible applications of filter b2 is that it can reduce noise and
+% blur images. S, it can ve used to include pre-processing images for edge
+% detection or reducing high frequency noise. 
+
+% --> ANSWER BELOW: Why does filter b3 affect the image as it does? 
+%     What are possible applications of filter b3? <--
+% Filter b3 subtracts the average surrounding pixels from the center pixel
+% which creates a high-pass filter that enhances edges.
+% The b3 filter essentially highlights transitions and edges in an image,
+% so it can be used to detect edges and sharpen images.
+
+% SAVE IMAGES
+imwrite(uint8(y2), 'comment_image1.png')
+imwrite(uint8(y3), 'comment_image2.png')
+
+% PLOT THE FIRST FILTER RESULTS
+figure(2) 
+subplot(231)
+imagesc(x2)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('x2')
+axis equal; axis tight; colormap('gray');
+subplot(232)
+imagesc(b2)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('b2')
+axis equal; axis tight; colormap('gray');
+subplot(233)
+imagesc(y2)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('y2')
+axis equal; axis tight; colormap('gray');
+
+% PLOT THE SECOND FILTER RESULTS
+subplot(234)
+imagesc(x2)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('x2')
+axis equal; axis tight; colormap('gray');
+subplot(235)
+imagesc(b3)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('b3')
+axis equal; axis tight; colormap('gray');
+subplot(236)
+imagesc(y3)
+xlabel('x'); ylabel('y'); zlabel('z');
+title('y3')
+axis equal; axis tight; colormap('gray');
+
+
+function xs = shift(x, s)
+%SHIFT   ===> This function shifts the input signal x by s samples. <===
+% If s is positive, the signal is delayed; if s is negative, it is advanced.
+
+    % ====> Initialize output with an array of zeros that is the same length as the input <====
+    xs = zeros(length(x), 1);
+    
+    for n = 1:length(x)
+        % ====> Checks if the shifted index is in the same bounds as input signal <====
+        if n-s > 0 && n-s <= length(x)
+            % ====> Assigns value from input signal to shifted output if they overlap <====
+            xs(n) = x(n-s);
+        end
+    end
+
+end
